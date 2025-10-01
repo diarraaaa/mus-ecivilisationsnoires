@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Niveaux du Musée</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .card {
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            width: 300px;
+            padding: 24px 20px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .card-title {
+            font-size: 1.3em;
+            color: #222;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        .card-desc {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 22px;
+            text-align: center;
+        }
+        .card-btn {
+            padding: 12px 28px;
+            background: #0077cc;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1em;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .card-btn:hover {
+            background: #005fa3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Les différents niveaux du musée</h1>
+        <div class="cards">
+            <div class="card">
+                <div class="card-title">Niveau 1</div>
+                <div class="card-desc">Expositions permanentes</div>
+                <a href="/niveau/1" class="card-btn">Voir les œuvres</a>
+            </div>
+            <div class="card">
+                <div class="card-title">Niveau 2</div>
+                <div class="card-desc">Art contemporain</div>
+                <a href="/niveau/2" class="card-btn">Voir les œuvres</a>
+            </div>
+            <div class="card">
+                <div class="card-title">Niveau 3</div>
+                <div class="card-desc">Civilisations anciennes</div>
+                <a href="/niveau/3" class="card-btn">Voir les œuvres</a>
+            </div>
+            <div class="card">
+                <div class="card-title">Niveau 4</div>
+                <div class="card-desc">Galerie temporaire</div>
+                <a href="/niveau/4" class="card-btn">Voir les œuvres</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
