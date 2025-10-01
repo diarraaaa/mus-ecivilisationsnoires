@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - Veuillez choisir votre rôle</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/accueil.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+</head>
+<body>
+    
+    <div id="particles-js" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></div>
+
+   
+    <div class="container">
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='images/favicon.png') }}" alt="Logo" class="favicon">
+            <h1 id="typewriter">Bienvenue sur Academix</h1>
+        </div>                
+        <p>Êtes-vous un étudiant ou un enseignant ?</p>
+
+        <div class="role-selection">
+            <div class="role-card" onclick="redirectTo('etudiant')">
+                <img src="{{ url_for('static', filename='images/etudiant.jpg') }}" alt="Étudiant">
+                <h2>Étudiant</h2>
+            </div>
+
+            <div class="role-card" onclick="redirectTo('enseignant')">
+                <img src="{{ url_for('static', filename='images/enseignant.jpg') }}" alt="Enseignant">
+                <h2>Enseignant</h2>
+            </div>
+        </div>
+    </div>
+
+   
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 80 },
+                "size": { "value": 3 },
+                "move": { "speed": 2 },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                }
+            },
+            "interactivity": {
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    }
+                }
+            }
+        });
+
+        function redirectTo(role) {
+            if (role === 'etudiant') {
+                window.location.href = "/connectionetudiantpage";
+            } else if (role === 'enseignant') {
+                window.location.href = "/connectionprofpage";
+            }
+        }
+    </script>
+</body>
+</html>
