@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Détails par Niveau {{ niveau }}</title>
     <style>
-        /* Reset de base */
+        /* Reset global */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -12,86 +12,142 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #f9f9f9;
             color: #333;
+            line-height: 1.6;
         }
 
-        /* Header simple */
+        /* Header */
         .hero-header {
-            background-color: #222;
+            background: linear-gradient(135deg, #222, #444);
             color: #fff;
-            padding: 40px 20px;
+            padding: 50px 20px;
             text-align: center;
         }
 
         .hero-header h1 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 10px;
+            letter-spacing: 1px;
         }
 
         .hero-header p {
-            font-size: 1rem;
+            font-size: 1.2rem;
+            opacity: 0.9;
         }
 
+        /* Navbar */
         nav {
-            background: #444;
-            padding: 10px 0;
+            background: #333;
+            padding: 12px 0;
             text-align: center;
         }
 
         nav a {
             text-decoration: none;
             color: #fff;
-            margin: 0 15px;
-            font-weight: bold;
+            margin: 0 18px;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
             color: #ffcc00;
         }
 
-        /* Contenu principal */
+        /* Main */
         main {
-            padding: 20px;
-            max-width: 900px;
+            padding: 30px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         h1.page-title {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: #222;
         }
 
         ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
             list-style: none;
             padding: 0;
         }
 
+        /* Carte œuvre */
         li {
             background-color: #fff;
-            margin-bottom: 15px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+        }
+
+        li img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+
+        .oeuvre-details {
             padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
-        li strong {
-            color: #555;
+        .oeuvre-details strong {
+            color: #444;
         }
 
+        /* Bouton */
+        form {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        button {
+            background: #222;
+            color: #fff;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            background: #ffcc00;
+            color: #222;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        /* Message vide */
         p.no-data {
             text-align: center;
             color: #777;
             font-style: italic;
+            margin-top: 30px;
         }
 
+        /* Footer */
         footer {
-            background-color: #222;
+            background: linear-gradient(135deg, #222, #444);
             color: #fff;
             text-align: center;
             padding: 20px;
-            margin-top: 30px;
+            margin-top: 40px;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -114,17 +170,19 @@
         {% if details %}
             <ul>
             {% for oeuvre in details %}
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5_VHKsfhuXPtfx_fXX_0YPLVMkeohzXzD4w&s" alt="Image ">
                 <li>
-                    <strong>Nom:</strong> {{ oeuvre.nom }}<br>
-                    <strong>Année:</strong> {{ oeuvre.annee }}<br>
-                    <strong>Description:</strong> {{ oeuvre.description }}<br>
-                    <strong>Catégorie:</strong> {{ oeuvre.categorie }}
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5_VHKsfhuXPtfx_fXX_0YPLVMkeohzXzD4w&s" alt="Image de l'œuvre">
+                    <div class="oeuvre-details">
+                        <strong>Nom:</strong> {{ oeuvre.nom }}<br>
+                        <strong>Année:</strong> {{ oeuvre.annee }}<br>
+                        <strong>Description:</strong> {{ oeuvre.description }}<br>
+                        <strong>Catégorie:</strong> {{ oeuvre.categorie }}
+                    </div>
+                    <form action="/detailsparoeuvre" method="POST">
+                        <input type="hidden" name="id" id="id" value="{{ oeuvre.id }}">
+                        <button type="submit">Voir l'œuvre en détail</button>
+                    </form>
                 </li>
-                <form action="/detailsparoeuvre" method="POST">
-                    <input type="hidden" name="id" id="id" value="{{ oeuvre.id }}">
-                    <button type="submit">Voir l'oeuvre en détail</button>
-                </form>
             {% endfor %}
             </ul>
         {% else %}

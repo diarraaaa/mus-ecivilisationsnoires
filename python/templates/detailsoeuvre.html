@@ -19,32 +19,34 @@
 
         /* Header simple */
         .hero-header {
-            background-color: #222;
+            background: linear-gradient(135deg, #222, #444);
             color: #fff;
             padding: 40px 20px;
             text-align: center;
         }
 
         .hero-header h1 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-bottom: 10px;
         }
 
         .hero-header p {
-            font-size: 1rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
 
         nav {
-            background: #444;
-            padding: 10px 0;
+            background: #333;
+            padding: 12px 0;
             text-align: center;
         }
 
         nav a {
             text-decoration: none;
             color: #fff;
-            margin: 0 15px;
+            margin: 0 18px;
             font-weight: bold;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
@@ -53,31 +55,42 @@
 
         /* Contenu principal */
         main {
-            padding: 20px;
+            padding: 25px;
             max-width: 900px;
             margin: 0 auto;
         }
 
         h1.page-title {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            color: #222;
         }
 
         ul {
             list-style: none;
             padding: 0;
+            text-align: center;
+        }
+
+        ul img {
+            max-width: 300px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
         li {
             background-color: #fff;
-            margin-bottom: 15px;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+            text-align: left;
         }
 
         li strong {
-            color: #555;
+            color: #444;
         }
 
         p.no-data {
@@ -86,12 +99,39 @@
             font-style: italic;
         }
 
+        /* Boutons stylisés */
+        .btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn {
+            background: #222;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            margin: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            background: #ffcc00;
+            color: #222;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
         footer {
-            background-color: #222;
+            background: linear-gradient(135deg, #222, #444);
             color: #fff;
             text-align: center;
             padding: 20px;
-            margin-top: 30px;
+            margin-top: 40px;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -111,15 +151,21 @@
 
     <main>
         <h1 class="page-title">{{ details.nom }}</h1>
-            <ul>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5_VHKsfhuXPtfx_fXX_0YPLVMkeohzXzD4w&s" alt="Image ">
-                <li>
-                    <strong>Nom:</strong> {{ details.nom }}<br>
-                    <strong>Année:</strong> {{ details.annee }}<br>
-                    <strong>Description:</strong> {{ details.description }}<br>
-                    <strong>Catégorie:</strong> {{ details.categorie }}
-                </li>
-            </ul>
+        <ul>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5_VHKsfhuXPtfx_fXX_0YPLVMkeohzXzD4w&s" alt="Image de l'œuvre">
+            <li>
+                <strong>Nom:</strong> {{ details.nom }}<br>
+                <strong>Année:</strong> {{ details.annee }}<br>
+                <strong>Description:</strong> {{ details.description }}<br>
+                <strong>Catégorie:</strong> {{ details.categorie }}
+            </li>
+        </ul>
+
+        <div class="btn-container">
+            <button class="btn">📖 Voir l’Histoire</button>
+            <button class="btn">🔊 Écouter l’Histoire</button>
+            <button class="btn">🖼️ Voir en 3D</button>
+        </div>
     </main>
 
     <footer>
