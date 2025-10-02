@@ -1,107 +1,650 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
+    <title>Musée des Civilisations Noires</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
+        * {
             margin: 0;
-            background: #f4f4f4;
-            color: #222;
+            padding: 0;
+            box-sizing: border-box;
         }
-        header {
-            background: #222;
-            color: #fff;
-            padding: 20px 0;
+
+        body {
+            font-family: 'Garamond', 'Georgia', serif;
+            background: #e8e2d1;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        /* Header avec slider */
+        .hero-header {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .slider-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slide.active {
+            opacity: 0.7;
+        }
+
+        .slide1 { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23654321" width="1200" height="800"/><circle cx="300" cy="400" r="150" fill="%23D4AF37" opacity="0.3"/><rect x="600" y="200" width="400" height="400" fill="%23000" opacity="0.4"/></svg>'); }
+        .slide2 { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%238B4513" width="1200" height="800"/><polygon points="600,100 900,700 300,700" fill="%23D4AF37" opacity="0.3"/><circle cx="900" cy="200" r="100" fill="%23000" opacity="0.4"/></svg>'); }
+        .slide3 { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23A0826D" width="1200" height="800"/><rect x="100" y="100" width="300" height="600" fill="%23000" opacity="0.4"/><circle cx="800" cy="400" r="200" fill="%23D4AF37" opacity="0.3"/></svg>'); }
+
+        .header-overlay {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            z-index: 2;
         }
-        header h1 {
-            margin: 0 0 10px 0;
-            font-size: 2.5em;
-            letter-spacing: 2px;
+
+        .logo-title {
+            color: #F5F5DC;
+            font-size: 4.5em;
+            font-weight: 300;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+            animation: fadeInDown 1.5s ease-out;
         }
+
+        .subtitle {
+            color: #D4AF37;
+            font-size: 1.5em;
+            letter-spacing: 4px;
+            margin-bottom: 50px;
+            font-weight: 300;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 30px 50px;
+            z-index: 10;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+        }
+
         nav ul {
             list-style: none;
-            padding: 0;
-            margin: 0;
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 50px;
         }
+
         nav a {
-            color: #fff;
+            color: #F5F5DC;
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
+            font-size: 1.1em;
+            letter-spacing: 2px;
+            font-weight: 300;
+            transition: all 0.3s ease;
+            padding: 5px 15px;
+            border-bottom: 2px solid transparent;
         }
+
         nav a:hover {
-            color: #ffd700;
+            color: #D4AF37;
+            border-bottom: 2px solid #D4AF37;
         }
+
+        /* Bouton Visite Virtuelle */
+        .virtual-tour-btn {
+            background: linear-gradient(135deg, #D4AF37, #C9A961);
+            color: #000;
+            padding: 18px 45px;
+            font-size: 1.2em;
+            letter-spacing: 3px;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+            animation: fadeInUp 2s ease-out;
+        }
+
+        .virtual-tour-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+            background: linear-gradient(135deg, #FFD700, #D4AF37);
+        }
+
+        /* Contenu principal */
         main {
-            max-width: 800px;
-            margin: 40px auto;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            padding: 30px;
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 40px;
         }
-        section {
+
+        .content-section {
+            background: #fff;
+            padding: 60px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-top: 4px solid #D4AF37;
+        }
+
+        h2 {
+            color: #000;
+            font-size: 2.5em;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .intro-text {
+            font-size: 1.3em;
+            line-height: 1.8;
+            color: #333;
             margin-bottom: 30px;
         }
-        h2 {
-            color: #222;
-            border-bottom: 2px solid #ffd700;
-            padding-bottom: 8px;
-            margin-bottom: 15px;
-            font-size: 1.5em;
+
+        .welcome-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
         }
-        ul {
-            padding-left: 20px;
+
+        .welcome-text {
+            flex: 1;
         }
-        footer {
-            background: #222;
-            color: #fff;
-            text-align: center;
-            padding: 15px 0;
+
+        .welcome-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .welcome-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .welcome-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             margin-top: 40px;
-            font-size: 1em;
+        }
+
+        .highlight-card {
+            background: #F5F5DC;
+            padding: 35px;
+            border-left: 5px solid #D4AF37;
+            transition: all 0.3s ease;
+        }
+
+        .highlight-card:hover {
+            transform: translateX(10px);
+            box-shadow: -5px 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .highlight-card h3 {
+            color: #000;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .highlight-card p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background-color:black;
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color:#b89454;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+
+        .footer-column p, .footer-column a {
+            color: #ccc;
+            margin-bottom: 1rem;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: #b89454;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color:  rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: #b89454;
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .welcome-section {
+                flex-direction: column;
+            }
+
+            .btn-virtual {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #F5F5DC;
+            font-size: 0.9em;
+            letter-spacing: 2px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Galerie des œuvres */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .artwork-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+        }
+
+        .artwork-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .artwork-image {
+            width: 100%;
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .artwork-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.3));
+        }
+
+        /* Images des œuvres avec SVG patterns artistiques */
+        .img1 { background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://farafinaculture.com/wp-content/uploads/2020/01/MCN.jpg'); }
+        
+        .img2 { background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://farafinaculture.com/wp-content/uploads/2020/01/MCN1.jpg'); }
+        
+        .img4 { background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://img-4.linternaute.com/8PMTFZ0r5gXztwWIHgGS5Sx282w=/fit-in/x630/smart/filters:fill(1D1D1B)/8fe14783f8be4763babce0f6bab93fcb/ccmcms-linternaute/11534549.jpg'); }
+
+        .img5 { background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://senegalndiaye.com/wp-content/uploads/2019/07/20190706_165656-e1564167711900.jpg'); }
+
+      
+
+        .artwork-info {
+            padding: 30px;
+        }
+
+        .artwork-info h3 {
+            color: #000;
+            font-size: 1.6em;
+            margin-bottom: 15px;
             letter-spacing: 1px;
+        }
+
+        .artwork-info p {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .artwork-tag {
+            display: inline-block;
+            background: #D4AF37;
+            color: #000;
+            padding: 6px 16px;
+            font-size: 0.85em;
+            letter-spacing: 1px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .logo-title {
+                font-size: 2.5em;
+            }
+            .subtitle {
+                font-size: 1em;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .content-section {
+                padding: 30px;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .welcome-container {
+                flex-direction: column;
+                gap: 30px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Musée des Civilisations Noires</h1>
+    <!-- Header avec slider -->
+    <div class="hero-header">
+        <div class="slider-container">
+            <div class="slide slide1 active"></div>
+            <div class="slide slide2"></div>
+            <div class="slide slide3"></div>
+        </div>
+        
         <nav>
             <ul>
                 <li><a href="/">Accueil</a></li>
-                <li><a href="/niveaupage">Les oeuvres</a></li>
+                <li><a href="/niveaupage">Les Œuvres</a></li>
                 <li><a href="/expositions">Expositions</a></li>
                 <li><a href="/collections">Collections</a></li>
                 <li><a href="/contact">Contact</a></li>
             </ul>
         </nav>
-    </header>
+
+        <div class="header-overlay">
+            <h1 class="logo-title">Musée des Civilisations Noires</h1>
+            <p class="subtitle">Un Voyage à Travers l'Histoire et la Culture</p>
+            <button class="virtual-tour-btn">Visite Virtuelle</button>
+        </div>
+
+        <div class="scroll-indicator">▼ Découvrir</div>
+    </div>
+
+    <!-- Contenu principal -->
     <main>
-        <section>
+        <section class="content-section">
             <h2>Bienvenue au Musée</h2>
-            <p>
-                Découvrez la richesse et la diversité des civilisations noires à travers nos expositions et collections uniques.
-            </p>
+            <div class="welcome-container">
+                <div class="welcome-text">
+                    <p class="intro-text">
+                        Notre musée vous invite à un voyage captivant à travers les âges, des royaumes anciens 
+                        aux expressions artistiques contemporaines juste avec votre smartphone. Chaque salle, chaque œuvre raconte une partie 
+                        de cette histoire fascinante qui continue d'inspirer le monde entier.
+                    </p>
+                </div>
+                <div class="welcome-image">
+                    <img src="https://www.reforme.net/wp-content/uploads/2018/12/IMG_3846_WEB.jpg" alt="Intérieur du Musée des Civilisations Noires">
+                </div>
+            </div>
         </section>
-        <section>
-            <h2>À la une</h2>
-            <ul>
-                <li>Exposition temporaire : "Art et Histoire"</li>
-                <li>Visites guidées chaque samedi</li>
-                <li>Ateliers pour enfants et familles</li>
-            </ul>
+
+        <section class="content-section">
+            <h2>Découvrir Nos Œuvres</h2>
+            <p class="intro-text">
+                Explorez notre collection d'œuvres exceptionnelles directement depuis votre téléphone. 
+                Chaque pièce raconte une histoire unique des civilisations noires.
+            </p>
+            
+            <div class="gallery-grid">
+                <div class="artwork-card">
+                    <div class="artwork-image img1"></div>
+                    <div class="artwork-info">
+                        <h3>Masques Traditionnels</h3>
+                        <p>Collection de masques rituels provenant de diverses régions d'Afrique de l'Ouest. Ces masques sacrés étaient utilisés lors de cérémonies importantes et incarnent les esprits ancestraux.</p>
+                        <span class="artwork-tag">Art Traditionnel</span>
+                    </div>
+                </div>
+
+                <div class="artwork-card">
+                    <div class="artwork-image img2"></div>
+                    <div class="artwork-info">
+                        <h3>Sculptures Royales</h3>
+                        <p>Statues et sculptures représentant les dynasties royales africaines. Ces œuvres témoignent du raffinement artistique et du pouvoir des anciens royaumes.</p>
+                        <span class="artwork-tag">Patrimoine Royal</span>
+                    </div>
+                </div>
+
+                <div class="artwork-card">
+                    <div class="artwork-image img4"></div>
+                    <div class="artwork-info">
+                        <h3>Art Contemporain Africain</h3>
+                        <p>Œuvres modernes d'artistes africains contemporains qui dialoguent avec la tradition tout en explorant de nouvelles formes d'expression artistique.</p>
+                        <span class="artwork-tag">Art Moderne</span>
+                    </div>
+                </div>
+
+                <div class="artwork-card">
+                    <div class="artwork-image img5"></div>
+                    <div class="artwork-info">
+                        <h3>Instruments de Musique</h3>
+                        <p>Collection d'instruments traditionnels : koras, balafons, djembés. La musique est au cœur de la culture africaine et ces instruments en sont les ambassadeurs.</p>
+                        <span class="artwork-tag">Musique</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Explorez sur Mobile</h2>
+            <div class="highlights">
+                <div class="highlight-card">
+                    <h3>📱 Visite Mobile</h3>
+                    <p>Découvrez les œuvres du musée directement depuis votre téléphone avec des descriptions détaillées et des vues à 360°.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>🔍 Scannez & Apprenez</h3>
+                    <p>Utilisez votre appareil photo pour scanner les QR codes et accéder à des contenus enrichis sur chaque œuvre.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>🎧 Audio-guides</h3>
+                    <p>Écoutez les histoires fascinantes derrière chaque pièce de collection avec nos guides audio interactifs.</p>
+                </div>
+            </div>
         </section>
     </main>
+
     <footer>
-        <p>&copy; 2024 Musée des Civilisations Noires</p>
+         <div class="footer-content">
+            <div class="footer-column">
+                <h3>Musée des Civilisations Noires</h3>
+                <p>Un espace dédié à la célébration et à la compréhension des civilisations noires à travers l'histoire.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Heures d'ouverture</h3>
+                <p>Lundi - Vendredi: 9h - 18h</p>
+                <p>Samedi - Dimanche: 10h - 20h</p>
+                <p>Fermé les jours fériés</p>
+            </div>
+            <div class="footer-column">
+                <h3>Liens rapides</h3>
+                <a href="/">Accueil</a>
+                <a href="/niveaupage">Les œuvres</a>
+                <a href="/expositions">Expositions</a>
+                <a href="/collections">Collections</a>
+                <a href="/contact">Contact</a>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Place de la Renaissance, Dakar</p>
+                <p><i class="fas fa-phone"></i> +221 33 869 00 00</p>
+                <p><i class="fas fa-envelope"></i> info@museecivilisationsnoires.sn</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Musée des Civilisations Noires. Tous droits réservés.</p>
+        </div>
     </footer>
+
+    <script>
+        // Slider automatique
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % totalSlides;
+            slides[currentSlide].classList.add('active');
+        }
+
+        setInterval(nextSlide, 4000);
+
+        // Action bouton visite virtuelle
+        document.querySelector('.virtual-tour-btn').addEventListener('click', function() {
+            alert('La visite virtuelle sera bientôt disponible !');
+        });
+    </script>
 </body>
 </html>
