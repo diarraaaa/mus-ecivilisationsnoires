@@ -121,6 +121,10 @@
                     <strong>Description:</strong> {{ oeuvre.description }}<br>
                     <strong>Catégorie:</strong> {{ oeuvre.categorie }}
                 </li>
+                <form action="/detailsparoeuvre" method="POST">
+                    <input type="hidden" name="id" id="id" value="{{ oeuvre.id }}">
+                    <button type="submit">Voir l'oeuvre en détail</button>
+                </form>
             {% endfor %}
             </ul>
         {% else %}

@@ -13,3 +13,10 @@ def detailsparniveaucode():
     affichage = supabase.table('oeuvres').select('*').eq('niveau', niveau).execute()
     details = affichage.data
     return render_template('oeuvreparniveau.html', details=details)
+
+def detailsparoeuvrecode():
+    id=request.form.get('id')
+    # Logique pour récupérer les détails en fonction de l'oeuvre
+    affichage = supabase.table('oeuvres').select('*').eq('id', id).execute()
+    details = affichage.data[0]
+    return render_template('detailsoeuvre.html', details=details)

@@ -1,6 +1,6 @@
 from flask import Flask, render_template,session
 from python import app
-from python.Fonctions import detailsparniveaucode
+from python.Fonctions import detailsparniveaucode, detailsparoeuvrecode
 
 @app.route('/')
 def index():
@@ -12,6 +12,9 @@ def pageniveau():
 @app.route('/detailsparpiece', methods=['POST'])
 def detailsparpiece():
     return detailsparniveaucode()
+@app.route('/detailsparoeuvre', methods=['POST'])
+def detailsparoeuvre():
+    return detailsparoeuvrecode()
 if __name__ == '__main__':
     
     app.run(debug=True)

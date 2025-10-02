@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Détails par Niveau {{ niveau }}</title>
+    <style>
+        /* Reset de base */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Header simple */
+        .hero-header {
+            background-color: #222;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .hero-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-header p {
+            font-size: 1rem;
+        }
+
+        nav {
+            background: #444;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffcc00;
+        }
+
+        /* Contenu principal */
+        main {
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1.page-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        li strong {
+            color: #555;
+        }
+
+        p.no-data {
+            text-align: center;
+            color: #777;
+            font-style: italic;
+        }
+
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header class="hero-header">
+        <h1>Musée des Civilisations Noires</h1>
+        <p>Explorez nos Niveaux et Collections</p>
+    </header>
+
+    <nav>
+        <a href="/">Accueil</a>
+        <a href="/niveaupage">Les Œuvres</a>
+        <a href="/expositions">Expositions</a>
+        <a href="/collections">Collections</a>
+        <a href="/contact">Contact</a>
+    </nav>
+
+    <main>
+        <h1 class="page-title">{{ details.nom }}</h1>
+            <ul>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5_VHKsfhuXPtfx_fXX_0YPLVMkeohzXzD4w&s" alt="Image ">
+                <li>
+                    <strong>Nom:</strong> {{ details.nom }}<br>
+                    <strong>Année:</strong> {{ details.annee }}<br>
+                    <strong>Description:</strong> {{ details.description }}<br>
+                    <strong>Catégorie:</strong> {{ details.categorie }}
+                </li>
+            </ul>
+    </main>
+
+    <footer>
+        &copy; 2025 Musée des Civilisations Noires - Dakar, Sénégal
+    </footer>
+</body>
+</html>
