@@ -9,7 +9,7 @@ def index():
 @app.route('/niveaupage')
 def pageniveau():
     return render_template("niveau.html")
-@app.route('/detailsparpiece', methods=['GET'])
+@app.route('/detailsparpiece', methods=['POST'])
 def detailsparpiece():
     return detailsparniveaucode()
 if __name__ == '__main__':
