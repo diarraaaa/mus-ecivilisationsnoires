@@ -467,7 +467,6 @@
                 <li><a href="/contact">Contact</a></li>
             </ul>
         </nav>
-<<<<<<< HEAD
 
         <div class="header-overlay">
             <h1 class="logo-title">Musée des Civilisations Noires</h1>
@@ -493,7 +492,10 @@
                     <div class="level-info">
                         <h3>Niveau 1</h3>
                         <p>Expositions permanentes présentant les œuvres fondamentales des civilisations noires à travers l'histoire.</p>
-                        <button class="level-btn" onclick="openLevelModal(1)">Explorer ce niveau</button>
+                        <form action="/detailsparpiece" method="GET">
+                            <input type="number" name="niveau" id="niveau" value="1" hidden>
+                            <button class="level-btn" type="submit">Explorer ce niveau</button>
+                        </form>
                     </div>
                 </div>
 
@@ -504,7 +506,10 @@
                     <div class="level-info">
                         <h3>Niveau 2</h3>
                         <p>Art contemporain africain et diaspora. Découvrez les créations modernes qui dialoguent avec la tradition.</p>
-                        <button class="level-btn" onclick="openLevelModal(2)">Explorer ce niveau</button>
+                        <form action="/detailsparpiece" method="GET">
+                            <input type="number" name="niveau" id="niveau" value="2" hidden>
+                            <button class="level-btn" type="submit">Explorer ce niveau</button>
+                        </form>
                     </div>
                 </div>
 
@@ -515,7 +520,10 @@
                     <div class="level-info">
                         <h3>Niveau 3</h3>
                         <p>Civilisations anciennes et royaumes historiques. Plongez dans les racines des grandes civilisations noires.</p>
-                        <button class="level-btn" onclick="openLevelModal(3)">Explorer ce niveau</button>
+                        <form action="/detailsparpiece" method="GET">
+                            <input type="number" name="niveau" id="niveau" value="3" hidden>
+                            <button class="level-btn" type="submit">Explorer ce niveau</button>
+                        </form>
                     </div>
                 </div>
 
@@ -526,7 +534,10 @@
                     <div class="level-info">
                         <h3>Niveau 4</h3>
                         <p>Galerie temporaire et expositions spéciales. Des œuvres uniques et des collections éphémères.</p>
-                        <button class="level-btn" onclick="openLevelModal(4)">Explorer ce niveau</button>
+                        <form action="/detailsparpiece" method="GET">
+                            <input type="number" name="niveau" id="niveau" value="4" hidden>
+                            <button class="level-btn" type="submit">Explorer ce niveau</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -576,216 +587,8 @@
                 <div id="modal-content">
                     <!-- Contenu dynamique -->
                 </div>
-=======
-    </header>
-    <div class="container">
-        <h1>Les différents niveaux du musée</h1>
-        <div class="cards">
-            <div class="card">
-                <div class="card-title">Niveau 1</div>
-                <div class="card-desc">Expositions permanentes</div>
-                <form action="/detailsparpiece" method="GET">
-                    <input type="hidden" name="niveau" value="1">
-                    <input type="number" value="1" name="niveau" style="display:none;">
-                    <button type="submit" class="card-btn">Voir les œuvres</button>
-                </form>
-            </div>
-            <div class="card">
-                <div class="card-title">Niveau 2</div>
-                <div class="card-desc">Art contemporain</div>
-                <form action="/detailsparpiece" method="GET">
-                    <input type="hidden" name="niveau" value="2">
-                    <input type="number" value="2" name="niveau" style="display:none;">
-                    <button type="submit" class="card-btn">Voir les œuvres</button>
-                </form>
-            </div>
-            <div class="card">
-                <div class="card-title">Niveau 3</div>
-                <div class="card-desc">Civilisations anciennes</div>
-                <form action="/detailsparpiece" method="GET">
-                    <input type="hidden" name="niveau" value="3">
-                    <input type="number" value="3" name="niveau" style="display:none;">
-                    <button type="submit" class="card-btn">Voir les œuvres</button>
-                </form>
-            </div>
-            <div class="card">
-                <div class="card-title">Niveau 4</div>
-                <div class="card-desc">Galerie temporaire</div>
-                <form action="/detailsparpiece" method="GET">
-                    <input type="hidden" name="niveau" value="4">
-                    <input type="number" value="4" name="niveau" style="display:none;">
-                    <button type="submit" class="card-btn">Voir les œuvres</button>
-                </form>
->>>>>>> ce51adac08d1e7ab05ffe8e9c7dca37f064080b9
             </div>
         </div>
     </div>
-
-    <script>
-        // Slider automatique
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const totalSlides = slides.length;
-
-        function nextSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % totalSlides;
-            slides[currentSlide].classList.add('active');
-        }
-
-        setInterval(nextSlide, 4000);
-
-        // Gestion des langues
-        const langButtons = document.querySelectorAll('.lang-btn');
-        langButtons.forEach(btn => {
-            btn.addEventListener('click', function() {
-                langButtons.forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                const lang = this.getAttribute('data-lang');
-                // Ici, on pourrait charger les contenus dans la langue sélectionnée
-                console.log('Langue sélectionnée:', lang);
-            });
-        });
-
-        // Simulation de scan QR
-        document.getElementById('start-scan').addEventListener('click', function() {
-            alert('Fonctionnalité de scan activée! En situation réelle, cette fonction utiliserait l\'API de caméra pour scanner les QR codes.');
-            
-            // Simulation d'un scan réussi après 2 secondes
-            setTimeout(function() {
-                openLevelModal(1);
-            }, 2000);
-        });
-
-        // Fonction pour ouvrir la modal d'un niveau
-        function openLevelModal(levelId) {
-            const modal = document.getElementById('level-modal');
-            const modalTitle = document.getElementById('modal-title');
-            const modalContent = document.getElementById('modal-content');
-            
-            // Contenu basé sur l'ID du niveau
-            const levels = {
-                1: {
-                    title: "Niveau 1 - Expositions Permanentes",
-                    content: `
-                        <div style="display: flex; flex-direction: column; gap: 20px;">
-                            <img src="https://farafinaculture.com/wp-content/uploads/2020/01/MCN.jpg" alt="Niveau 1" style="width: 100%; border-radius: 10px;">
-                            <div>
-                                <h4>Description</h4>
-                                <p>Ce niveau présente les œuvres fondamentales des civilisations noires à travers l'histoire. Découvrez des pièces emblématiques qui retracent le parcours des civilisations africaines depuis l'antiquité jusqu'à l'ère contemporaine.</p>
-                            </div>
-                            <div>
-                                <h4>Œuvres Principales</h4>
-                                <ul style="padding-left: 20px;">
-                                    <li>Masques rituels d'Afrique de l'Ouest</li>
-                                    <li>Sculptures royales des grands empires</li>
-                                    <li>Textiles traditionnels et artisanat</li>
-                                    <li>Objets de la vie quotidienne historique</li>
-                                </ul>
-                            </div>
-                            <div style="display: flex; gap: 10px;">
-                                <button class="level-btn" style="padding: 10px 20px;"><i class="fas fa-play-circle"></i> Visite Audio</button>
-                                <button class="level-btn" style="padding: 10px 20px; background: transparent; color: #D4AF37;"><i class="fas fa-share-alt"></i> Partager</button>
-                            </div>
-                        </div>
-                    `
-                },
-                2: {
-                    title: "Niveau 2 - Art Contemporain Africain",
-                    content: `
-                        <div style="display: flex; flex-direction: column; gap: 20px;">
-                            <img src="https://farafinaculture.com/wp-content/uploads/2020/01/MCN1.jpg" alt="Niveau 2" style="width: 100%; border-radius: 10px;">
-                            <div>
-                                <h4>Description</h4>
-                                <p>Explorez l'art contemporain africain et de la diaspora. Ce niveau présente des créations modernes qui dialoguent avec la tradition tout en explorant de nouvelles formes d'expression artistique.</p>
-                            </div>
-                            <div>
-                                <h4>Artistes Représentés</h4>
-                                <ul style="padding-left: 20px;">
-                                    <li>Ousmane Sow - Sculpture</li>
-                                    <li>Chéri Samba - Peinture</li>
-                                    <li>El Anatsui - Art installation</li>
-                                    <li>Julie Mehretu - Art abstrait</li>
-                                </ul>
-                            </div>
-                            <div style="display: flex; gap: 10px;">
-                                <button class="level-btn" style="padding: 10px 20px;"><i class="fas fa-play-circle"></i> Visite Audio</button>
-                                <button class="level-btn" style="padding: 10px 20px; background: transparent; color: #D4AF37;"><i class="fas fa-share-alt"></i> Partager</button>
-                            </div>
-                        </div>
-                    `
-                },
-                3: {
-                    title: "Niveau 3 - Civilisations Anciennes",
-                    content: `
-                        <div style="display: flex; flex-direction: column; gap: 20px;">
-                            <img src="https://img-4.linternaute.com/8PMTFZ0r5gXztwWIHgGS5Sx282w=/fit-in/x630/smart/filters:fill(1D1D1B)/8fe14783f8be4763babce0f6bab93fcb/ccmcms-linternaute/11534549.jpg" alt="Niveau 3" style="width: 100%; border-radius: 10px;">
-                            <div>
-                                <h4>Description</h4>
-                                <p>Plongez dans les racines des grandes civilisations noires. Ce niveau vous transporte à travers les royaumes historiques et les empires qui ont façonné l'histoire de l'Afrique.</p>
-                            </div>
-                            <div>
-                                <h4>Civilisations Présentées</h4>
-                                <ul style="padding-left: 20px;">
-                                    <li>Empire du Ghana - 300-1200 AD</li>
-                                    <li>Empire du Mali - 1230-1670 AD</li>
-                                    <li>Royaume du Kongo - 1390-1914 AD</li>
-                                    <li>Civilisation Nok - 1500 BC-500 AD</li>
-                                </ul>
-                            </div>
-                            <div style="display: flex; gap: 10px;">
-                                <button class="level-btn" style="padding: 10px 20px;"><i class="fas fa-play-circle"></i> Visite Audio</button>
-                                <button class="level-btn" style="padding: 10px 20px; background: transparent; color: #D4AF37;"><i class="fas fa-share-alt"></i> Partager</button>
-                            </div>
-                        </div>
-                    `
-                },
-                4: {
-                    title: "Niveau 4 - Galerie Temporaire",
-                    content: `
-                        <div style="display: flex; flex-direction: column; gap: 20px;">
-                            <img src="https://senegalndiaye.com/wp-content/uploads/2019/07/20190706_165656-e1564167711900.jpg" alt="Niveau 4" style="width: 100%; border-radius: 10px;">
-                            <div>
-                                <h4>Description</h4>
-                                <p>Découvrez des œuvres uniques et des collections éphémères dans notre galerie temporaire. Ce niveau accueille régulièrement de nouvelles expositions et collaborations artistiques.</p>
-                            </div>
-                            <div>
-                                <h4>Exposition Actuelle</h4>
-                                <p><strong>"Renaissance Africaine: Art et Innovation"</strong><br>
-                                Une exploration des nouvelles tendances artistiques et des innovations culturelles dans l'Afrique contemporaine.</p>
-                            </div>
-                            <div>
-                                <h4>Prochainement</h4>
-                                <p>"Femmes Pionnières: Leadership et Créativité" - À partir du 15 mars 2024</p>
-                            </div>
-                            <div style="display: flex; gap: 10px;">
-                                <button class="level-btn" style="padding: 10px 20px;"><i class="fas fa-play-circle"></i> Visite Audio</button>
-                                <button class="level-btn" style="padding: 10px 20px; background: transparent; color: #D4AF37;"><i class="fas fa-share-alt"></i> Partager</button>
-                            </div>
-                        </div>
-                    `
-                }
-            };
-            
-            if (levels[levelId]) {
-                modalTitle.textContent = levels[levelId].title;
-                modalContent.innerHTML = levels[levelId].content;
-                modal.style.display = 'flex';
-            }
-        }
-
-        // Fermer la modal
-        document.querySelector('.close-modal').addEventListener('click', function() {
-            document.getElementById('level-modal').style.display = 'none';
-        });
-
-        // Fermer la modal en cliquant à l'extérieur
-        window.addEventListener('click', function(e) {
-            const modal = document.getElementById('level-modal');
-            if (e.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-    </script>
 </body>
 </html>

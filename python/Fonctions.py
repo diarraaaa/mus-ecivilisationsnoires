@@ -8,7 +8,8 @@ from supabase import create_client, Client
 supabase: Client = create_client(supabase_url, supabase_key)                                         
 
 def detailsparniveaucode():
-    niveau=request.form.get('niveau')
+    niveau=request.form.get('niveau', type=int)
     # Logique pour récupérer les détails en fonction du niveau
-    
-   
+    affichage = supabase.table('oeuvres').select('*').eq('niveau', niveau).execute()
+    details = affichage.data
+    return render_template('detailspiece.html', details=details)
