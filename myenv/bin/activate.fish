@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV /home/diarra/Bureau/tcpl-1/myenv
+set -gx VIRTUAL_ENV /home/diarra/Bureau/bureau/mus-ecivilisationsnoires/myenv
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/"bin $PATH
