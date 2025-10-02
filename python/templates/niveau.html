@@ -129,22 +129,38 @@
             <div class="card">
                 <div class="card-title">Niveau 1</div>
                 <div class="card-desc">Expositions permanentes</div>
-                <a href="/niveau/1" class="card-btn">Voir les œuvres</a>
+                <form action="/detailsparpiece" method="GET">
+                    <input type="hidden" name="niveau" value="1">
+                    <input type="number" value="1" name="niveau" style="display:none;">
+                    <button type="submit" class="card-btn">Voir les œuvres</button>
+                </form>
             </div>
             <div class="card">
                 <div class="card-title">Niveau 2</div>
                 <div class="card-desc">Art contemporain</div>
-                <a href="/niveau/2" class="card-btn">Voir les œuvres</a>
+                <form action="/detailsparpiece" method="GET">
+                    <input type="hidden" name="niveau" value="2">
+                    <input type="number" value="2" name="niveau" style="display:none;">
+                    <button type="submit" class="card-btn">Voir les œuvres</button>
+                </form>
             </div>
             <div class="card">
                 <div class="card-title">Niveau 3</div>
                 <div class="card-desc">Civilisations anciennes</div>
-                <a href="/niveau/3" class="card-btn">Voir les œuvres</a>
+                <form action="/detailsparpiece" method="GET">
+                    <input type="hidden" name="niveau" value="3">
+                    <input type="number" value="3" name="niveau" style="display:none;">
+                    <button type="submit" class="card-btn">Voir les œuvres</button>
+                </form>
             </div>
             <div class="card">
                 <div class="card-title">Niveau 4</div>
                 <div class="card-desc">Galerie temporaire</div>
-                <a href="/niveau/4" class="card-btn">Voir les œuvres</a>
+                <form action="/detailsparpiece" method="GET">
+                    <input type="hidden" name="niveau" value="4">
+                    <input type="number" value="4" name="niveau" style="display:none;">
+                    <button type="submit" class="card-btn">Voir les œuvres</button>
+                </form>
             </div>
         </div>
     </div>
