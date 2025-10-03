@@ -1,22 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Détails par Niveau</title>
-  
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/stylepiece.css">
- 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Œuvres de Niveau {{ niveau }}</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/stylepiece.css">
 </head>
 <body>
-  <div class="hero-header">
-    <div class="slider-container">
-        <div class="slide slide1 active"></div>
-        <div class="slide slide2"></div>
-        <div class="slide slide3"></div>
-    </div>
-    
+
+<div class="hero-header">
     <nav>
         <ul>
             <li><a href="/">Accueil</a></li>
@@ -31,112 +24,41 @@
         <h1 class="logo-title">Musée des Civilisations Noires</h1>
         <p class="subtitle">Explorez nos Niveaux et Collections</p>
     </div>
-  </div>
+</div>
 
-  <main>
-    <h1 class="page-title">Œuvres de Niveau 2</h1>
-    
-    <ul class="artworks-grid" id="artworksContainer"></ul>
-  </main>
-
-  <footer>
-    &copy; 2025 Musée des Civilisations Noires - Dakar, Sénégal
-  </footer>
-
-  <script>
-    const artworks = [
-      {
-        id: 1,
-        nom: "Masque Dogon",
-        annee: "XVIIIe siècle",
-        description: "Masque cérémoniel utilisé lors des rites funéraires Dogon, symbole de sagesse ancestrale.",
-        categorie: "Sculpture",
-        image: "https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=800&q=80"
-      },
-      {
-        id: 2,
-        nom: "Tissu Kente",
-        annee: "XIXe siècle",
-        description: "Étoffe royale Ashanti tissée à la main, portée lors des cérémonies importantes.",
-        categorie: "Textile",
-        image: "https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=800&q=80"
-      },
-      {
-        id: 3,
-        nom: "Statuette Bambara",
-        annee: "XXe siècle",
-        description: "Figure féminine symbolisant la fertilité dans la tradition Bambara du Mali.",
-        categorie: "Sculpture",
-        image: "https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=800&q=80"
-      },
-      {
-        id: 4,
-        nom: "Trône Bamiléké",
-        annee: "XIXe siècle",
-        description: "Siège royal sculpté dans le bois massif, orné de motifs symboliques du pouvoir.",
-        categorie: "Mobilier",
-        image: "https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?w=800&q=80"
-      },
-      {
-        id: 5,
-        nom: "Poterie Berbère",
-        annee: "XXe siècle",
-        description: "Vase décoratif aux motifs géométriques traditionnels du Maghreb.",
-        categorie: "Céramique",
-        image: "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=800&q=80"
-      },
-      {
-        id: 6,
-        nom: "Perles de Venise",
-        annee: "XVIIe siècle",
-        description: "Collier de perles de verre utilisé dans le commerce transatlantique.",
-        categorie: "Bijoux",
-        image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80"
-      }
-    ];
-
-    const container = document.getElementById('artworksContainer');
-    
-    artworks.forEach(artwork => {
-      const li = document.createElement('li');
-      li.className = 'artwork-card';
-      
-      li.innerHTML = `
-        <div class="picture-frame">
-          <div class="nail"></div>
-          <div class="wire-left"></div>
-          <div class="wire-right"></div>
-          <div class="hook-left"></div>
-          <div class="hook-right"></div>
-          <div class="mat-board">
-            <div class="artwork-image-wrapper">
-              <img src="${artwork.image}" alt="${artwork.nom}" class="artwork-image">
+<main>
+    <h1 class="page-title">Œuvres de Niveau {{ niveau }}</h1>
+    <ul class="artworks-grid">
+        {% for oeuvre in details %}
+        <li class="artwork-card">
+            <div class="picture-frame">
+                <div class="nail"></div>
+                <div class="wire-left"></div>
+                <div class="wire-right"></div>
+                <div class="hook-left"></div>
+                <div class="hook-right"></div>
+                <div class="mat-board">
+                    <div class="artwork-image-wrapper">
+                        <img src="{{ oeuvre.image }}" alt="{{ oeuvre.nom }}" class="artwork-image">
+                    </div>
+                </div>
+                <div class="name-plate">{{ oeuvre.nom }}</div>
             </div>
-          </div>
-          <div class="name-plate">${artwork.nom}</div>
-        </div>
-        <div class="oeuvre-details">
-          <h3 class="oeuvre-name">${artwork.nom}</h3>
-          <p class="oeuvre-year">${artwork.annee}</p>
-          <span class="oeuvre-category">${artwork.categorie}</span>
-          <a href="/detailsparoeuvre?id=${artwork.id}" class="details-button">Voir détails →</a>
-        </div>
-      `;
-      
-      container.appendChild(li);
-    });
+            <div class="oeuvre-details">
+                <h3 class="oeuvre-name">{{ oeuvre.nom }}</h3>
+                <p class="oeuvre-year">{{ oeuvre.annee }}</p>
+                <span class="oeuvre-category">{{ oeuvre.categorie }}</span>
+                <p class="oeuvre-description">{{ oeuvre.description }}</p>
+                <a href="/detailsparoeuvre?id={{ oeuvre.id }}" class="details-button">Voir détails →</a>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</main>
 
-    // Slider du header
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    
-    function nextSlide() {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
-    }
-    
-    setInterval(nextSlide, 5000);
-  </script>
+<footer>
+    &copy; 2025 Musée des Civilisations Noires - Dakar, Sénégal
+</footer>
+
 </body>
 </html>
