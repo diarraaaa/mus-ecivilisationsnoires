@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Détails par Niveau {{ niveau }}</title>
     <style>
+        /* Reset de base */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -11,193 +12,217 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: url('https://www.transparenttextures.com/patterns/stucco.png') repeat;
-            color: #2e2e2e;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
         }
 
-        /* Header */
+        /* Header simple */
         .hero-header {
-            background: linear-gradient(135deg, #3e3e3e, #1e1e1e);
-            color: #f5f5dc;
-            padding: 60px 20px 40px;
+            background: linear-gradient(135deg, #222, #444);
+            color: #fff;
+            padding: 40px 20px;
             text-align: center;
         }
 
         .hero-header h1 {
-            font-size: 2.8rem;
-            letter-spacing: 1px;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
         }
 
         .hero-header p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             opacity: 0.9;
         }
 
         nav {
-            background: #222;
-            padding: 14px 0;
+            background: #333;
+            padding: 12px 0;
             text-align: center;
         }
 
         nav a {
             text-decoration: none;
-            color: #f5f5dc;
-            margin: 0 20px;
-            font-weight: 500;
+            color: #fff;
+            margin: 0 18px;
+            font-weight: bold;
             transition: color 0.3s ease;
-            text-transform: uppercase;
         }
 
         nav a:hover {
-            color: #D4AF37;
+            color: #ffcc00;
         }
 
-        /* Main content */
+        /* Contenu principal */
         main {
-            padding: 40px 20px;
-            max-width: 1000px;
+            padding: 25px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        .page-title {
+        h1.page-title {
             text-align: center;
-            margin-bottom: 30px;
-            font-size: 2.2rem;
-            color: #2e2e2e;
-            position: relative;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            color: #222;
         }
 
-        .page-title::after {
-            content: '';
-            width: 80px;
-            height: 3px;
-            background: #D4AF37;
-            display: block;
-            margin: 15px auto 0;
+        ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
         }
 
-        .oeuvre-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .oeuvre-card img {
-            max-width: 100%;
+        ul img {
+            max-width: 300px;
             border-radius: 10px;
             margin-bottom: 20px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
-        .oeuvre-info {
+        li {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.1);
             text-align: left;
-            max-width: 700px;
-            margin-top: 10px;
         }
 
-        .oeuvre-info strong {
+        li strong {
             color: #444;
-            display: inline-block;
-            width: 120px;
         }
 
+        p.no-data {
+            text-align: center;
+            color: #777;
+            font-style: italic;
+        }
+
+        /* Boutons stylisés */
         .btn-container {
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
+            text-align: center;
+            margin-top: 20px;
         }
 
         .btn {
-            background: linear-gradient(135deg, #D4AF37, #FFD700);
-            color: #000;
-            padding: 12px 25px;
+            background: #222;
+            color: #fff;
+            padding: 12px 20px;
             border: none;
-            border-radius: 30px;
+            border-radius: 25px;
+            margin: 10px;
             font-size: 1rem;
             cursor: pointer;
             transition: 0.3s ease;
-            font-weight: bold;
             text-transform: uppercase;
-            box-shadow: 0 5px 12px rgba(212, 175, 55, 0.3);
         }
 
         .btn:hover {
-            background: #fff;
-            color: #D4AF37;
-            border: 1px solid #D4AF37;
+            background: #ffcc00;
+            color: #222;
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
         footer {
-            background: linear-gradient(135deg, #3e3e3e, #1e1e1e);
-            color: #f5f5dc;
+            background: linear-gradient(135deg, #222, #444);
+            color: #fff;
             text-align: center;
-            padding: 30px;
-            margin-top: 50px;
+            padding: 20px;
+            margin-top: 40px;
             font-size: 0.9rem;
-            border-top: 2px solid #D4AF37;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .oeuvre-card {
-                padding: 20px;
-            }
-
-            .btn-container {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
         }
     </style>
 </head>
 <body>
-    <header class="hero-header">
-        <h1>Musée des Civilisations Noires</h1>
-        <p>Explorez nos Niveaux et Collections</p>
-    </header>
 
-    <nav>
-        <a href="/">Accueil</a>
-        <a href="/niveaupage">Les Œuvres</a>
-        <a href="/expositions">Expositions</a>
-        <a href="/collections">Collections</a>
-        <a href="/contact">Contact</a>
-    </nav>
+<header class="hero-header">
+<h1>Musée des Civilisations Noires</h1>
+<p>Explorez nos Niveaux et Collections</p>
+</header>
+
+<nav>
+<a href="/">Accueil</a>
+<a href="/niveaupage">Les Œuvres</a>
+<a href="/expositions">Expositions</a>
+<a href="/collections">Collections</a>
+<a href="/contact">Contact</a>
+</nav>
 
     <main>
-        <h2 class="page-title">{{ details.nom }}</h2>
-
-        <div class="oeuvre-card">
+        <h1 class="page-title">{{ details.nom }}</h1>
+        <ul>
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5_VHKsfhuXPtfx_fXX_0YPLVMkeohzXzD4w&s" alt="Image de l'œuvre">
-            <div class="oeuvre-info">
-                <p><strong>Nom:</strong> {{ details.nom }}</p>
-                <p><strong>Année:</strong> {{ details.annee }}</p>
-                <p><strong>Description:</strong> {{ details.description }}</p>
-                <p><strong>Catégorie:</strong> {{ details.categorie }}</p>
-            </div>
+            <li>
+                <strong>Nom:</strong> {{ details.nom }}<br>
+                <strong>Année:</strong> {{ details.annee }}<br>
+                <strong>Description:</strong> {{ details.description }}<br>
+                <strong>Catégorie:</strong> {{ details.categorie }}
+            </li>
+        </ul>
 
-            <div class="btn-container">
-                <button class="btn">📖 Voir l’Histoire</button>
-                <button class="btn">🔊 Écouter l’Histoire</button>
-                <button class="btn">🖼️ Voir en 3D</button>
-            </div>
+        <div class="btn-container">
+            <button class="btn">📖 Voir l’Histoire</button>
+            <button class="btn">🔊 Écouter l’Histoire</button>
+            <button class="btn">🖼️ Voir en 3D</button>
         </div>
     </main>
 
-    <footer>
-        &copy; 2025 Musée des Civilisations Noires - Dakar, Sénégal
-    </footer>
+<footer>
+&copy; 2025 Musée des Civilisations Noires - Dakar, Sénégal
+</footer>
+
+<!-- Modal -->
+<div class="modal" id="modal-langue">
+  <div class="modal-content">
+    <h2>Choisissez la langue de lecture</h2>
+    <div class="lang-option selected" data-lang="fr-FR"><img src="https://flagcdn.com/16x12/fr.png" alt="Français"> Français</div>
+    <div class="lang-option" data-lang="en-US"><img src="https://flagcdn.com/16x12/gb.png" alt="Anglais"> Anglais</div>
+    <div class="lang-option" data-lang="es-ES"><img src="https://flagcdn.com/16x12/es.png" alt="Espagnol"> Espagnol</div>
+    <button id="btn-lire">Lire</button>
+    <button id="btn-fermer">Annuler</button>
+  </div>
+</div>
+
+<script src="https://js.puter.com/v2/"></script>
+<script>
+const btnEcouter = document.getElementById("btn-ecouter");
+const modal = document.getElementById("modal-langue");
+const btnFermer = document.getElementById("btn-fermer");
+const btnLire = document.getElementById("btn-lire");
+const langOptions = document.querySelectorAll(".lang-option");
+let langueChoisie = "fr-FR";
+
+btnEcouter.addEventListener("click", () => modal.style.display="flex");
+btnFermer.addEventListener("click", () => modal.style.display="none");
+
+// sélectionner la langue
+langOptions.forEach(opt => {
+  opt.addEventListener("click", () => {
+    langOptions.forEach(o=>o.classList.remove("selected"));
+    opt.classList.add("selected");
+    langueChoisie = opt.dataset.lang;
+  });
+});
+
+btnLire.addEventListener("click", async () => {
+  modal.style.display = "none";
+  const texte = document.getElementById("texte-description").innerText;
+
+  try {
+    const audio = await puter.ai.txt2speech(texte, {
+      language: langueChoisie,
+      engine: "neural"
+    });
+    audio.play();
+  } catch(err) {
+    console.error("Erreur TTS Puter.js:", err);
+  }
+});
+
+window.addEventListener("click", e => {if(e.target===modal) modal.style.display="none";});
+</script>
+
 </body>
 </html>
