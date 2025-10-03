@@ -1,139 +1,163 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Détails par Niveau {{ niveau }}</title>
-    <style>
-        /* Reset de base */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<meta charset="UTF-8">
+<title>Détails par Niveau {{ niveau }}</title>
+<style>
+/* Chatbot styles */
+#chatToggle {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+    background: #D4AF37;
+    color: #000;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 1.8em;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+#chatPopup {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    bottom: 90px;
+    right: 25px;
+    width: 320px;
+    max-height: 500px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    z-index: 1000;
+    overflow: hidden;
+}
+#chatPopupHeader {
+    background: #D4AF37;
+    color: #000;
+    padding: 15px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#chatPopupHeader button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+#chatMessages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+}
+#chatMessages .chat-msg {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 85%;
+    word-wrap: break-word;
+}
+#chatMessages .chat-user { background: #eee; align-self: flex-end; }
+#chatMessages .chat-bot { background: #D4AF37; color: #000; align-self: flex-start; }
+#chatForm { display: flex; border-top: 1px solid #ccc; }
+#chatForm input { flex: 1; padding: 10px; border: none; outline: none; }
+#chatForm button { padding: 10px 15px; background: #D4AF37; color: #000; border: none; cursor: pointer; }
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-        }
+/* Reset de base */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* Header simple */
-        .hero-header {
-            background: linear-gradient(135deg, #222, #444);
-            color: #fff;
-            padding: 40px 20px;
-            text-align: center;
-        }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
 
-        .hero-header h1 {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-        }
+/* Header simple */
+.hero-header {
+    background: linear-gradient(135deg, #222, #444);
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+.hero-header h1 { font-size: 2.2rem; margin-bottom: 10px; }
+.hero-header p { font-size: 1.1rem; opacity: 0.9; }
 
-        .hero-header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
+nav {
+    background: #333;
+    padding: 12px 0;
+    text-align: center;
+}
+nav a {
+    text-decoration: none;
+    color: #fff;
+    margin: 0 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+nav a:hover { color: #ffcc00; }
 
-        nav {
-            background: #333;
-            padding: 12px 0;
-            text-align: center;
-        }
+/* Contenu principal */
+main { padding: 25px; max-width: 900px; margin: 0 auto; }
+h1.page-title { text-align: center; margin-bottom: 25px; font-size: 1.8rem; color: #222; }
 
-        nav a {
-            text-decoration: none;
-            color: #fff;
-            margin: 0 18px;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
+ul { list-style: none; padding: 0; text-align: center; }
+ul img {
+    max-width: 300px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+li {
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    text-align: left;
+}
+li strong { color: #444; }
+p.no-data { text-align: center; color: #777; font-style: italic; }
 
-        nav a:hover {
-            color: #ffcc00;
-        }
+/* Boutons stylisés */
+.btn-container { text-align: center; margin-top: 20px; }
+.btn {
+    background: #222;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    margin: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+    text-transform: uppercase;
+}
+.btn:hover {
+    background: #ffcc00;
+    color: #222;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
 
-        /* Contenu principal */
-        main {
-            padding: 25px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
+footer {
+    background: linear-gradient(135deg, #222, #444);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 0.9rem;
+}
 
-        h1.page-title {
-            text-align: center;
-            margin-bottom: 25px;
-            font-size: 1.8rem;
-            color: #222;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-            text-align: center;
-        }
-
-        ul img {
-            max-width: 300px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-
-        li {
-            background-color: #fff;
-            margin-bottom: 20px;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 1px 5px rgba(0,0,0,0.1);
-            text-align: left;
-        }
-
-        li strong {
-            color: #444;
-        }
-
-        p.no-data {
-            text-align: center;
-            color: #777;
-            font-style: italic;
-        }
-
-        /* Boutons stylisés */
-        .btn-container {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .btn {
-            background: #222;
-            color: #fff;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 25px;
-            margin: 10px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.3s ease;
-            text-transform: uppercase;
-        }
-
-        .btn:hover {
-            background: #ffcc00;
-            color: #222;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
-        footer {
-            background: linear-gradient(135deg, #222, #444);
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            font-size: 0.9rem;
-        }
-    </style>
+/* Modal */
+.modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; }
+.modal-content { background: #fff; padding: 20px; border-radius: 12px; max-width: 400px; width: 90%; text-align: center; }
+.lang-option { cursor: pointer; padding: 8px; margin: 5px 0; border-radius: 6px; display: flex; align-items: center; gap: 8px; border: 1px solid #ccc; justify-content: center; }
+.lang-option.selected { background: #D4AF37; color: #000; border-color: #D4AF37; }
+</style>
 </head>
 <body>
 
@@ -150,24 +174,24 @@
 <a href="/contact">Contact</a>
 </nav>
 
-    <main>
-        <h1 class="page-title">{{ details.nom }}</h1>
-        <ul>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5_VHKsfhuXPtfx_fXX_0YPLVMkeohzXzD4w&s" alt="Image de l'œuvre">
-            <li>
-                <strong>Nom:</strong> {{ details.nom }}<br>
-                <strong>Année:</strong> {{ details.annee }}<br>
-                <strong>Description:</strong> {{ details.description }}<br>
-                <strong>Catégorie:</strong> {{ details.categorie }}
-            </li>
-        </ul>
+<main>
+    <h1 class="page-title">{{ details.nom }}</h1>
+    <ul>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5_VHKsfhuXPtfx_fXX_0YPLVMkeohzXzD4w&s" alt="Image de l'œuvre">
+        <li>
+            <strong>Nom:</strong> {{ details.nom }}<br>
+            <strong>Année:</strong> {{ details.annee }}<br>
+            <strong>Description:</strong> {{ details.description }}<br>
+            <strong>Catégorie:</strong> {{ details.categorie }}
+        </li>
+    </ul>
 
-        <div class="btn-container">
-            <button class="btn">📖 Voir l’Histoire</button>
-            <button class="btn">🔊 Écouter l’Histoire</button>
-            <button class="btn">🖼️ Voir en 3D</button>
-        </div>
-    </main>
+    <div class="btn-container">
+        <button class="btn" id="btn-ecouter">🔊 Écouter l’Histoire</button>
+        <button class="btn">📖 Voir l’Histoire</button>
+        <button class="btn">🖼️ Voir en 3D</button>
+    </div>
+</main>
 
 <footer>
 &copy; 2025 Musée des Civilisations Noires - Dakar, Sénégal
@@ -185,8 +209,23 @@
   </div>
 </div>
 
+<!-- Chatbot -->
+<button id="chatToggle">💬</button>
+<div id="chatPopup">
+  <div id="chatPopupHeader">
+    Guide Musée
+    <button onclick="toggleChat()">✖</button>
+  </div>
+  <div id="chatMessages"></div>
+  <form id="chatForm" onsubmit="sendChat(event)">
+    <input type="text" id="chatInput" placeholder="Posez votre question..." required />
+    <button type="submit" id="chatSend">Envoyer</button>
+  </form>
+</div>
+
 <script src="https://js.puter.com/v2/"></script>
 <script>
+// Modal et TTS
 const btnEcouter = document.getElementById("btn-ecouter");
 const modal = document.getElementById("modal-langue");
 const btnFermer = document.getElementById("btn-fermer");
@@ -197,7 +236,6 @@ let langueChoisie = "fr-FR";
 btnEcouter.addEventListener("click", () => modal.style.display="flex");
 btnFermer.addEventListener("click", () => modal.style.display="none");
 
-// sélectionner la langue
 langOptions.forEach(opt => {
   opt.addEventListener("click", () => {
     langOptions.forEach(o=>o.classList.remove("selected"));
@@ -208,20 +246,67 @@ langOptions.forEach(opt => {
 
 btnLire.addEventListener("click", async () => {
   modal.style.display = "none";
-  const texte = document.getElementById("texte-description").innerText;
-
+  const texte = document.getElementById("texte-description")?.innerText || "";
   try {
-    const audio = await puter.ai.txt2speech(texte, {
-      language: langueChoisie,
-      engine: "neural"
-    });
+    const audio = await puter.ai.txt2speech(texte, { language: langueChoisie, engine: "neural" });
     audio.play();
-  } catch(err) {
-    console.error("Erreur TTS Puter.js:", err);
-  }
+  } catch(err) { console.error("Erreur TTS Puter.js:", err); }
 });
 
-window.addEventListener("click", e => {if(e.target===modal) modal.style.display="none";});
+window.addEventListener("click", e => { if(e.target===modal) modal.style.display="none"; });
+
+// Chatbot
+const chatToggle = document.getElementById("chatToggle");
+const chatPopup = document.getElementById("chatPopup");
+const chatMessages = document.getElementById("chatMessages");
+const chatInput = document.getElementById("chatInput");
+
+function getSessionId() {
+    let sessionId = localStorage.getItem("sessionId");
+    if (!sessionId) {
+        sessionId = crypto.randomUUID ? crypto.randomUUID() :
+            'xxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+                const r = Math.random() * 16 | 0;
+                const v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        localStorage.setItem("sessionId", sessionId);
+    }
+    return sessionId;
+}
+const sessionId = getSessionId();
+
+function toggleChat() { 
+    chatPopup.style.display = chatPopup.style.display === "flex" ? "none" : "flex"; 
+}
+chatToggle.addEventListener("click", toggleChat);
+
+function appendMessage(text, sender) {
+    const div = document.createElement("div");
+    div.className = `chat-msg ${sender}`;
+    div.textContent = text;
+    chatMessages.appendChild(div);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+async function sendChat(event) {
+    event.preventDefault();
+    const message = chatInput.value.trim();
+    if (!message) return;
+    appendMessage(message, "chat-user");
+    chatInput.value = "";
+    try {
+        const res = await fetch("https://diarradiengcode.app.n8n.cloud/webhook/c87f9694-88d8-470f-bf9f-c898f6e14820", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message, sessionId })
+        });
+        const response = await res.text();
+        appendMessage(response, "chat-bot");
+    } catch (e) {
+        appendMessage("Erreur de connexion à l'IA.", "chat-bot");
+    }
+}
 </script>
 
 </body>
