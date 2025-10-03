@@ -1,0 +1,730 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #2c1810;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(139, 69, 19, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(101, 67, 33, 0.2) 0%, transparent 50%),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.03) 2px,
+      rgba(0, 0, 0, 0.03) 4px
+    ),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="200" height="200" filter="url(%23noise)" opacity="0.08"/></svg>');
+  color: #f5f5dc;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: 
+    linear-gradient(180deg, rgba(0,0,0,0.4) 0%, transparent 20%, transparent 80%, rgba(0,0,0,0.5) 100%),
+    radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.3) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-header {
+    position: relative;
+    height: 70vh;
+    overflow: hidden;
+    background: #000;
+}
+
+.slider-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.5);
+}
+
+.slide.active {
+    opacity: 1;
+    animation: zoomIn 20s ease-out infinite;
+}
+
+@keyframes zoomIn {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+.slide1 { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23654321" width="1200" height="800"/><circle cx="300" cy="400" r="150" fill="%23D4AF37" opacity="0.3"/><rect x="600" y="200" width="400" height="400" fill="%23000" opacity="0.4"/></svg>'); }
+.slide2 { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%238B4513" width="1200" height="800"/><polygon points="600,100 900,700 300,700" fill="%23D4AF37" opacity="0.3"/><circle cx="900" cy="200" r="100" fill="%23000" opacity="0.4"/></svg>'); }
+.slide3 { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23A0826D" width="1200" height="800"/><rect x="100" y="100" width="300" height="600" fill="%23000" opacity="0.4"/><circle cx="800" cy="400" r="200" fill="%23D4AF37" opacity="0.3"/></svg>'); }
+
+.header-overlay {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 2;
+}
+
+.logo-title {
+    
+    font-family: 'Playfair Display', serif;
+    color: #f5f5dc;
+    font-size: 4.5em;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 15px rgba(0,0,0,0.9);
+    animation: fadeInDown 1s ease;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.subtitle {
+    color: #D4AF37;
+    font-size: 1.5em;
+    letter-spacing: 4px;
+    font-weight: 300;
+    animation: fadeInUp 1s ease 0.3s both;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 30px 60px;
+    z-index: 10;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+    backdrop-filter: blur(10px);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+nav a {
+    color: #f5f5dc;
+    text-decoration: none;
+    font-size: 1em;
+    letter-spacing: 2px;
+    font-weight: 400;
+    transition: all 0.4s ease;
+    padding: 8px 20px;
+    position: relative;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+    transition: all 0.4s ease;
+    transform: translateX(-50%);
+}
+
+nav a:hover::before {
+    width: 100%;
+}
+
+nav a:hover {
+    color: #D4AF37;
+}
+
+main {
+    max-width: 1400px;
+    margin: -100px auto 60px;
+    padding: 0 40px;
+    position: relative;
+    z-index: 5;
+}
+
+.page-title {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 3.5em;
+    color: #D4AF37;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.page-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+}
+
+.artworks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 50px;
+    list-style: none;
+}
+
+.artwork-card {
+    background: transparent;
+    transition: transform 0.5s ease;
+}
+
+.artwork-card:hover {
+    transform: translateY(-10px);
+}
+
+/* CADRE PHOTO STYLE GALERIE */
+.picture-frame {
+    position: relative;
+    background: linear-gradient(145deg, #2a1a10, #1a0f08);
+    padding: 12px;
+    box-shadow: 
+        0 15px 50px rgba(0, 0, 0, 0.95),
+        0 0 0 2px rgba(139, 69, 19, 0.4),
+        inset 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: all 0.5s ease;
+    margin-top: 30px;
+    cursor: pointer;
+    border: 3px solid #1a0f08;
+}
+
+.picture-frame::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    background: linear-gradient(45deg, 
+        rgba(139, 69, 19, 0.6) 0%, 
+        rgba(101, 67, 33, 0.4) 25%,
+        rgba(139, 69, 19, 0.6) 50%,
+        rgba(101, 67, 33, 0.4) 75%,
+        rgba(139, 69, 19, 0.6) 100%
+    );
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    filter: blur(8px);
+}
+
+.picture-frame:hover::before {
+    opacity: 1;
+}
+
+.picture-frame:hover {
+    box-shadow: 
+        0 20px 70px rgba(0, 0, 0, 1),
+        0 0 0 2px rgba(139, 69, 19, 0.8),
+        0 0 40px rgba(212, 175, 55, 0.4),
+        inset 0 0 30px rgba(139, 69, 19, 0.3);
+    transform: translateY(-5px) scale(1.02);
+}
+
+/* Clou pour accrocher le cadre */
+.nail {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 14px;
+    background: radial-gradient(circle at 30% 30%, #8B7355, #5C4033 60%, #3E2723);
+    border-radius: 50%;
+    box-shadow: 
+        inset 1px 1px 2px rgba(255, 255, 255, 0.3),
+        inset -1px -1px 2px rgba(0, 0, 0, 0.5),
+        0 3px 6px rgba(0, 0, 0, 0.7);
+    z-index: 10;
+}
+
+.nail::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 4px;
+    height: 4px;
+    background: #2a1810;
+    border-radius: 50%;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Fils d'accrochage - gauche */
+.wire-left {
+    position: absolute;
+    top: -28px;
+    left: 50%;
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(180, 180, 180, 0.8), rgba(150, 150, 150, 0.6));
+    transform-origin: top center;
+    transform: translateX(-50%) rotate(-25deg);
+    z-index: 5;
+    box-shadow: 1px 0 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Fils d'accrochage - droite */
+.wire-right {
+    position: absolute;
+    top: -28px;
+    left: 50%;
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(180, 180, 180, 0.8), rgba(150, 150, 150, 0.6));
+    transform-origin: top center;
+    transform: translateX(-50%) rotate(25deg);
+    z-index: 5;
+    box-shadow: 1px 0 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Points d'attache du fil au cadre */
+.hook-left,
+.hook-right {
+    position: absolute;
+    top: 5px;
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle at 30% 30%, #C0C0C0, #808080);
+    border-radius: 50%;
+    box-shadow: 
+        inset 0 1px 1px rgba(255, 255, 255, 0.5),
+        0 1px 2px rgba(0, 0, 0, 0.5);
+    z-index: 6;
+}
+
+.hook-left {
+    left: 20%;
+}
+
+.hook-right {
+    right: 20%;
+}
+
+/* Passe-partout blanc vieilli */
+.mat-board {
+    background: linear-gradient(135deg, #f5f0e8 0%, #ebe6de 50%, #f0ebe3 100%);
+    padding: 45px;
+    box-shadow: 
+        inset 0 0 30px rgba(139, 69, 19, 0.15),
+        inset 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.mat-board::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 1px,
+            rgba(139, 69, 19, 0.02) 1px,
+            rgba(139, 69, 19, 0.02) 2px
+        );
+    pointer-events: none;
+}
+
+.mat-board::after {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(139, 69, 19, 0.2);
+    pointer-events: none;
+}
+
+/* Image de l'œuvre */
+.artwork-image-wrapper {
+    position: relative;
+    background: #000;
+    overflow: hidden;
+    line-height: 0;
+    box-shadow: 
+        0 0 20px rgba(0, 0, 0, 0.5),
+        inset 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.artwork-image-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.picture-frame:hover .artwork-image-wrapper::before {
+    opacity: 1;
+}
+
+.artwork-image {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+    transition: all 0.7s ease;
+    filter: brightness(0.95) contrast(1.05) sepia(0.05);
+}
+
+.picture-frame:hover .artwork-image {
+    transform: scale(1.08);
+    filter: brightness(1) contrast(1.1) sepia(0);
+}
+
+/* Plaque descriptive sous le cadre */
+.name-plate {
+    position: absolute;
+    bottom: -55px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #D4AF37 100%);
+    color: #000;
+    padding: 10px 25px;
+    border-radius: 5px;
+    box-shadow: 
+        0 5px 20px rgba(0, 0, 0, 0.6),
+        inset 0 1px 3px rgba(255, 255, 255, 0.4),
+        inset 0 -1px 3px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1em;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: all 0.4s ease;
+    border: 2px solid rgba(139, 69, 19, 0.3);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.artwork-card:hover .name-plate {
+    opacity: 1;
+    bottom: -50px;
+    box-shadow: 
+        0 8px 30px rgba(212, 175, 55, 0.5),
+        inset 0 1px 3px rgba(255, 255, 255, 0.4),
+        inset 0 -1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Détails de l'œuvre */
+.oeuvre-details {
+    padding: 30px;
+    background: 
+        linear-gradient(145deg, rgba(101, 67, 33, 0.35), rgba(80, 50, 25, 0.4)),
+        radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+    backdrop-filter: blur(10px);
+    border-radius: 0 0 20px 20px;
+    margin-top: 60px;
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(212, 175, 55, 0.15),
+        0 0 0 1px rgba(139, 69, 19, 0.3);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.oeuvre-details::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+}
+
+.oeuvre-details:hover {
+    background: 
+        linear-gradient(145deg, rgba(120, 80, 40, 0.4), rgba(95, 60, 30, 0.45)),
+        radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.12) 0%, transparent 50%);
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(212, 175, 55, 0.25),
+        0 0 0 1px rgba(212, 175, 55, 0.4),
+        0 0 30px rgba(212, 175, 55, 0.15);
+    transform: translateY(-3px);
+}
+
+.oeuvre-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6em;
+    color: #f5f5dc;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.oeuvre-year {
+    color: #D4AF37;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.oeuvre-category {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.15);
+    color: #D4AF37;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    margin-top: 5px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* Bouton voir détails discret */
+.details-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 24px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(212, 175, 55, 0.08));
+    color: #D4AF37;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+    font-size: 0.85em;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    font-weight: 400;
+    cursor: pointer;
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(212, 175, 55, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.details-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.details-button:hover::before {
+    left: 100%;
+}
+
+.details-button:hover {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.2));
+    border-color: #D4AF37;
+    color: #FFD700;
+    transform: translateX(5px);
+    box-shadow: 
+        0 6px 25px rgba(212, 175, 55, 0.3),
+        inset 0 1px 0 rgba(212, 175, 55, 0.2);
+}
+
+footer {
+    background: linear-gradient(to top, #000, #0a0a0a);
+    color: #f5f5dc;
+    text-align: center;
+    padding: 50px 40px;
+    margin-top: 100px;
+    font-size: 1em;
+    letter-spacing: 2px;
+    border-top: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+/* Animation d'entrée */
+.artwork-card {
+    animation: fadeInUp 0.8s ease both;
+}
+
+.artwork-card:nth-child(1) { animation-delay: 0.1s; }
+.artwork-card:nth-child(2) { animation-delay: 0.2s; }
+.artwork-card:nth-child(3) { animation-delay: 0.3s; }
+.artwork-card:nth-child(4) { animation-delay: 0.4s; }
+.artwork-card:nth-child(5) { animation-delay: 0.5s; }
+.artwork-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Animation de balancement subtil des tableaux */
+@keyframes gentleSwing {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(0.5deg); }
+    75% { transform: rotate(-0.5deg); }
+}
+
+.picture-frame {
+    animation: gentleSwing 4s ease-in-out infinite;
+    transform-origin: top center;
+}
+
+.picture-frame:nth-child(odd) {
+    animation-duration: 5s;
+}
+
+.picture-frame:hover {
+    animation: none;
+}
+
+/* Animation des fils qui bougent */
+@keyframes wireSwing {
+    0%, 100% { transform: translateX(-50%) rotate(-25deg); }
+    50% { transform: translateX(-50%) rotate(-27deg); }
+}
+
+@keyframes wireSwingRight {
+    0%, 100% { transform: translateX(-50%) rotate(25deg); }
+    50% { transform: translateX(-50%) rotate(27deg); }
+}
+
+.wire-left {
+    animation: wireSwing 4s ease-in-out infinite;
+}
+
+.wire-right {
+    animation: wireSwingRight 4s ease-in-out infinite;
+}
+
+/* Animation du clou qui brille */
+@keyframes nailShine {
+    0%, 100% { box-shadow: 
+        inset 1px 1px 2px rgba(255, 255, 255, 0.3),
+        inset -1px -1px 2px rgba(0, 0, 0, 0.5),
+        0 3px 6px rgba(0, 0, 0, 0.7); }
+    50% { box-shadow: 
+        inset 1px 1px 3px rgba(255, 255, 255, 0.5),
+        inset -1px -1px 2px rgba(0, 0, 0, 0.5),
+        0 3px 8px rgba(0, 0, 0, 0.7),
+        0 0 10px rgba(139, 69, 19, 0.3); }
+}
+
+.nail {
+    animation: nailShine 3s ease-in-out infinite;
+}
+
+/* Animation de la plaque qui pulse */
+@keyframes platePulse {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.05); }
+}
+
+.artwork-card:hover .name-plate {
+    animation: platePulse 1.5s ease-in-out infinite;
+}
+
+/* Effet de particules dorées qui flottent */
+@keyframes floatParticle {
+    0% { 
+        transform: translate(0, 0) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% { 
+        transform: translate(var(--tx), var(--ty)) scale(1);
+        opacity: 0;
+    }
+}
+
+.picture-frame::after {
+    content: '✦';
+    position: absolute;
+    color: #D4AF37;
+    font-size: 12px;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 20;
+}
+
+.picture-frame:hover::after {
+    animation: floatParticle 2s ease-out infinite;
+    --tx: -30px;
+    --ty: -40px;
+}
+
+/* Animation de brillance qui traverse le cadre */
+@keyframes shine {
+    0% { left: -100%; }
+    100% { left: 200%; }
+}
+
+/* Animation des coins du cadre */
+@keyframes cornerGlow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+.hook-left,
+.hook-right {
+    animation: cornerGlow 2s ease-in-out infinite;
+}
+
+.hook-left {
+    animation-delay: 0s;
+}
+
+.hook-right {
+    animation-delay: 1s;
+}
+
+/* Animation de l'image avec effet de profondeur */
+@keyframes imageFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-3px) scale(1.02); }
+}
+
+.picture-frame:hover .artwork-image {
+    animation: imageFloat 3s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+    .logo-title { font-size: 2.5em; }
+    nav ul { flex-direction: column; gap: 20px; }
+    .artworks-grid { grid-template-columns: 1fr; gap: 40px; }
+    .page-title { font-size: 2.5em; }
+    main { margin-top: 40px; }
+    .mat-board { padding: 25px; }
+}

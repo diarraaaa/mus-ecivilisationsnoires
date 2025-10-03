@@ -1,197 +1,142 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Détails par Niveau {{ niveau }}</title>
-    <style>
-        /* Reset global */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: "Segoe UI", Arial, sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        /* Header */
-        .hero-header {
-            background: linear-gradient(135deg, #222, #444);
-            color: #fff;
-            padding: 50px 20px;
-            text-align: center;
-        }
-
-        .hero-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
-
-        .hero-header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        /* Navbar */
-        nav {
-            background: #333;
-            padding: 12px 0;
-            text-align: center;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #fff;
-            margin: 0 18px;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #ffcc00;
-        }
-
-        /* Main */
-        main {
-            padding: 30px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        h1.page-title {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 2rem;
-            color: #222;
-        }
-
-        ul {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            list-style: none;
-            padding: 0;
-        }
-
-        /* Carte œuvre */
-        li {
-            background-color: #fff;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        li:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-        }
-
-        li img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-bottom: 1px solid #eee;
-        }
-
-        .oeuvre-details {
-            padding: 15px;
-        }
-
-        .oeuvre-details strong {
-            color: #444;
-        }
-
-        /* Bouton */
-        form {
-            text-align: center;
-            margin: 15px 0;
-        }
-
-        button {
-            background: #222;
-            color: #fff;
-            padding: 10px 18px;
-            border: none;
-            border-radius: 25px;
-            font-size: 0.95rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s ease;
-        }
-
-        button:hover {
-            background: #ffcc00;
-            color: #222;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
-        /* Message vide */
-        p.no-data {
-            text-align: center;
-            color: #777;
-            font-style: italic;
-            margin-top: 30px;
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, #222, #444);
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            font-size: 0.9rem;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Détails par Niveau</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/stylepiece.css">
+ 
 </head>
 <body>
-    <header class="hero-header">
-        <h1>Musée des Civilisations Noires</h1>
-        <p>Explorez nos Niveaux et Collections</p>
-    </header>
-
+  <div class="hero-header">
+    <div class="slider-container">
+        <div class="slide slide1 active"></div>
+        <div class="slide slide2"></div>
+        <div class="slide slide3"></div>
+    </div>
+    
     <nav>
-        <a href="/">Accueil</a>
-        <a href="/niveaupage">Les Œuvres</a>
-        <a href="/expositions">Expositions</a>
-        <a href="/collections">Collections</a>
-        <a href="/contact">Contact</a>
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/niveaupage">Les Œuvres</a></li>
+            <li><a href="/expositions">Expositions</a></li>
+            <li><a href="/collections">Collections</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
     </nav>
 
-    <main>
-        <h1 class="page-title">Œuvres de Niveau {{ niveau }}</h1>
-        {% if details %}
-            <ul>
-            {% for oeuvre in details %}
-                <li>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5_VHKsfhuXPtfx_fXX_0YPLVMkeohzXzD4w&s" alt="Image de l'œuvre">
-                    <div class="oeuvre-details">
-                        <strong>Nom:</strong> {{ oeuvre.nom }}<br>
-                        <strong>Année:</strong> {{ oeuvre.annee }}<br>
-                        <strong>Description:</strong> {{ oeuvre.description }}<br>
-                        <strong>Catégorie:</strong> {{ oeuvre.categorie }}
-                    </div>
-                    <form action="/detailsparoeuvre" method="POST">
-                        <input type="hidden" name="id" id="id" value="{{ oeuvre.id }}">
-                        <button type="submit">Voir l'œuvre en détail</button>
-                    </form>
-                </li>
-            {% endfor %}
-            </ul>
-        {% else %}
-            <p class="no-data">Aucune œuvre trouvée pour ce niveau.</p>
-        {% endif %}
-    </main>
+    <div class="header-overlay">
+        <h1 class="logo-title">Musée des Civilisations Noires</h1>
+        <p class="subtitle">Explorez nos Niveaux et Collections</p>
+    </div>
+  </div>
 
-    <footer>
-        &copy; 2025 Musée des Civilisations Noires - Dakar, Sénégal
-    </footer>
+  <main>
+    <h1 class="page-title">Œuvres de Niveau 2</h1>
+    
+    <ul class="artworks-grid" id="artworksContainer"></ul>
+  </main>
+
+  <footer>
+    &copy; 2025 Musée des Civilisations Noires - Dakar, Sénégal
+  </footer>
+
+  <script>
+    const artworks = [
+      {
+        id: 1,
+        nom: "Masque Dogon",
+        annee: "XVIIIe siècle",
+        description: "Masque cérémoniel utilisé lors des rites funéraires Dogon, symbole de sagesse ancestrale.",
+        categorie: "Sculpture",
+        image: "https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=800&q=80"
+      },
+      {
+        id: 2,
+        nom: "Tissu Kente",
+        annee: "XIXe siècle",
+        description: "Étoffe royale Ashanti tissée à la main, portée lors des cérémonies importantes.",
+        categorie: "Textile",
+        image: "https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=800&q=80"
+      },
+      {
+        id: 3,
+        nom: "Statuette Bambara",
+        annee: "XXe siècle",
+        description: "Figure féminine symbolisant la fertilité dans la tradition Bambara du Mali.",
+        categorie: "Sculpture",
+        image: "https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=800&q=80"
+      },
+      {
+        id: 4,
+        nom: "Trône Bamiléké",
+        annee: "XIXe siècle",
+        description: "Siège royal sculpté dans le bois massif, orné de motifs symboliques du pouvoir.",
+        categorie: "Mobilier",
+        image: "https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?w=800&q=80"
+      },
+      {
+        id: 5,
+        nom: "Poterie Berbère",
+        annee: "XXe siècle",
+        description: "Vase décoratif aux motifs géométriques traditionnels du Maghreb.",
+        categorie: "Céramique",
+        image: "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=800&q=80"
+      },
+      {
+        id: 6,
+        nom: "Perles de Venise",
+        annee: "XVIIe siècle",
+        description: "Collier de perles de verre utilisé dans le commerce transatlantique.",
+        categorie: "Bijoux",
+        image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80"
+      }
+    ];
+
+    const container = document.getElementById('artworksContainer');
+    
+    artworks.forEach(artwork => {
+      const li = document.createElement('li');
+      li.className = 'artwork-card';
+      
+      li.innerHTML = `
+        <div class="picture-frame">
+          <div class="nail"></div>
+          <div class="wire-left"></div>
+          <div class="wire-right"></div>
+          <div class="hook-left"></div>
+          <div class="hook-right"></div>
+          <div class="mat-board">
+            <div class="artwork-image-wrapper">
+              <img src="${artwork.image}" alt="${artwork.nom}" class="artwork-image">
+            </div>
+          </div>
+          <div class="name-plate">${artwork.nom}</div>
+        </div>
+        <div class="oeuvre-details">
+          <h3 class="oeuvre-name">${artwork.nom}</h3>
+          <p class="oeuvre-year">${artwork.annee}</p>
+          <span class="oeuvre-category">${artwork.categorie}</span>
+          <a href="/detailsparoeuvre?id=${artwork.id}" class="details-button">Voir détails →</a>
+        </div>
+      `;
+      
+      container.appendChild(li);
+    });
+
+    // Slider du header
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    
+    function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+    
+    setInterval(nextSlide, 5000);
+  </script>
 </body>
 </html>

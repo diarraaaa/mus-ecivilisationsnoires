@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Détails par Niveau {{ niveau }}</title>
     <style>
-        /* Reset de base */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -12,126 +11,154 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('https://www.transparenttextures.com/patterns/stucco.png') repeat;
+            color: #2e2e2e;
         }
 
-        /* Header simple */
+        /* Header */
         .hero-header {
-            background: linear-gradient(135deg, #222, #444);
-            color: #fff;
-            padding: 40px 20px;
+            background: linear-gradient(135deg, #3e3e3e, #1e1e1e);
+            color: #f5f5dc;
+            padding: 60px 20px 40px;
             text-align: center;
         }
 
         .hero-header h1 {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
+            font-size: 2.8rem;
+            letter-spacing: 1px;
         }
 
         .hero-header p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             opacity: 0.9;
         }
 
         nav {
-            background: #333;
-            padding: 12px 0;
+            background: #222;
+            padding: 14px 0;
             text-align: center;
         }
 
         nav a {
             text-decoration: none;
-            color: #fff;
-            margin: 0 18px;
-            font-weight: bold;
+            color: #f5f5dc;
+            margin: 0 20px;
+            font-weight: 500;
             transition: color 0.3s ease;
+            text-transform: uppercase;
         }
 
         nav a:hover {
-            color: #ffcc00;
+            color: #D4AF37;
         }
 
-        /* Contenu principal */
+        /* Main content */
         main {
-            padding: 25px;
-            max-width: 900px;
+            padding: 40px 20px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        h1.page-title {
+        .page-title {
             text-align: center;
-            margin-bottom: 25px;
-            font-size: 1.8rem;
-            color: #222;
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+            color: #2e2e2e;
+            position: relative;
         }
 
-        ul {
-            list-style: none;
-            padding: 0;
-            text-align: center;
+        .page-title::after {
+            content: '';
+            width: 80px;
+            height: 3px;
+            background: #D4AF37;
+            display: block;
+            margin: 15px auto 0;
         }
 
-        ul img {
-            max-width: 300px;
+        .oeuvre-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .oeuvre-card img {
+            max-width: 100%;
             border-radius: 10px;
             margin-bottom: 20px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
-        li {
-            background-color: #fff;
-            margin-bottom: 20px;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+        .oeuvre-info {
             text-align: left;
+            max-width: 700px;
+            margin-top: 10px;
         }
 
-        li strong {
+        .oeuvre-info strong {
             color: #444;
+            display: inline-block;
+            width: 120px;
         }
 
-        p.no-data {
-            text-align: center;
-            color: #777;
-            font-style: italic;
-        }
-
-        /* Boutons stylisés */
         .btn-container {
-            text-align: center;
-            margin-top: 20px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         .btn {
-            background: #222;
-            color: #fff;
-            padding: 12px 20px;
+            background: linear-gradient(135deg, #D4AF37, #FFD700);
+            color: #000;
+            padding: 12px 25px;
             border: none;
-            border-radius: 25px;
-            margin: 10px;
+            border-radius: 30px;
             font-size: 1rem;
             cursor: pointer;
             transition: 0.3s ease;
+            font-weight: bold;
             text-transform: uppercase;
+            box-shadow: 0 5px 12px rgba(212, 175, 55, 0.3);
         }
 
         .btn:hover {
-            background: #ffcc00;
-            color: #222;
+            background: #fff;
+            color: #D4AF37;
+            border: 1px solid #D4AF37;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
         footer {
-            background: linear-gradient(135deg, #222, #444);
-            color: #fff;
+            background: linear-gradient(135deg, #3e3e3e, #1e1e1e);
+            color: #f5f5dc;
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
+            padding: 30px;
+            margin-top: 50px;
             font-size: 0.9rem;
+            border-top: 2px solid #D4AF37;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .oeuvre-card {
+                padding: 20px;
+            }
+
+            .btn-container {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
         }
     </style>
 </head>
@@ -150,21 +177,22 @@
     </nav>
 
     <main>
-        <h1 class="page-title">{{ details.nom }}</h1>
-        <ul>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5_VHKsfhuXPtfx_fXX_0YPLVMkeohzXzD4w&s" alt="Image de l'œuvre">
-            <li>
-                <strong>Nom:</strong> {{ details.nom }}<br>
-                <strong>Année:</strong> {{ details.annee }}<br>
-                <strong>Description:</strong> {{ details.description }}<br>
-                <strong>Catégorie:</strong> {{ details.categorie }}
-            </li>
-        </ul>
+        <h2 class="page-title">{{ details.nom }}</h2>
 
-        <div class="btn-container">
-            <button class="btn">📖 Voir l’Histoire</button>
-            <button class="btn">🔊 Écouter l’Histoire</button>
-            <button class="btn">🖼️ Voir en 3D</button>
+        <div class="oeuvre-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5_VHKsfhuXPtfx_fXX_0YPLVMkeohzXzD4w&s" alt="Image de l'œuvre">
+            <div class="oeuvre-info">
+                <p><strong>Nom:</strong> {{ details.nom }}</p>
+                <p><strong>Année:</strong> {{ details.annee }}</p>
+                <p><strong>Description:</strong> {{ details.description }}</p>
+                <p><strong>Catégorie:</strong> {{ details.categorie }}</p>
+            </div>
+
+            <div class="btn-container">
+                <button class="btn">📖 Voir l’Histoire</button>
+                <button class="btn">🔊 Écouter l’Histoire</button>
+                <button class="btn">🖼️ Voir en 3D</button>
+            </div>
         </div>
     </main>
 
