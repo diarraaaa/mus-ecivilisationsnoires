@@ -152,7 +152,10 @@
                     <p class="oeuvre-year">{{ oeuvre.annee }}</p>
                     <span class="oeuvre-category">{{ oeuvre.categorie }}</span>
                     <p class="oeuvre-description">{{ oeuvre.description }}</p>
-                    <a href="/detailsparoeuvre?id={{ oeuvre.id }}" class="details-button">Voir détails →</a>
+                    <form action="/detailsparoeuvre" method="post">
+                        <input type="hidden" name="id" value="{{ oeuvre.id }}">
+                        <button type="submit" class="details-button">Voir Détails</button>
+                    </form>
                 </div>
             </div>
         </li>
