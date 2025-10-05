@@ -17,6 +17,9 @@ def detailsparpiece():
 @app.route('/detailsparoeuvre', methods=['GET', 'POST'])
 def detailsparoeuvre():
     return detailsparoeuvrecode()
+@app.route('/contact')
+def pagecontact():
+    return render_template("contact.html")
 @app.route('/expositions')
 def afficherevenements():
     return evenementscode()
