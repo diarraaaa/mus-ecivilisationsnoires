@@ -1,6 +1,6 @@
 from flask import Flask, render_template, session, request
 from python import app
-from python.Fonctions import detailsparniveaucode, detailsparoeuvrecode
+from python.Fonctions import detailsparniveaucode, detailsparoeuvrecode,evenementscode
 
 @app.route('/')
 def index():
@@ -17,6 +17,8 @@ def detailsparpiece():
 @app.route('/detailsparoeuvre', methods=['GET', 'POST'])
 def detailsparoeuvre():
     return detailsparoeuvrecode()
-
+@app.route('/expositions')
+def afficherevenements():
+    return evenementscode()
 if __name__ == '__main__':
     app.run(debug=True)

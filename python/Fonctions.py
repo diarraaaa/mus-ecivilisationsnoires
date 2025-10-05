@@ -33,3 +33,9 @@ def detailsparoeuvrecode():
     
     details = affichage.data[0]
     return render_template('detailsoeuvre.html', details=details)
+
+def evenementscode():
+    # Logique pour récupérer les événements
+    affichage = supabase.table('evenements').select('*').execute()
+    details = affichage.data
+    return render_template('evenements.html', details=details)
