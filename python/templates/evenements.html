@@ -1,0 +1,454 @@
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evenements du Musée des Civilisations Noires</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="/static/css/stylepiece.css">
+<style>
+
+/* ========== Variables de couleur ========== */
+:root {
+    --gold: #D4AF37;
+    --gold-light: #FFD700;
+    --cream: #F5F5DC;
+}
+
+
+
+/* ===== Chatbot ===== */
+#chatToggle {
+    position: fixed;
+    bottom: 35px;
+    right: 35px;
+    z-index: 1500;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: #000;
+    border: none;
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    font-size: 2em;
+    cursor: pointer;
+    box-shadow: 0 10px 35px rgba(212, 175, 55, 0.6), 0 0 60px rgba(212, 175, 55, 0.3);
+    transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+    animation: chatPulse 3s ease-in-out infinite;
+}
+
+@keyframes chatPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); box-shadow: 0 10px 40px rgba(212,175,55,0.8); }
+}
+
+#chatToggle:hover {
+    transform: scale(1.15) rotate(15deg);
+    box-shadow: 0 15px 50px rgba(212,175,55,0.8), 0 0 80px rgba(212,175,55,0.5);
+}
+#chatPopup {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    bottom: 120px;
+    right: 35px;
+    width: 400px;
+    max-height: 600px;
+    background: linear-gradient(145deg, rgba(26, 15, 8, 0.98), rgba(20, 12, 8, 0.98));
+    border: 3px solid var(--gold);
+    border-radius: 25px;
+    box-shadow: 
+        0 20px 70px rgba(0, 0, 0, 0.95),
+        0 0 60px rgba(212, 175, 55, 0.3);
+    z-index: 1500;
+    overflow: hidden;
+    backdrop-filter: blur(25px) saturate(150%);
+    animation: chatSlideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes chatSlideIn {
+    from { opacity: 0; transform: translateY(30px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+#chatPopupHeader {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: #000;
+    padding: 25px;
+    font-weight: 800;
+    font-size: 1.3em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+#chatPopupHeader button {
+    background: rgba(0, 0, 0, 0.2);
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #000;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+#chatPopupHeader button:hover {
+    background: rgba(0, 0, 0, 0.3);
+    transform: rotate(90deg);
+}
+
+#chatMessages {
+    flex: 1;
+    padding: 25px;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#chatMessages::-webkit-scrollbar {
+    width: 8px;
+}
+
+#chatMessages::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+#chatMessages::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 10px;
+}
+
+#chatMessages .chat-msg {
+    padding: 14px 18px;
+    border-radius: 15px;
+    max-width: 85%;
+    word-wrap: break-word;
+    line-height: 1.6;
+    animation: messageSlideIn 0.3s ease;
+    position: relative;
+}
+
+@keyframes messageSlideIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#chatMessages .chat-user {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(212, 175, 55, 0.2));
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    align-self: flex-end;
+    margin-left: auto;
+    color: var(--cream);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+}
+
+#chatMessages .chat-bot {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.35), rgba(212, 175, 55, 0.25));
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    color: var(--cream);
+    align-self: flex-start;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+#chatForm {
+    display: flex;
+    border-top: 2px solid rgba(212, 175, 55, 0.4);
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px;
+}
+
+#chatForm input {
+    flex: 1;
+    padding: 18px 20px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--cream);
+    font-size: 1em;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+#chatForm input::placeholder {
+    color: rgba(245, 245, 220, 0.5);
+}
+
+#chatForm button {
+    padding: 18px 25px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: #000;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    border-radius: 12px;
+    margin: 5px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Raleway', sans-serif;
+}
+
+#chatForm button:hover {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.5);
+}
+    .artwork-plaque {
+    background: linear-gradient(145deg, rgba(20, 15, 12, 0.95) 0%, rgba(15, 10, 8, 0.98) 100%);
+    padding: 28px 30px;
+    margin-top: 18px;
+    border: 2px solid rgba(212, 175, 55, 0.4);
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(212, 175, 55, 0.15);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    text-align: center; /* Centrer tout le contenu */
+}
+
+.artwork-plaque::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.6) 50%, transparent);
+}
+
+.picture-frame:hover .artwork-plaque {
+    border-color: rgba(212, 175, 55, 0.7);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9), 0 0 30px rgba(212, 175, 55, 0.2);
+}
+
+.oeuvre-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75em;
+    color: #D4AF37;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    line-height: 1.3;
+    text-align: center; /* Centrer le titre */
+}
+
+.oeuvre-year {
+    color: rgba(212, 175, 55, 0.85);
+    font-size: 1.15em;
+    margin-bottom: 15px;
+    font-weight: 300;
+    text-align: center; /* Centrer l'année */
+}
+
+.oeuvre-category {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.12);
+    color: #D4AF37;
+    padding: 7px 16px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    margin-bottom: 15px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.oeuvre-description {
+    color: rgba(245, 245, 220, 0.9);
+    font-size: 1.05em;
+    line-height: 1.75;
+    margin-top: 15px;
+    font-weight: 300;
+    text-align: center; /* Centrer la description */
+}
+
+.details-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.12) 100%);
+    color: #D4AF37;
+    border: 1.5px solid rgba(212, 175, 55, 0.4);
+    border-radius: 10px;
+    font-size: 0.9em;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+.details-button:hover {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.25) 100%);
+    border-color: #D4AF37;
+    color: #FFD700;
+    transform: scale(1.05);
+    box-shadow: 0 6px 30px rgba(212, 175, 55, 0.4);
+}
+
+</style>
+</head>
+<body>
+
+<div class="hero-header">
+    <div class="slider-container">
+        <div class="slide slide1 active"></div>
+        <div class="slide slide2"></div>
+        <div class="slide slide3"></div>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/niveaupage">Les Œuvres</a></li>
+            <li><a href="/expositions">Expositions</a></li>
+            <li><a href="/collections">Collections</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="header-overlay">
+        <h1 class="logo-title">Musée des Civilisations Noires</h1>
+    </div>
+  </div>
+
+<main>
+    <h1 class="page-title">Evenements du Musée des Civilisations Noires</h1>
+    <ul class="artworks-grid">
+        {% for oeuvre in details %}
+        <li class="artwork-card">
+            <div class="picture-frame">
+                <div class="nail"></div>
+                <div class="wire-left"></div>
+                <div class="wire-right"></div>
+
+                <div class="mat-board">
+                    <div class="artwork-image-wrapper">
+                        <img src="https://farafinaculture.com/wp-content/uploads/2020/01/MCN.jpg" alt="{{ oeuvre.nom }}" class="artwork-image">
+                    </div>
+                </div>
+
+                <div class="artwork-plaque">
+                    <h3 class="oeuvre-name">{{ oeuvre.nom }}</h3>
+                    <p class="oeuvre-year">{{ oeuvre.type_id }}</p>
+                    <span class="oeuvre-category">Lieu : {{ oeuvre.lieu }}</span>
+                    <p class="oeuvre-description">{{ oeuvre.description }}</p>
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</main>
+<!-- Chatbot -->
+<button id="chatToggle">💬</button>
+<div id="chatPopup">
+    <div id="chatPopupHeader">
+        Guide Musée
+        <button onclick="toggleChat()">✖</button>
+    </div>
+    <div id="chatMessages"></div>
+    <form id="chatForm" onsubmit="sendChat(event)">
+        <input type="text" id="chatInput" placeholder="Posez votre question..." required />
+        <button type="submit">Envoyer</button>
+    </form>
+</div>
+
+<footer>
+    &copy; 2025 Musée des Civilisations Noires - Dakar, Sénégal
+</footer>
+<script>
+    // === CHATBOT ===
+const chatToggle = document.getElementById("chatToggle");
+const chatPopup = document.getElementById("chatPopup");
+const chatMessages = document.getElementById("chatMessages");
+const chatInput = document.getElementById("chatInput");
+
+// Génération d'un ID de session unique
+function getSessionId() {
+    let sessionId = sessionStorage.getItem("chatSessionId");
+    if (!sessionId) {
+        sessionId = crypto.randomUUID ? crypto.randomUUID() :
+            'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+                const r = Math.random() * 16 | 0;
+                const v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        sessionStorage.setItem("chatSessionId", sessionId);
+    }
+    return sessionId;
+}
+
+const sessionId = getSessionId();
+
+// Toggle du chatbot
+function toggleChat() { 
+    chatPopup.style.display = chatPopup.style.display === "flex" ? "none" : "flex";
+    if (chatPopup.style.display === "flex" && chatMessages.children.length === 0) {
+        appendMessage("Bonjour ! Je suis votre guide virtuel. Comment puis-je vous aider à découvrir cette œuvre ?", "chat-bot");
+    }
+}
+chatToggle.addEventListener("click", toggleChat);
+
+// Ajout d'un message au chat
+function appendMessage(text, sender) {
+    const div = document.createElement("div");
+    div.className = `chat-msg ${sender}`;
+    div.textContent = text;
+    chatMessages.appendChild(div);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+// Envoi d'un message au chatbot
+async function sendChat(event) {
+    event.preventDefault();
+    const message = chatInput.value.trim();
+    if (!message) return;
+    
+    appendMessage(message, "chat-user");
+    chatInput.value = "";
+    
+    // Message de chargement
+    const loadingDiv = document.createElement("div");
+    loadingDiv.className = "chat-msg chat-bot";
+    loadingDiv.textContent = "En train d'écrire...";
+    loadingDiv.id = "loading-msg";
+    chatMessages.appendChild(loadingDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    
+    try {
+        const res = await fetch("https://diarradiengcode.app.n8n.cloud/webhook/c87f9694-88d8-470f-bf9f-c898f6e14820", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message, sessionId })
+        });
+        
+        const response = await res.text();
+        
+        // Retirer le message de chargement
+        const loadingMsg = document.getElementById("loading-msg");
+        if (loadingMsg) loadingMsg.remove();
+        
+        appendMessage(response, "chat-bot");
+    } catch (e) {
+        const loadingMsg = document.getElementById("loading-msg");
+        if (loadingMsg) loadingMsg.remove();
+        
+        appendMessage("Désolé, une erreur s'est produite. Veuillez réessayer.", "chat-bot");
+        console.error("Erreur chatbot:", e);
+    }
+}
+</script>
+
+</body>
