@@ -14,7 +14,6 @@ def pageniveau():
 def detailsparpiece():
     return detailsparniveaucode()
 
-# Route modifiée pour accepter GET et POST
 @app.route('/detailsparoeuvre', methods=['GET', 'POST'])
 def detailsparoeuvre():
     return detailsparoeuvrecode()
