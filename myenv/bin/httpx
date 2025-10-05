@@ -1,4 +1,4 @@
-#!/home/diarra/Bureau/bureau/mus-ecivilisationsnoires/myenv/bin/python3
+#!/home/diarra/Bureau/bureau/mus-ecivilisationsnoires/myenv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
