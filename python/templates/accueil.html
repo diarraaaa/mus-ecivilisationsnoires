@@ -7,67 +7,67 @@
     <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-            #chatToggle {
-        position: fixed;
-        bottom: 25px;
-        right: 25px;
-        z-index: 1000;
-        background: #D4AF37;
-        color: #000;
-        border: none;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        font-size: 1.8em;
-        cursor: pointer;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
-    #chatPopup {
-        display: none;
-        flex-direction: column;
-        position: fixed;
-        bottom: 90px;
-        right: 25px;
-        width: 320px;
-        max-height: 500px;
-        background: #fff;
-        border-radius: 15px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        z-index: 1000;
-        overflow: hidden;
-    }
-    #chatPopupHeader {
-        background: #D4AF37;
-        color: #000;
-        padding: 15px;
-        font-weight: 600;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    #chatPopupHeader button {
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        font-size: 1.2em;
-    }
-    #chatMessages {
-        flex: 1;
-        padding: 15px;
-        overflow-y: auto;
-    }
-    #chatMessages .chat-msg {
-        margin-bottom: 10px;
-        padding: 10px;
-        border-radius: 8px;
-        max-width: 85%;
-        word-wrap: break-word;
-    }
-    #chatMessages .chat-user { background: #eee; align-self: flex-end; }
-    #chatMessages .chat-bot { background: #D4AF37; color: #000; align-self: flex-start; }
-    #chatForm { display: flex; border-top: 1px solid #ccc; }
-    #chatForm input { flex: 1; padding: 10px; border: none; outline: none; }
-    #chatForm button { padding: 10px 15px; background: #D4AF37; color: #000; border: none; cursor: pointer; }
+        #chatToggle {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 1000;
+            background: #D4AF37;
+            color: #000;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.8em;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        #chatPopup {
+            display: none;
+            flex-direction: column;
+            position: fixed;
+            bottom: 90px;
+            right: 25px;
+            width: 320px;
+            max-height: 500px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 1000;
+            overflow: hidden;
+        }
+        #chatPopupHeader {
+            background: #D4AF37;
+            color: #000;
+            padding: 15px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #chatPopupHeader button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+        #chatMessages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+        }
+        #chatMessages .chat-msg {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 85%;
+            word-wrap: break-word;
+        }
+        #chatMessages .chat-user { background: #eee; align-self: flex-end; }
+        #chatMessages .chat-bot { background: #D4AF37; color: #000; align-self: flex-start; }
+        #chatForm { display: flex; border-top: 1px solid #ccc; }
+        #chatForm input { flex: 1; padding: 10px; border: none; outline: none; }
+        #chatForm button { padding: 10px 15px; background: #D4AF37; color: #000; border: none; cursor: pointer; }
 
         * {
             margin: 0;
@@ -207,7 +207,7 @@
         }
 
         .feature-card {
-            background: var(--white);
+            background: white;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0,0,0,0.08);
@@ -231,7 +231,7 @@
         .feature-card h3 {
             font-size: 1.6em;
             margin-bottom: 20px;
-            color: var(--black);
+            color: black;
         }
 
         .feature-card p {
@@ -249,7 +249,7 @@
 
         .lang-btn {
             padding: 10px 25px;
-            background: var(--beige-dark);
+            background: #e8e2d1;
             border: 2px solid transparent;
             border-radius: 30px;
             cursor: pointer;
@@ -324,30 +324,6 @@
             padding: 0 40px;
         }
 
-        .content-section {
-            background: #fff;
-            padding: 60px;
-            margin-bottom: 50px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            border-top: 4px solid #D4AF37;
-        }
-
-        h2 {
-            color: #000;
-            font-size: 2.5em;
-            font-weight: 300;
-            letter-spacing: 3px;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-        }
-
-        .intro-text {
-            font-size: 1.3em;
-            line-height: 1.8;
-            color: #333;
-            margin-bottom: 30px;
-        }
-
         .welcome-container {
             display: flex;
             align-items: center;
@@ -406,11 +382,11 @@
             color: #555;
             line-height: 1.6;
         }
-                /* Scanner QR Code */
+        /* Scanner QR Code */
         .scanner-section {
             text-align: center;
             padding: 40px;
-            background: var(--beige-dark);
+            background: #e8e2d1;
             border-radius: 15px;
             margin-bottom: 40px;
         }
@@ -425,8 +401,8 @@
         .scanner-placeholder {
             width: 300px;
             height: 300px;
-            background: var(--white);
-            border: 3px dashed var(--gold);
+            background: white;
+            border: 3px dashed #D4AF37;
             border-radius: 15px;
             display: flex;
             flex-direction: column;
@@ -439,7 +415,7 @@
         .scanner-placeholder i {
             font-size: 4em;
             margin-bottom: 20px;
-            color: var(--gold);
+            color: #D4AF37;
         }
 
         .scanner-instructions {
@@ -450,7 +426,7 @@
         /* Footer */
         footer {
             background-color:black;
-            color: var(--white);
+            color: white;
             padding: 4rem 2rem 2rem;
         }
 
@@ -478,7 +454,7 @@
             left: 0;
             width: 40px;
             height: 2px;
-            background-color: var(--gold);
+            background-color: #D4AF37;
         }
 
         .footer-column p, .footer-column a {
@@ -543,20 +519,20 @@
 
         .btn:hover {
             background: transparent;
-            color: var(--gold);
+            color: #D4AF37;
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
         }
 
         .btn-secondary {
             background: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
+            color: white;
+            border: 2px solid white;
         }
 
         .btn-secondary:hover {
-            background: var(--white);
-            color: var(--black);
+            background: white;
+            color: black;
         }
 
         /* Responsive */
@@ -646,7 +622,7 @@
             background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.3));
         }
 
-        /* Images des œuvres avec SVG patterns artistiques */
+        /* Images des œuvres */
         .img1 { background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://farafinaculture.com/wp-content/uploads/2020/01/MCN.jpg'); }
         
         .img2 { background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://farafinaculture.com/wp-content/uploads/2020/01/MCN1.jpg'); }
@@ -654,8 +630,6 @@
         .img4 { background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://img-4.linternaute.com/8PMTFZ0r5gXztwWIHgGS5Sx282w=/fit-in/x630/smart/filters:fill(1D1D1B)/8fe14783f8be4763babce0f6bab93fcb/ccmcms-linternaute/11534549.jpg'); }
 
         .img5 { background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://senegalndiaye.com/wp-content/uploads/2019/07/20190706_165656-e1564167711900.jpg'); }
-
-      
 
         .artwork-info {
             padding: 30px;
@@ -707,18 +681,8 @@
                 flex-direction: column;
                 gap: 30px;
             }
-            
         }
     </style>
-</head>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Musée des Civilisations Noires</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://unpkg.com/html5-qrcode"></script>
 </head>
 <body>
     <!-- Header avec slider -->
@@ -734,6 +698,7 @@
                 <li><a href="/niveaupage" data-i18n="nav.artworks">Les Œuvres</a></li>
                 <li><a href="/expositions" data-i18n="nav.exhibitions">Expositions</a></li>
                 <li><a href="/contact" data-i18n="nav.contact">Contact</a></li>
+            </ul>
         </nav>
         <div class="header-overlay">
             <h1 class="logo-title" data-i18n="header.title">Musée des Civilisations Noires</h1>
@@ -893,7 +858,6 @@
                 <p data-i18n="footer.hours.schedule">Lundi - Samedi: 10h - 19h</p>
                 <p data-i18n="footer.hours.closed">Fermé Dimanche et les jours fériés</p>
             </div>
-            </div>
             <div class="footer-column">
                 <h3 data-i18n="footer.links">Liens rapides</h3>
                 <a href="/">Accueil</a>
@@ -1032,8 +996,10 @@
                     placeholder: "Posez votre question...",
                     send: "Envoyer"
                 },
+                virtualTour: {
+                    close: "Fermer"
+                },
                 alerts: {
-                    virtualTour: "La visite virtuelle sera bientôt disponible !",
                     cameraError: "Impossible d'accéder à la caméra.",
                     cameraPermission: "Vous devez autoriser l'accès à la caméra dans votre navigateur.\n1. Cliquez sur l'icône de caméra dans la barre d'adresse\n2. Sélectionnez 'Autoriser'\n3. Rafraîchissez la page",
                     noCamera: "Aucune caméra détectée sur cet appareil.",
@@ -1146,8 +1112,10 @@
                     placeholder: "Ask your question...",
                     send: "Send"
                 },
+                virtualTour: {
+                    close: "Close"
+                },
                 alerts: {
-                    virtualTour: "The virtual tour will be available soon!",
                     cameraError: "Unable to access camera.",
                     cameraPermission: "You must allow camera access in your browser.\n1. Click on the camera icon in the address bar\n2. Select 'Allow'\n3. Refresh the page",
                     noCamera: "No camera detected on this device.",
@@ -1260,8 +1228,10 @@
                     placeholder: "Laaj sa làkk...",
                     send: "Yónne"
                 },
+                virtualTour: {
+                    close: "Tëj"
+                },
                 alerts: {
-                    virtualTour: "Wone bu jëm dina am ba gaañu!",
                     cameraError: "Mënuñu jëfandikoo kamera bi.",
                     cameraPermission: "Wara nga jappe kamera bi ci sa navigateur.\n1. Bësal icône kamera bi ci baarub adrees\n2. Tànn 'Jappe'\n3. Rafraîchir ci palanteer bi",
                     noCamera: "Amul kamera ci aparéey bii.",
@@ -1269,8 +1239,9 @@
                     qrError: "Mënuñu jàng kode QR ci nataal bii. Xoolal ni nataal bi am na kode QR bu gëna gis.",
                     connectionError: "Njumte ci jokkoo ak IA bi."
                 }
-            },
+            }
         };
+
         // === GESTION DE LA LANGUE ===
         let currentLanguage = localStorage.getItem('preferredLanguage') || 'fr';
 
@@ -1509,8 +1480,49 @@
 
         setInterval(nextSlide, 4000);
 
+        // === VISITE VIRTUELLE ===
+        const virtualTourModal = document.createElement('div');
+        virtualTourModal.id = 'virtualTourModal';
+        virtualTourModal.style.cssText = `
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+            z-index: 99999;
+            flex-direction: column;
+        `;
+        virtualTourModal.innerHTML = `
+            <div style="position: absolute; top: 20px; right: 20px; z-index: 100000;">
+                <button id="closeVirtualTour" style="background: #D4AF37; color: #000; border: none; padding: 15px 30px; cursor: pointer; font-size: 1.2em; border-radius: 5px; font-weight: 600; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); transition: all 0.3s ease;">
+                    ✕ <span data-i18n="virtualTour.close">Fermer</span>
+                </button>
+            </div>
+            <iframe width="100%" height="100%" style="border: none;" src="https://metasteps.com/viewer/embed/14244a20-b08c-4cf1-ae69-db841a423b15?showSignIn=0&showCommunications=0" title="Musée des Civilisations Noires - Visite Virtuelle" allow="accelerometer; gyroscope; xr-spatial-tracking"></iframe>
+        `;
+        document.body.appendChild(virtualTourModal);
+
         document.querySelector('.virtual-tour-btn').addEventListener('click', function() {
-            alert(translations[currentLanguage].alerts.virtualTour);
+            virtualTourModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+
+        document.getElementById('closeVirtualTour').addEventListener('click', function() {
+            virtualTourModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Effet hover sur le bouton fermer
+        document.getElementById('closeVirtualTour').addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05)';
+            this.style.boxShadow = '0 6px 20px rgba(212, 175, 55, 0.6)';
+        });
+
+        document.getElementById('closeVirtualTour').addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+            this.style.boxShadow = '0 4px 15px rgba(212, 175, 55, 0.4)';
         });
 
         // === CHATBOT ===
@@ -1571,4 +1583,3 @@
     </script>
 </body>
 </html>
-
