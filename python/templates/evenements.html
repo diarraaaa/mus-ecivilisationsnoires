@@ -6,8 +6,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
  <link rel="stylesheet" href="/static/css/stylepiece.css">
 <style>
-
-/* ========== Variables de couleur ========== */
 :root {
     --gold: #D4AF37;
     --gold-light: #FFD700;
@@ -15,24 +13,24 @@
     --dark-brown: #1A0F08;
     --bronze: #CD7F32;
 }
-
-     * {
+/* ========== Variables de couleur ========== */
+ * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            font-family:   'Garamond', 'Georgia', serif;
+            font-family: 'Garamond', 'Georgia', serif;
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2416 100%);
             color: #F5F5DC;
-         
+           
         }
 
         /* Header avec slider */
         .hero-header {
             position: relative;
-            height: 80vh;
+             height: 90vh;
             overflow: hidden;
             background: #000;
         }
@@ -167,7 +165,7 @@
             width: 100%;
             padding: 30px 50px;
             z-index: 10;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+          
         }
 
         nav ul {
@@ -192,11 +190,13 @@
             color: #D4AF37;
             border-bottom: 2px solid #D4AF37;
         }
+
 /* ===== MAIN CONTENT ===== */
 main {
     max-width: 1400px;
     margin: 0 auto;
     padding: 80px 40px;
+    background-color: #F5F5DC;
 }
 
 .page-title {
@@ -251,12 +251,12 @@ main {
 
 .picture-frame {
     position: relative;
-    background: linear-gradient(145deg, rgba(26, 15, 8, 0.6), rgba(20, 12, 8, 0.8));
+    background: linear-gradient(145deg, rgba(245, 245, 220, 0.8), rgba(240, 240, 210, 0.9));
     border-radius: 15px;
     overflow: hidden;
-    border: 2px solid rgba(212, 175, 55, 0.3);
+    border: 2px solid rgba(212, 175, 55, 0.4);
     box-shadow: 
-        0 10px 40px rgba(0, 0, 0, 0.7),
+        0 10px 40px rgba(0, 0, 0, 0.15),
         0 0 30px rgba(212, 175, 55, 0.1);
     transition: all 0.4s ease;
     backdrop-filter: blur(10px);
@@ -266,8 +266,8 @@ main {
     transform: translateY(-8px);
     border-color: var(--gold);
     box-shadow: 
-        0 20px 60px rgba(0, 0, 0, 0.8),
-        0 0 50px rgba(212, 175, 55, 0.3);
+        0 20px 60px rgba(0, 0, 0, 0.25),
+        0 0 50px rgba(212, 175, 55, 0.2);
 }
 
 /* Pas de nail ni wire */
@@ -293,7 +293,7 @@ main {
     height: 100%;
     object-fit: cover;
     transition: transform 0.6s ease;
-    filter: contrast(1.05) brightness(0.98);
+    filter: contrast(1.05) brightness(1.02);
 }
 
 .picture-frame:hover .artwork-image {
@@ -302,9 +302,9 @@ main {
 
 /* ===== ARTWORK PLAQUE ===== */
 .artwork-plaque {
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+    background: linear-gradient(180deg, rgba(245, 245, 220, 0.7), rgba(240, 240, 210, 0.9));
     padding: 30px;
-    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    border-top: 1px solid rgba(212, 175, 55, 0.4);
 }
 
 .oeuvre-name {
@@ -325,22 +325,22 @@ main {
 
 .oeuvre-category {
     display: inline-block;
-    background: rgba(212, 175, 55, 0.15);
-    color: var(--gold-light);
+    background: rgba(212, 175, 55, 0.2);
+    color: var(--gold);
     padding: 8px 16px;
     border-radius: 20px;
     font-size: 0.95em;
     font-weight: 600;
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    border: 1px solid rgba(212, 175, 55, 0.4);
     margin-bottom: 15px;
 }
 
 .oeuvre-description {
-    color: var(--cream);
+    color: #333;
     line-height: 1.8;
     font-size: 1.05em;
     margin-top: 15px;
-    opacity: 0.95;
+    opacity: 0.9;
 }
 
 /* ===== FOOTER ===== */
@@ -620,26 +620,31 @@ footer {
 </head>
 <body>
 
-<div class="hero-header">
-    <div class="slider-container">
-        <div class="slide slide1 active"></div>
-        <div class="slide slide2"></div>
-        <div class="slide slide3"></div>
-    </div>
+ <!-- Header avec slider -->
+    <div class="hero-header">
+        <div class="slider-container">
+            <div class="slide slide1 active"></div>
+            <div class="slide slide2"></div>
+            <div class="slide slide3"></div>
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/niveaupage">Les Œuvres</a></li>
+                <li><a href="/expositions">Expositions</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
 
-    <nav>
-        <ul>
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/niveaupage">Les Œuvres</a></li>
-            <li><a href="/expositions">Expositions</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </nav>
+        <div class="header-overlay">
+            <h1 class="logo-title">Musée des Civilisations Noires</h1>
+            <p class="subtitle">Un Voyage à Travers l'Histoire et la Culture</p>
+            <button class="virtual-tour-btn">Visite Virtuelle</button>
+        </div>
 
-    <div class="header-overlay">
-        <h1 class="logo-title">Musée des Civilisations Noires</h1>
+        <div class="scroll-indicator">▼ Découvrir</div>
     </div>
-  </div>
 
 <main>
     <h1 class="page-title">Evenements du Musée des Civilisations Noires</h1>

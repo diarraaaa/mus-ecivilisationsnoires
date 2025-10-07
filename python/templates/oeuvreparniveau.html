@@ -200,13 +200,13 @@
     transform: scale(1.05);
     box-shadow: 0 5px 20px rgba(212, 175, 55, 0.5);
 }
-    .artwork-plaque {
-    background: linear-gradient(145deg, rgba(20, 15, 12, 0.95) 0%, rgba(15, 10, 8, 0.98) 100%);
+   .artwork-plaque {
+    background: linear-gradient(145deg, rgba(245, 245, 220, 0.95) 0%, rgba(240, 240, 210, 0.98) 100%);
     padding: 28px 30px;
     margin-top: 18px;
     border: 2px solid rgba(212, 175, 55, 0.4);
     border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(212, 175, 55, 0.15);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15), inset 0 1px 2px rgba(212, 175, 55, 0.1);
     position: relative;
     overflow: hidden;
     transition: all 0.5s ease;
@@ -225,13 +225,13 @@
 
 .picture-frame:hover .artwork-plaque {
     border-color: rgba(212, 175, 55, 0.7);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9), 0 0 30px rgba(212, 175, 55, 0.2);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2), 0 0 30px rgba(212, 175, 55, 0.15);
 }
 
 .oeuvre-name {
     font-family: 'Playfair Display', serif;
     font-size: 1.75em;
-    color: #D4AF37;
+    color: #B8860B; /* Or plus foncé pour meilleur contraste */
     margin-bottom: 10px;
     font-weight: 700;
     letter-spacing: 1.5px;
@@ -240,34 +240,34 @@
 }
 
 .oeuvre-year {
-    color: rgba(212, 175, 55, 0.85);
+    color: #8B6914; /* Bronze pour meilleure lisibilité */
     font-size: 1.15em;
     margin-bottom: 15px;
-    font-weight: 300;
+    font-weight: 500; /* Plus épais pour mieux ressortir */
     text-align: center; /* Centrer l'année */
 }
 
 .oeuvre-category {
     display: inline-block;
-    background: rgba(212, 175, 55, 0.12);
-    color: #D4AF37;
+    background: rgba(212, 175, 55, 0.15);
+    color: #B8860B;
     padding: 7px 16px;
     border-radius: 20px;
     font-size: 0.85em;
     margin-bottom: 15px;
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    border: 1px solid rgba(212, 175, 55, 0.4);
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .oeuvre-description {
-    color: rgba(245, 245, 220, 0.9);
+    color: #333; /* Texte foncé pour meilleure lisibilité */
     font-size: 1.05em;
     line-height: 1.75;
     margin-top: 15px;
-    font-weight: 300;
+    font-weight: 400;
     text-align: center; /* Centrer la description */
 }
 
@@ -275,9 +275,9 @@
     display: inline-block;
     margin-top: 20px;
     padding: 12px 28px;
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.12) 100%);
-    color: #D4AF37;
-    border: 1.5px solid rgba(212, 175, 55, 0.4);
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.15) 100%);
+    color: #B8860B;
+    border: 1.5px solid rgba(212, 175, 55, 0.5);
     border-radius: 10px;
     font-size: 0.9em;
     font-family: 'Montserrat', sans-serif;
@@ -291,11 +291,11 @@
 }
 
 .details-button:hover {
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.25) 100%);
-    border-color: #D4AF37;
-    color: #FFD700;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.25) 0%, rgba(212, 175, 55, 0.3) 100%);
+    border-color: #B8860B;
+    color: #8B4513; /* Couleur plus foncée au survol */
     transform: scale(1.05);
-    box-shadow: 0 6px 30px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 6px 30px rgba(212, 175, 55, 0.3);
 }
  /* Responsive */
         @media (max-width: 768px) {
