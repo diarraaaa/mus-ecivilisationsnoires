@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Niveaux du Musée - Musée des Civilisations Noires</title>
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
                 /* Chatbot styles */
@@ -611,7 +612,6 @@
             <p class="intro-text">
                 Utilisez votre appareil photo pour scanner les codes QR à côté des œuvres et accéder à des contenus enrichis.
             </p>
-            
             <div class="scanner-section">
                 <div class="scanner-container">
                     <div class="scanner-placeholder">
@@ -619,10 +619,9 @@
                         <p>Zone de scan QR Code</p>
                     </div>
                     <button class="level-btn" id="start-scan">
-                        <i class="fas fa-camera"></i> Démarrer le Scan
+                        <i class="fas fa-camera"></i> <span>Démarrer le Scan</span>
                     </button>
                 </div>
-                
                 <div class="scanner-instructions">
                     <h3>Comment scanner une œuvre ?</h3>
                     <p>1. Positionnez le code QR dans le cadre ci-dessus</p>
@@ -630,6 +629,10 @@
                     <p>3. Découvrez la fiche détaillée de l'œuvre</p>
                 </div>
             </div>
+            <h2>Scanner une Œuvre</h2>
+            <p class="intro-text">
+                Utilisez votre appareil photo pour scanner les codes QR à côté des œuvres et accéder à des contenus enrichis.
+            </p>
         </section>
 
     </main>
@@ -717,6 +720,76 @@ async function sendChat(event) {
     } catch (e) {
         appendMessage("Erreur de connexion à l'IA.", "chat-bot");
     }
+}
+
+//scanner QR code
+// Scanner QR Code
+const startScanBtn = document.getElementById('start-scan');
+const scannerPlaceholder = document.querySelector('.scanner-placeholder');
+let html5QrcodeScanner = null;
+let isScanning = false;
+
+startScanBtn.addEventListener('click', function() {
+    if (!isScanning) {
+        startQRScanner();
+    } else {
+        stopQRScanner();
+    }
+});
+
+function startQRScanner() {
+    // Vider le placeholder
+    scannerPlaceholder.innerHTML = '<div id="qr-reader"></div>';
+    
+    html5QrcodeScanner = new Html5Qrcode("qr-reader");
+    
+    html5QrcodeScanner.start(
+        { facingMode: "environment" }, // Caméra arrière
+        {
+            fps: 10,
+            qrbox: { width: 250, height: 250 }
+        },
+        (decodedText, decodedResult) => {
+            // QR Code scanné avec succès
+            console.log(`QR Code détecté: ${decodedText}`);
+            
+            // Arrêter le scanner
+            stopQRScanner();
+            
+            // Traiter le résultat (par exemple, rediriger vers une page)
+            alert(`Œuvre scannée !\nCode: ${decodedText}`);
+            // Vous pouvez rediriger vers la fiche de l'œuvre :
+            // window.location.href = `/oeuvre.html?id=${decodedText}`;
+        },
+        (errorMessage) => {
+            // Erreur de scan (normal, se produit en continu)
+        }
+    ).then(() => {
+        isScanning = true;
+        startScanBtn.innerHTML = '<i class="fas fa-stop"></i> <span>Arrêter le Scan</span>';
+    }).catch((err) => {
+        console.error('Erreur lors du démarrage du scanner:', err);
+        alert('Impossible d\'accéder à la caméra. Vérifiez les permissions.');
+        resetScanner();
+    });
+}
+
+function stopQRScanner() {
+    if (html5QrcodeScanner) {
+        html5QrcodeScanner.stop().then(() => {
+            resetScanner();
+        }).catch((err) => {
+            console.error('Erreur lors de l\'arrêt du scanner:', err);
+            resetScanner();
+        });
+    }
+}
+
+function resetScanner() {
+    isScanning = false;
+    scannerPlaceholder.innerHTML = '<i class="fas fa-qrcode"></i><p>Zone de scan QR Code</p>';
+    startScanBtn.innerHTML = '<i class="fas fa-camera"></i> <span>Démarrer le Scan</span>';
+    html5QrcodeScanner = null;
 }
 </script>
 </body>
