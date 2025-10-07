@@ -7,67 +7,67 @@
     <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-            #chatToggle {
-        position: fixed;
-        bottom: 25px;
-        right: 25px;
-        z-index: 1000;
-        background: #D4AF37;
-        color: #000;
-        border: none;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        font-size: 1.8em;
-        cursor: pointer;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
-    #chatPopup {
-        display: none;
-        flex-direction: column;
-        position: fixed;
-        bottom: 90px;
-        right: 25px;
-        width: 320px;
-        max-height: 500px;
-        background: #fff;
-        border-radius: 15px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        z-index: 1000;
-        overflow: hidden;
-    }
-    #chatPopupHeader {
-        background: #D4AF37;
-        color: #000;
-        padding: 15px;
-        font-weight: 600;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    #chatPopupHeader button {
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        font-size: 1.2em;
-    }
-    #chatMessages {
-        flex: 1;
-        padding: 15px;
-        overflow-y: auto;
-    }
-    #chatMessages .chat-msg {
-        margin-bottom: 10px;
-        padding: 10px;
-        border-radius: 8px;
-        max-width: 85%;
-        word-wrap: break-word;
-    }
-    #chatMessages .chat-user { background: #eee; align-self: flex-end; }
-    #chatMessages .chat-bot { background: #D4AF37; color: #000; align-self: flex-start; }
-    #chatForm { display: flex; border-top: 1px solid #ccc; }
-    #chatForm input { flex: 1; padding: 10px; border: none; outline: none; }
-    #chatForm button { padding: 10px 15px; background: #D4AF37; color: #000; border: none; cursor: pointer; }
+        #chatToggle {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 1000;
+            background: #D4AF37;
+            color: #000;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.8em;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        #chatPopup {
+            display: none;
+            flex-direction: column;
+            position: fixed;
+            bottom: 90px;
+            right: 25px;
+            width: 320px;
+            max-height: 500px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 1000;
+            overflow: hidden;
+        }
+        #chatPopupHeader {
+            background: #D4AF37;
+            color: #000;
+            padding: 15px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #chatPopupHeader button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+        #chatMessages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+        }
+        #chatMessages .chat-msg {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 85%;
+            word-wrap: break-word;
+        }
+        #chatMessages .chat-user { background: #eee; align-self: flex-end; }
+        #chatMessages .chat-bot { background: #D4AF37; color: #000; align-self: flex-start; }
+        #chatForm { display: flex; border-top: 1px solid #ccc; }
+        #chatForm input { flex: 1; padding: 10px; border: none; outline: none; }
+        #chatForm button { padding: 10px 15px; background: #D4AF37; color: #000; border: none; cursor: pointer; }
 
         * {
             margin: 0;
@@ -207,7 +207,7 @@
         }
 
         .feature-card {
-            background: var(--white);
+            background: white;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0,0,0,0.08);
@@ -231,7 +231,7 @@
         .feature-card h3 {
             font-size: 1.6em;
             margin-bottom: 20px;
-            color: var(--black);
+            color: black;
         }
 
         .feature-card p {
@@ -249,7 +249,7 @@
 
         .lang-btn {
             padding: 10px 25px;
-            background: var(--beige-dark);
+            background: #e8e2d1;
             border: 2px solid transparent;
             border-radius: 30px;
             cursor: pointer;
@@ -324,30 +324,6 @@
             padding: 0 40px;
         }
 
-        .content-section {
-            background: #fff;
-            padding: 60px;
-            margin-bottom: 50px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            border-top: 4px solid #D4AF37;
-        }
-
-        h2 {
-            color: #000;
-            font-size: 2.5em;
-            font-weight: 300;
-            letter-spacing: 3px;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-        }
-
-        .intro-text {
-            font-size: 1.3em;
-            line-height: 1.8;
-            color: #333;
-            margin-bottom: 30px;
-        }
-
         .welcome-container {
             display: flex;
             align-items: center;
@@ -406,11 +382,11 @@
             color: #555;
             line-height: 1.6;
         }
-                /* Scanner QR Code */
+        /* Scanner QR Code */
         .scanner-section {
             text-align: center;
             padding: 40px;
-            background: var(--beige-dark);
+            background: #e8e2d1;
             border-radius: 15px;
             margin-bottom: 40px;
         }
@@ -425,8 +401,8 @@
         .scanner-placeholder {
             width: 300px;
             height: 300px;
-            background: var(--white);
-            border: 3px dashed var(--gold);
+            background: white;
+            border: 3px dashed #D4AF37;
             border-radius: 15px;
             display: flex;
             flex-direction: column;
@@ -439,7 +415,7 @@
         .scanner-placeholder i {
             font-size: 4em;
             margin-bottom: 20px;
-            color: var(--gold);
+            color: #D4AF37;
         }
 
         .scanner-instructions {
@@ -450,7 +426,7 @@
         /* Footer */
         footer {
             background-color:black;
-            color: var(--white);
+            color: white;
             padding: 4rem 2rem 2rem;
         }
 
@@ -478,7 +454,7 @@
             left: 0;
             width: 40px;
             height: 2px;
-            background-color: var(--gold);
+            background-color: #D4AF37;
         }
 
         .footer-column p, .footer-column a {
@@ -543,20 +519,20 @@
 
         .btn:hover {
             background: transparent;
-            color: var(--gold);
+            color: #D4AF37;
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
         }
 
         .btn-secondary {
             background: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
+            color: white;
+            border: 2px solid white;
         }
 
         .btn-secondary:hover {
-            background: var(--white);
-            color: var(--black);
+            background: white;
+            color: black;
         }
 
         /* Responsive */
@@ -646,7 +622,7 @@
             background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.3));
         }
 
-        /* Images des œuvres avec SVG patterns artistiques */
+        /* Images des œuvres */
         .img1 { background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://farafinaculture.com/wp-content/uploads/2020/01/MCN.jpg'); }
         
         .img2 { background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://farafinaculture.com/wp-content/uploads/2020/01/MCN1.jpg'); }
@@ -654,8 +630,6 @@
         .img4 { background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://img-4.linternaute.com/8PMTFZ0r5gXztwWIHgGS5Sx282w=/fit-in/x630/smart/filters:fill(1D1D1B)/8fe14783f8be4763babce0f6bab93fcb/ccmcms-linternaute/11534549.jpg'); }
 
         .img5 { background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://senegalndiaye.com/wp-content/uploads/2019/07/20190706_165656-e1564167711900.jpg'); }
-
-      
 
         .artwork-info {
             padding: 30px;
@@ -707,7 +681,6 @@
                 flex-direction: column;
                 gap: 30px;
             }
-            
         }
     </style>
 </head>
@@ -719,172 +692,160 @@
             <div class="slide slide2"></div>
             <div class="slide slide3"></div>
         </div>
-        
         <nav>
             <ul>
-                <li><a href="/">Accueil</a></li>
-                <li><a href="/niveaupage">Les Œuvres</a></li>
-                <li><a href="/expositions">Expositions</a></li>
-                <li><a href="/contact">Contact</a></li>
+                <li><a href="/" data-i18n="nav.home">Accueil</a></li>
+                <li><a href="/niveaupage" data-i18n="nav.artworks">Les Œuvres</a></li>
+                <li><a href="/expositions" data-i18n="nav.exhibitions">Expositions</a></li>
+                <li><a href="/contact" data-i18n="nav.contact">Contact</a></li>
             </ul>
         </nav>
-
         <div class="header-overlay">
-            <h1 class="logo-title">Musée des Civilisations Noires</h1>
-            <p class="subtitle">Un Voyage à Travers l'Histoire et la Culture</p>
-            <button class="virtual-tour-btn">Visite Virtuelle</button>
+            <h1 class="logo-title" data-i18n="header.title">Musée des Civilisations Noires</h1>
+            <p class="subtitle" data-i18n="header.subtitle">Un Voyage à Travers l'Histoire et la Culture</p>
+            <button class="virtual-tour-btn" data-i18n="header.virtualTour">Visite Virtuelle</button>
         </div>
-
-        <div class="scroll-indicator">▼ Découvrir</div>
+        <div class="scroll-indicator" data-i18n="header.discover">▼ Découvrir</div>
     </div>
 
     <!-- Contenu principal -->
     <main>
-          <!-- Section Scanner -->
+        <!-- Section Scanner -->
         <section class="content-section" id="scan">
-            <h2>Scanner une Œuvre</h2>
-            <p class="intro-text">
+            <h2 data-i18n="scan.title">Scanner une Œuvre</h2>
+            <p class="intro-text" data-i18n="scan.intro">
                 Utilisez votre appareil photo pour scanner les codes QR à côté des œuvres et accéder à des contenus enrichis.
             </p>
             <div class="scanner-section">
                 <div class="scanner-container">
                     <div class="scanner-placeholder">
                         <i class="fas fa-qrcode"></i>
-                        <p>Zone de scan QR Code</p>
+                        <p data-i18n="scan.scanZone">Zone de scan QR Code</p>
                     </div>
                     <button class="btn" id="start-scan">
-                        <i class="fas fa-camera"></i> Démarrer le Scan
+                        <i class="fas fa-camera"></i> <span data-i18n="scan.startScan">Démarrer le Scan</span>
                     </button>
                 </div>
                 <div class="scanner-instructions">
-                    <h3>Comment scanner une œuvre ?</h3>
-                    <p>1. Positionnez le code QR dans le cadre ci-dessus</p>
-                    <p>2. Attendez la reconnaissance automatique</p>
-                    <p>3. Découvrez la fiche détaillée de l'œuvre</p>
+                    <h3 data-i18n="scan.howTo">Comment scanner une œuvre ?</h3>
+                    <p data-i18n="scan.step1">1. Positionnez le code QR dans le cadre ci-dessus</p>
+                    <p data-i18n="scan.step2">2. Attendez la reconnaissance automatique</p>
+                    <p data-i18n="scan.step3">3. Découvrez la fiche détaillée de l'œuvre</p>
                 </div>
             </div>
         </section>
 
         <section class="content-section">
-            <h2>Découvrir Nos Œuvres</h2>
-            <p class="intro-text">
-                Explorez notre collection d'œuvres exceptionnelles directement depuis votre téléphone. 
-                Chaque pièce raconte une histoire unique des civilisations noires.
+            <h2 data-i18n="artworks.title">Découvrir Nos Œuvres</h2>
+            <p class="intro-text" data-i18n="artworks.intro">
+                Explorez notre collection d'œuvres exceptionnelles directement depuis votre téléphone. Chaque pièce raconte une histoire unique des civilisations noires.
             </p>
-            
             <div class="gallery-grid">
                 <div class="artwork-card">
                     <div class="artwork-image img1"></div>
                     <div class="artwork-info">
-                        <h3>Masques Traditionnels</h3>
-                        <p>Collection de masques rituels provenant de diverses régions d'Afrique de l'Ouest. Ces masques sacrés étaient utilisés lors de cérémonies importantes et incarnent les esprits ancestraux.</p>
-                        <span class="artwork-tag">Art Traditionnel</span>
+                        <h3 data-i18n="artworks.masks.title">Masques Traditionnels</h3>
+                        <p data-i18n="artworks.masks.desc">Collection de masques rituels provenant de diverses régions d'Afrique de l'Ouest. Ces masques sacrés étaient utilisés lors de cérémonies importantes et incarnent les esprits ancestraux.</p>
+                        <span class="artwork-tag" data-i18n="artworks.masks.tag">Art Traditionnel</span>
                     </div>
                 </div>
-
                 <div class="artwork-card">
                     <div class="artwork-image img2"></div>
                     <div class="artwork-info">
-                        <h3>Sculptures Royales</h3>
-                        <p>Statues et sculptures représentant les dynasties royales africaines. Ces œuvres témoignent du raffinement artistique et du pouvoir des anciens royaumes.</p>
-                        <span class="artwork-tag">Patrimoine Royal</span>
+                        <h3 data-i18n="artworks.sculptures.title">Sculptures Royales</h3>
+                        <p data-i18n="artworks.sculptures.desc">Statues et sculptures représentant les dynasties royales africaines. Ces œuvres témoignent du raffinement artistique et du pouvoir des anciens royaumes.</p>
+                        <span class="artwork-tag" data-i18n="artworks.sculptures.tag">Patrimoine Royal</span>
                     </div>
                 </div>
-
                 <div class="artwork-card">
                     <div class="artwork-image img4"></div>
                     <div class="artwork-info">
-                        <h3>Art Contemporain Africain</h3>
-                        <p>Œuvres modernes d'artistes africains contemporains qui dialoguent avec la tradition tout en explorant de nouvelles formes d'expression artistique.</p>
-                        <span class="artwork-tag">Art Moderne</span>
+                        <h3 data-i18n="artworks.contemporary.title">Art Contemporain Africain</h3>
+                        <p data-i18n="artworks.contemporary.desc">Œuvres modernes d'artistes africains contemporains qui dialoguent avec la tradition tout en explorant de nouvelles formes d'expression artistique.</p>
+                        <span class="artwork-tag" data-i18n="artworks.contemporary.tag">Art Moderne</span>
                     </div>
                 </div>
-
                 <div class="artwork-card">
                     <div class="artwork-image img5"></div>
                     <div class="artwork-info">
-                        <h3>Instruments de Musique</h3>
-                        <p>Collection d'instruments traditionnels : koras, balafons, djembés. La musique est au cœur de la culture africaine et ces instruments en sont les ambassadeurs.</p>
-                        <span class="artwork-tag">Musique</span>
+                        <h3 data-i18n="artworks.instruments.title">Instruments de Musique</h3>
+                        <p data-i18n="artworks.instruments.desc">Collection d'instruments traditionnels : koras, balafons, djembés. La musique est au cœur de la culture africaine et ces instruments en sont les ambassadeurs.</p>
+                        <span class="artwork-tag" data-i18n="artworks.instruments.tag">Musique</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <section class="content-section">
-            <h2>Fonctionnalités Digitales</h2>
-            <p class="intro-text">
+            <h2 data-i18n="features.title">Fonctionnalités Digitales</h2>
+            <p class="intro-text" data-i18n="features.intro">
                 Découvrez toutes les possibilités offertes par notre plateforme digitale pour enrichir votre visite.
             </p>
-            
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-globe"></i>
                     </div>
-                    <h3>Multilingue</h3>
-                    <p>Descriptions disponibles en Français, Anglais et Wolof pour une accessibilité maximale.</p>
+                    <h3 data-i18n="features.multilingual.title">Multilingue</h3>
+                    <p data-i18n="features.multilingual.desc">Descriptions disponibles en Français, Anglais et Wolof pour une accessibilité maximale.</p>
                 </div>
-                
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-headphones"></i>
                     </div>
-                    <h3>Audio-guides</h3>
-                    <p>Écoutez les descriptions des œuvres avec nos guides audio inclusifs et immersifs.</p>
+                    <h3 data-i18n="features.audio.title">Audio-guides</h3>
+                    <p data-i18n="features.audio.desc">Écoutez les descriptions des œuvres avec nos guides audio inclusifs et immersifs.</p>
                 </div>
-                
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3>Expérience Mobile</h3>
-                    <p>Accédez à toutes les fonctionnalités depuis votre smartphone, tablette ou ordinateur.</p>
+                    <h3 data-i18n="features.mobile.title">Expérience Mobile</h3>
+                    <p data-i18n="features.mobile.desc">Accédez à toutes les fonctionnalités depuis votre smartphone, tablette ou ordinateur.</p>
                 </div>
-                
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-history"></i>
                     </div>
-                    <h3>Contenu Historique</h3>
-                    <p>Plongez dans l'histoire et le contexte culturel de chaque œuvre avec des contenus enrichis.</p>
+                    <h3 data-i18n="features.history.title">Contenu Historique</h3>
+                    <p data-i18n="features.history.desc">Plongez dans l'histoire et le contexte culturel de chaque œuvre avec des contenus enrichis.</p>
                 </div>
-                
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-video"></i>
                     </div>
-                    <h3>Médias Enrichis</h3>
-                    <p>Découvrez des vidéos, images 360° et contenus interactifs pour chaque œuvre.</p>
+                    <h3 data-i18n="features.media.title">Médias Enrichis</h3>
+                    <p data-i18n="features.media.desc">Découvrez des vidéos, images 360° et contenus interactifs pour chaque œuvre.</p>
                 </div>
-                
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-cloud"></i>
                     </div>
-                    <h3>Accès à Distance</h3>
-                    <p>Explorez les collections même hors du musée avec notre plateforme digitale complète.</p>
+                    <h3 data-i18n="features.remote.title">Accès à Distance</h3>
+                    <p data-i18n="features.remote.desc">Explorez les collections même hors du musée avec notre plateforme digitale complète.</p>
                 </div>
             </div>
         </section>
+
         <!-- Sélecteur de langue -->
         <section class="content-section">
-            <h2>Choisissez Votre Langue</h2>
-            <p class="intro-text">
+            <h2 data-i18n="language.title">Choisissez Votre Langue</h2>
+            <p class="intro-text" data-i18n="language.intro">
                 Sélectionnez votre langue préférée pour l'ensemble des contenus du musée.
             </p>
-             <div class="language-selector">
+            <div class="language-selector">
                 <button class="lang-btn active" data-lang="fr">Français</button>
                 <button class="lang-btn" data-lang="en">English</button>
                 <button class="lang-btn" data-lang="wo">Wolof</button>
             </div>
+        </section>
     </main>
 
     <footer>
-         <div class="footer-content">
+        <div class="footer-content">
             <div class="footer-column">
-                <h3>Musée des Civilisations Noires</h3>
-                <p>Un espace dédié à la célébration et à la compréhension des civilisations noires à travers l'histoire.</p>
+                <h3 data-i18n="footer.museum">Musée des Civilisations Noires</h3>
+                <p data-i18n="footer.description">Un espace dédié à la célébration et à la compréhension des civilisations noires à travers l'histoire.</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -893,46 +854,486 @@
                 </div>
             </div>
             <div class="footer-column">
+<<<<<<< HEAD
                 <h3>Heures d'ouverture</h3>
                 <p>Mardi - Samedi: 10h - 19h</p>
                 <p>Fermé Dimanche et les jours fériés</p>
+=======
+                <h3 data-i18n="footer.hours.title">Heures d'ouverture</h3>
+                <p data-i18n="footer.hours.schedule">Lundi - Samedi: 10h - 19h</p>
+                <p data-i18n="footer.hours.closed">Fermé Dimanche et les jours fériés</p>
+>>>>>>> 73bcae3f76141a4cddf1aaead32aceb82f4bfcdb
             </div>
             <div class="footer-column">
-                <h3>Liens rapides</h3>
+                <h3 data-i18n="footer.links">Liens rapides</h3>
                 <a href="/">Accueil</a>
                 <a href="/niveaupage">Les œuvres</a>
                 <a href="/contact">Contact</a>
             </div>
             <div class="footer-column">
-                <h3>Contact</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Place de la Renaissance, Dakar</p>
+                <h3 data-i18n="footer.contact.title">Contact</h3>
+                <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.contact.address">Place de la Renaissance, Dakar</span></p>
                 <p><i class="fas fa-phone"></i> +221 33 889 11 80</p>
                 <p><i class="fas fa-envelope"></i> info@museecivilisationsnoires.sn</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Musée des Civilisations Noires. Tous droits réservés.</p>
+            <p data-i18n="footer.copyright">&copy; 2024 Musée des Civilisations Noires. Tous droits réservés.</p>
         </div>
     </footer>
-        <button id="chatToggle">💬</button>
+
+    <button id="chatToggle">💬</button>
     <div id="chatPopup">
-    <div id="chatPopupHeader">
-        Guide Musée
-        <button onclick="toggleChat()">✖</button>
-    </div>
-    <div id="chatMessages"></div>
-    <form id="chatForm" onsubmit="sendChat(event)">
-        <input type="text" id="chatInput" placeholder="Posez votre question..." required />
-        <button type="submit" id="chatSend">Envoyer</button>
-    </form>
+        <div id="chatPopupHeader">
+            <span data-i18n="chat.title">Guide Musée</span>
+            <button onclick="toggleChat()">✖</button>
+        </div>
+        <div id="chatMessages"></div>
+        <form id="chatForm" onsubmit="sendChat(event)">
+            <input type="text" id="chatInput" data-i18n-placeholder="chat.placeholder" placeholder="Posez votre question..." required />
+            <button type="submit" id="chatSend" data-i18n="chat.send">Envoyer</button>
+        </form>
     </div>
 
     <script>
-        // Slider automatique
-       let html5QrCode = null;
+        // Traductions
+        const translations = {
+            fr: {
+                nav: {
+                    home: "Accueil",
+                    artworks: "Les Œuvres",
+                    exhibitions: "Expositions",
+                    contact: "Contact"
+                },
+                header: {
+                    title: "Musée des Civilisations Noires",
+                    subtitle: "Un Voyage à Travers l'Histoire et la Culture",
+                    virtualTour: "Visite Virtuelle",
+                    discover: "▼ Découvrir"
+                },
+                scan: {
+                    title: "Scanner une Œuvre",
+                    intro: "Utilisez votre appareil photo pour scanner les codes QR à côté des œuvres et accéder à des contenus enrichis.",
+                    scanZone: "Zone de scan QR Code",
+                    startScan: "Démarrer le Scan",
+                    stopScan: "Arrêter le Scan",
+                    howTo: "Comment scanner une œuvre ?",
+                    step1: "1. Positionnez le code QR dans le cadre ci-dessus",
+                    step2: "2. Attendez la reconnaissance automatique",
+                    step3: "3. Découvrez la fiche détaillée de l'œuvre",
+                    cameraUnavailable: "Caméra non disponible",
+                    uploadImage: "Vous pouvez télécharger une image du QR code :",
+                    uploadButton: "Télécharger une image",
+                    analyzing: "Analyse en cours..."
+                },
+                artworks: {
+                    title: "Découvrir Nos Œuvres",
+                    intro: "Explorez notre collection d'œuvres exceptionnelles directement depuis votre téléphone. Chaque pièce raconte une histoire unique des civilisations noires.",
+                    masks: {
+                        title: "Masques Traditionnels",
+                        desc: "Collection de masques rituels provenant de diverses régions d'Afrique de l'Ouest. Ces masques sacrés étaient utilisés lors de cérémonies importantes et incarnent les esprits ancestraux.",
+                        tag: "Art Traditionnel"
+                    },
+                    sculptures: {
+                        title: "Sculptures Royales",
+                        desc: "Statues et sculptures représentant les dynasties royales africaines. Ces œuvres témoignent du raffinement artistique et du pouvoir des anciens royaumes.",
+                        tag: "Patrimoine Royal"
+                    },
+                    contemporary: {
+                        title: "Art Contemporain Africain",
+                        desc: "Œuvres modernes d'artistes africains contemporains qui dialoguent avec la tradition tout en explorant de nouvelles formes d'expression artistique.",
+                        tag: "Art Moderne"
+                    },
+                    instruments: {
+                        title: "Instruments de Musique",
+                        desc: "Collection d'instruments traditionnels : koras, balafons, djembés. La musique est au cœur de la culture africaine et ces instruments en sont les ambassadeurs.",
+                        tag: "Musique"
+                    }
+                },
+                features: {
+                    title: "Fonctionnalités Digitales",
+                    intro: "Découvrez toutes les possibilités offertes par notre plateforme digitale pour enrichir votre visite.",
+                    multilingual: {
+                        title: "Multilingue",
+                        desc: "Descriptions disponibles en Français, Anglais et Wolof pour une accessibilité maximale."
+                    },
+                    audio: {
+                        title: "Audio-guides",
+                        desc: "Écoutez les descriptions des œuvres avec nos guides audio inclusifs et immersifs."
+                    },
+                    mobile: {
+                        title: "Expérience Mobile",
+                        desc: "Accédez à toutes les fonctionnalités depuis votre smartphone, tablette ou ordinateur."
+                    },
+                    history: {
+                        title: "Contenu Historique",
+                        desc: "Plongez dans l'histoire et le contexte culturel de chaque œuvre avec des contenus enrichis."
+                    },
+                    media: {
+                        title: "Médias Enrichis",
+                        desc: "Découvrez des vidéos, images 360° et contenus interactifs pour chaque œuvre."
+                    },
+                    remote: {
+                        title: "Accès à Distance",
+                        desc: "Explorez les collections même hors du musée avec notre plateforme digitale complète."
+                    }
+                },
+                language: {
+                    title: "Choisissez Votre Langue",
+                    intro: "Sélectionnez votre langue préférée pour l'ensemble des contenus du musée."
+                },
+                footer: {
+                    museum: "Musée des Civilisations Noires",
+                    description: "Un espace dédié à la célébration et à la compréhension des civilisations noires à travers l'histoire.",
+                    hours: {
+                        title: "Heures d'ouverture",
+                        schedule: "Lundi - Samedi: 10h - 19h",
+                        closed: "Fermé Dimanche et les jours fériés"
+                    },
+                    links: "Liens rapides",
+                    contact: {
+                        title: "Contact",
+                        address: "Place de la Renaissance, Dakar"
+                    },
+                    copyright: "© 2024 Musée des Civilisations Noires. Tous droits réservés."
+                },
+                chat: {
+                    title: "Guide Musée",
+                    placeholder: "Posez votre question...",
+                    send: "Envoyer"
+                },
+                virtualTour: {
+                    close: "Fermer"
+                },
+                alerts: {
+                    cameraError: "Impossible d'accéder à la caméra.",
+                    cameraPermission: "Vous devez autoriser l'accès à la caméra dans votre navigateur.\n1. Cliquez sur l'icône de caméra dans la barre d'adresse\n2. Sélectionnez 'Autoriser'\n3. Rafraîchissez la page",
+                    noCamera: "Aucune caméra détectée sur cet appareil.",
+                    cameraInUse: "La caméra est utilisée par une autre application.",
+                    qrError: "Impossible de lire le QR code dans cette image. Assurez-vous que l'image contient un QR code visible.",
+                    connectionError: "Erreur de connexion à l'IA."
+                }
+            },
+            en: {
+                nav: {
+                    home: "Home",
+                    artworks: "Artworks",
+                    exhibitions: "Exhibitions",
+                    contact: "Contact"
+                },
+                header: {
+                    title: "Museum of Black Civilizations",
+                    subtitle: "A Journey Through History and Culture",
+                    virtualTour: "Virtual Tour",
+                    discover: "▼ Discover"
+                },
+                scan: {
+                    title: "Scan an Artwork",
+                    intro: "Use your camera to scan QR codes next to artworks and access enriched content.",
+                    scanZone: "QR Code scan area",
+                    startScan: "Start Scan",
+                    stopScan: "Stop Scan",
+                    howTo: "How to scan an artwork?",
+                    step1: "1. Position the QR code in the frame above",
+                    step2: "2. Wait for automatic recognition",
+                    step3: "3. Discover the detailed artwork sheet",
+                    cameraUnavailable: "Camera unavailable",
+                    uploadImage: "You can upload an image of the QR code:",
+                    uploadButton: "Upload an image",
+                    analyzing: "Analyzing..."
+                },
+                artworks: {
+                    title: "Discover Our Artworks",
+                    intro: "Explore our exceptional collection of artworks directly from your phone. Each piece tells a unique story of black civilizations.",
+                    masks: {
+                        title: "Traditional Masks",
+                        desc: "Collection of ritual masks from various regions of West Africa. These sacred masks were used in important ceremonies and embody ancestral spirits.",
+                        tag: "Traditional Art"
+                    },
+                    sculptures: {
+                        title: "Royal Sculptures",
+                        desc: "Statues and sculptures representing African royal dynasties. These works testify to the artistic refinement and power of ancient kingdoms.",
+                        tag: "Royal Heritage"
+                    },
+                    contemporary: {
+                        title: "Contemporary African Art",
+                        desc: "Modern works by contemporary African artists who dialogue with tradition while exploring new forms of artistic expression.",
+                        tag: "Modern Art"
+                    },
+                    instruments: {
+                        title: "Musical Instruments",
+                        desc: "Collection of traditional instruments: koras, balafons, djembes. Music is at the heart of African culture and these instruments are its ambassadors.",
+                        tag: "Music"
+                    }
+                },
+                features: {
+                    title: "Digital Features",
+                    intro: "Discover all the possibilities offered by our digital platform to enrich your visit.",
+                    multilingual: {
+                        title: "Multilingual",
+                        desc: "Descriptions available in French, English and Wolof for maximum accessibility."
+                    },
+                    audio: {
+                        title: "Audio Guides",
+                        desc: "Listen to artwork descriptions with our inclusive and immersive audio guides."
+                    },
+                    mobile: {
+                        title: "Mobile Experience",
+                        desc: "Access all features from your smartphone, tablet or computer."
+                    },
+                    history: {
+                        title: "Historical Content",
+                        desc: "Dive into the history and cultural context of each artwork with enriched content."
+                    },
+                    media: {
+                        title: "Enriched Media",
+                        desc: "Discover videos, 360° images and interactive content for each artwork."
+                    },
+                    remote: {
+                        title: "Remote Access",
+                        desc: "Explore collections even outside the museum with our complete digital platform."
+                    }
+                },
+                language: {
+                    title: "Choose Your Language",
+                    intro: "Select your preferred language for all museum content."
+                },
+                footer: {
+                    museum: "Museum of Black Civilizations",
+                    description: "A space dedicated to celebrating and understanding black civilizations throughout history.",
+                    hours: {
+                        title: "Opening Hours",
+                        schedule: "Monday - Saturday: 10am - 7pm",
+                        closed: "Closed Sunday and public holidays"
+                    },
+                    links: "Quick Links",
+                    contact: {
+                        title: "Contact",
+                        address: "Place de la Renaissance, Dakar"
+                    },
+                    copyright: "© 2024 Museum of Black Civilizations. All rights reserved."
+                },
+                chat: {
+                    title: "Museum Guide",
+                    placeholder: "Ask your question...",
+                    send: "Send"
+                },
+                virtualTour: {
+                    close: "Close"
+                },
+                alerts: {
+                    cameraError: "Unable to access camera.",
+                    cameraPermission: "You must allow camera access in your browser.\n1. Click on the camera icon in the address bar\n2. Select 'Allow'\n3. Refresh the page",
+                    noCamera: "No camera detected on this device.",
+                    cameraInUse: "The camera is being used by another application.",
+                    qrError: "Unable to read QR code in this image. Make sure the image contains a visible QR code.",
+                    connectionError: "AI connection error."
+                }
+            },
+            wo: {
+                nav: {
+                    home: "Kër",
+                    artworks: "Arts yi",
+                    exhibitions: "Expositions",
+                    contact: "Jokkoo"
+                },
+                header: {
+                    title: "Musée des civilisations noires",
+                    subtitle: "Tukkib Taarix ak Aada",
+                    virtualTour: "Tour virtuel",
+                    discover: "▼ Gis"
+                },
+                scan: {
+                    title: "Scanner ab art",
+                    intro: "Jëfandikool sa kamera ngir scanner kodu QR yi ci wetu art bi nga mëna jëfandikoo ëmbiit yu gëna baax.",
+                    scanZone: "Zone de scanner de code QR",
+                    startScan: "Tàmbali Scan",
+                    stopScan: "Taxawal skane",
+                    howTo: "Nooy skane ab art?",
+                    step1: "1. Def kodu QR bi ci kaadar bi ci kaw",
+                    step2: "2. Xaaral xàmmee ci saasi",
+                    step3: "3. Gis leeral yi ci art bi",
+                    cameraUnavailable: "Kamera amul",
+                    uploadImage: "Mën nga yebbi nataalu kodu QR bi:",
+                    uploadButton: "Yeegal ab nataal",
+                    analyzing: "Jàngat mingi wéy..."
+                },
+                artworks: {
+                    title: "Gis sunuy art",
+                    intro: "Xoolal sunu liggéey yu wuute yi ci sa telefon. Piyees bu nekk dafay nettali jaar-jaaru siwilisasioŋ yu ñuul yi.",
+                    masks: {
+                        title: "Mask yu cosaan",
+                        desc: "Dajale mask rituel yu bawoo ci gox yu bari ci sowwu Afrique. Yooyu mask yu sell lañu daan jëfandikoo ci xew-xew yu am solo te dañuy fësal ngëmu maam yi.",
+                        tag: "Art cosaan"
+                    },
+                    sculptures: {
+                        title: "Sculptures royales",
+                        desc: "Luwa ak yatteef yuy màndargaal famiy buur yu Afrique. Liggéey yooyu dañuy seede art bu rafet ak dooley buur yu yàgg ya.",
+                        tag: "Patrimoine Royal"
+                    },
+                    contemporary: {
+                        title: "Art africain contemporain",
+                        desc: "Liggéey yu bees yu artist africain yi def ci jamono jii, ñuy jëfandikoo seen cosaan ak aada, boole ci wane xeeti art yu bees.",
+                        tag: "Art bu bees"
+                    },
+                    instruments: {
+                        title: "Jumtukaayi music",
+                        desc: "Dajale jumtukaayi cosaan: koras, balafons, djembes. Music mooy xol aaday Afrique, te jumtukaay yooyu ñooy ndawam.",
+                        tag: "Musik"
+                    }
+                },
+                features: {
+                    title: "Man-mani numérik",
+                    intro: "Gis leen bépp anam bu sunu platform dijital mëna joxe ngir gëna baaxal sa ñëw.",
+                    multilingual: {
+                        title: "Lakk yu bari",
+                        desc: "Tegtal yi jàppandi ci français, anglais, ak wolof ngir gëna yomba jëfandikoo."
+                    },
+                    audio: {
+                        title: "Guide audio",
+                        desc: "Déglul tegtali liggéey yi ak sunuy guide audio yuy boole lépp."
+                    },
+                    mobile: {
+                        title: "Expérience mobile",
+                        desc: "Jëfandikoo bépp man-man ci sa smartphone, tablet wala ordinatër."
+                    },
+                    history: {
+                        title: "Ëmbiitu Taarix",
+                        desc: "Duggal ci taarix ak ci cosaan ak aada ci liggéey bu nekk ak ëmbiit bu am solo."
+                    },
+                    media: {
+                        title: "Media yu gëna baax",
+                        desc: "Gis wideo yi, nataali 360°, ak ëmbiit yuy weccoo xalaat ci liggéey bu nekk."
+                    },
+                    remote: {
+                        title: "Accès à distance",
+                        desc: "Xoolal liñ dajale ba ci biti muse bi ak sunu platform dijital bu mat sëkk."
+                    }
+                },
+                language: {
+                    title: "Tannal sa làkk",
+                    intro: "Tannal làkk wi la gënal ci ëmbiit yépp."
+                },
+                footer: {
+                    museum: "Musée des civilisations noires",
+                    description: "Bëral bu waxtaan mbooleem ak xam-xam réew yi ñuul ci léppu taariix.",
+                    hours: {
+                        title: "Wakhtuy Ubbi",
+                        schedule: "Altine - Gaawu: 10h - 19h",
+                        closed: "Tëj Dibéer ak bësu aadaa"
+                    },
+                    links: "Lëkkalekaay Gaawe",
+                    contact: {
+                        title: "Jokkoo",
+                        address: "Place de la Renaissance, Dakar"
+                    },
+                    copyright: "© 2024 Musée des civilisations noires. Léppu sag yi mottaloo."
+                },
+                chat: {
+                    title: "Guide Kër gi",
+                    placeholder: "Laaj sa làkk...",
+                    send: "Yónne"
+                },
+                virtualTour: {
+                    close: "Tëj"
+                },
+                alerts: {
+                    cameraError: "Mënuñu jëfandikoo kamera bi.",
+                    cameraPermission: "Wara nga jappe kamera bi ci sa navigateur.\n1. Bësal icône kamera bi ci baarub adrees\n2. Tànn 'Jappe'\n3. Rafraîchir ci palanteer bi",
+                    noCamera: "Amul kamera ci aparéey bii.",
+                    cameraInUse: "Aplikasiyon beneen la di jëfandikoo kamera bi.",
+                    qrError: "Mënuñu jàng kode QR ci nataal bii. Xoolal ni nataal bi am na kode QR bu gëna gis.",
+                    connectionError: "Njumte ci jokkoo ak IA bi."
+                }
+            }
+        };
+
+        // === GESTION DE LA LANGUE ===
+        let currentLanguage = localStorage.getItem('preferredLanguage') || 'fr';
+
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('preferredLanguage', lang);
+            
+            // Mettre à jour tous les éléments avec data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                const keys = key.split('.');
+                let translation = translations[lang];
+                
+                for (const k of keys) {
+                    if (translation && translation[k]) {
+                        translation = translation[k];
+                    } else {
+                        translation = null;
+                        break;
+                    }
+                }
+                
+                if (translation) {
+                    element.textContent = translation;
+                }
+            });
+
+            // Mettre à jour les placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-i18n-placeholder');
+                const keys = key.split('.');
+                let translation = translations[lang];
+                
+                for (const k of keys) {
+                    if (translation && translation[k]) {
+                        translation = translation[k];
+                    } else {
+                        translation = null;
+                        break;
+                    }
+                }
+                
+                if (translation) {
+                    element.placeholder = translation;
+                }
+            });
+
+            // Mettre à jour les boutons de langue
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // === ÉVÉNEMENTS DES BOUTONS DE LANGUE ===
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialiser la langue au chargement
+            setLanguage(currentLanguage);
+
+            // Gérer les clics sur les boutons de langue
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    setLanguage(lang);
+                });
+            });
+
+            // Scanner QR Code
+            const startScanBtn = document.getElementById('start-scan');
+            if (startScanBtn) {
+                startScanBtn.addEventListener('click', startQRScanner);
+            }
+
+            window.addEventListener('beforeunload', function() {
+                if (html5QrCode && isScanning) {
+                    html5QrCode.stop();
+                }
+            });
+        });
+
+        // === SCANNER QR CODE (avec traductions) ===
+        let html5QrCode = null;
         let isScanning = false;
 
-        // Vérifier si des caméras sont disponibles
         async function checkCameraAvailability() {
             try {
                 const devices = await navigator.mediaDevices.enumerateDevices();
@@ -947,32 +1348,30 @@
         async function startQRScanner() {
             const scannerPlaceholder = document.querySelector('.scanner-placeholder');
             const startScanBtn = document.getElementById('start-scan');
-            
+
             if (isScanning) {
                 try {
                     await html5QrCode.stop();
                     scannerPlaceholder.innerHTML = `
                         <i class="fas fa-qrcode"></i>
-                        <p>Zone de scan QR Code</p>
+                        <p data-i18n="scan.scanZone">${translations[currentLanguage].scan.scanZone}</p>
                     `;
-                    startScanBtn.innerHTML = '<i class="fas fa-camera"></i> Démarrer le Scan';
+                    startScanBtn.innerHTML = `<i class="fas fa-camera"></i> <span data-i18n="scan.startScan">${translations[currentLanguage].scan.startScan}</span>`;
                     isScanning = false;
                 } catch (err) {
                     console.error("Erreur lors de l'arrêt du scanner:", err);
                 }
                 return;
             }
-            
-            // Vérifier la disponibilité de la caméra
+
             const hasCameras = await checkCameraAvailability();
             if (!hasCameras) {
                 showFileUploadOption();
                 return;
             }
-            
+
             try {
                 scannerPlaceholder.innerHTML = '<div id="qr-reader" style="width: 100%;"></div>';
-                
                 html5QrCode = new Html5Qrcode("qr-reader");
                 
                 const config = {
@@ -980,31 +1379,27 @@
                     qrbox: { width: 250, height: 250 },
                     aspectRatio: 1.0
                 };
-                
+
                 await html5QrCode.start(
                     { facingMode: "environment" },
                     config,
                     onScanSuccess,
                     onScanError
                 );
-                
+
                 isScanning = true;
-                startScanBtn.innerHTML = '<i class="fas fa-stop"></i> Arrêter le Scan';
-                
+                startScanBtn.innerHTML = `<i class="fas fa-stop"></i> <span data-i18n="scan.stopScan">${translations[currentLanguage].scan.stopScan}</span>`;
             } catch (err) {
                 console.error("Erreur lors du démarrage du scanner:", err);
                 
-                // Message d'erreur plus détaillé
-                let errorMessage = "Impossible d'accéder à la caméra.\n\n";
+                let errorMessage = translations[currentLanguage].alerts.cameraError + "\n\n";
+                
                 if (err.name === 'NotAllowedError') {
-                    errorMessage += "Vous devez autoriser l'accès à la caméra dans votre navigateur.\n";
-                    errorMessage += "1. Cliquez sur l'icône de caméra dans la barre d'adresse\n";
-                    errorMessage += "2. Sélectionnez 'Autoriser'\n";
-                    errorMessage += "3. Rafraîchissez la page";
+                    errorMessage += translations[currentLanguage].alerts.cameraPermission;
                 } else if (err.name === 'NotFoundError') {
-                    errorMessage += "Aucune caméra détectée sur cet appareil.";
+                    errorMessage += translations[currentLanguage].alerts.noCamera;
                 } else if (err.name === 'NotReadableError') {
-                    errorMessage += "La caméra est utilisée par une autre application.";
+                    errorMessage += translations[currentLanguage].alerts.cameraInUse;
                 } else {
                     errorMessage += "Erreur: " + err.message;
                 }
@@ -1014,30 +1409,27 @@
             }
         }
 
-        // Afficher l'option de téléchargement de fichier
         function showFileUploadOption() {
             const scannerPlaceholder = document.querySelector('.scanner-placeholder');
             scannerPlaceholder.innerHTML = `
                 <i class="fas fa-exclamation-triangle" style="font-size: 48px; color: #ff9800; margin-bottom: 15px;"></i>
-                <p style="margin-bottom: 15px;">Caméra non disponible</p>
-                <p style="font-size: 14px; margin-bottom: 20px;">Vous pouvez télécharger une image du QR code :</p>
+                <p style="margin-bottom: 15px;" data-i18n="scan.cameraUnavailable">${translations[currentLanguage].scan.cameraUnavailable}</p>
+                <p style="font-size: 14px; margin-bottom: 20px;" data-i18n="scan.uploadImage">${translations[currentLanguage].scan.uploadImage}</p>
                 <input type="file" id="qr-file-input" accept="image/*" style="display: none;">
                 <button onclick="document.getElementById('qr-file-input').click()" style="padding: 10px 20px; background: #2196F3; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                    <i class="fas fa-upload"></i> Télécharger une image
+                    <i class="fas fa-upload"></i> <span data-i18n="scan.uploadButton">${translations[currentLanguage].scan.uploadButton}</span>
                 </button>
             `;
-
-            // Gérer le téléchargement de fichier
+            
             document.getElementById('qr-file-input').addEventListener('change', handleFileSelect);
         }
 
-        // Gérer la sélection de fichier
         async function handleFileSelect(event) {
             const file = event.target.files[0];
             if (!file) return;
 
             const scannerPlaceholder = document.querySelector('.scanner-placeholder');
-            scannerPlaceholder.innerHTML = '<div id="qr-reader-file" style="width: 100%;"><p>Analyse en cours...</p></div>';
+            scannerPlaceholder.innerHTML = `<div id="qr-reader-file" style="width: 100%;"><p data-i18n="scan.analyzing">${translations[currentLanguage].scan.analyzing}</p></div>`;
 
             try {
                 html5QrCode = new Html5Qrcode("qr-reader-file");
@@ -1045,10 +1437,10 @@
                 onScanSuccess(decodedText, null);
             } catch (err) {
                 console.error("Erreur lors de la lecture du fichier:", err);
-                alert("Impossible de lire le QR code dans cette image. Assurez-vous que l'image contient un QR code visible.");
+                alert(translations[currentLanguage].alerts.qrError);
                 scannerPlaceholder.innerHTML = `
                     <i class="fas fa-qrcode"></i>
-                    <p>Zone de scan QR Code</p>
+                    <p data-i18n="scan.scanZone">${translations[currentLanguage].scan.scanZone}</p>
                 `;
             }
         }
@@ -1078,22 +1470,8 @@
         }
 
         function onScanError(errorMessage) {
-            // Fonction appelée en continu, ne pas logger
+            // Ne pas logger les erreurs continues
         }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const startScanBtn = document.getElementById('start-scan');
-            
-            if (startScanBtn) {
-                startScanBtn.addEventListener('click', startQRScanner);
-            }
-            
-            window.addEventListener('beforeunload', function() {
-                if (html5QrCode && isScanning) {
-                    html5QrCode.stop();
-                }
-            });
-        });
 
         // === SLIDER ===
         let currentSlide = 0;
@@ -1108,8 +1486,49 @@
 
         setInterval(nextSlide, 4000);
 
+        // === VISITE VIRTUELLE ===
+        const virtualTourModal = document.createElement('div');
+        virtualTourModal.id = 'virtualTourModal';
+        virtualTourModal.style.cssText = `
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+            z-index: 99999;
+            flex-direction: column;
+        `;
+        virtualTourModal.innerHTML = `
+            <div style="position: absolute; top: 20px; right: 20px; z-index: 100000;">
+                <button id="closeVirtualTour" style="background: #D4AF37; color: #000; border: none; padding: 15px 30px; cursor: pointer; font-size: 1.2em; border-radius: 5px; font-weight: 600; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); transition: all 0.3s ease;">
+                    ✕ <span data-i18n="virtualTour.close">Fermer</span>
+                </button>
+            </div>
+            <iframe width="100%" height="100%" style="border: none;" src="https://metasteps.com/viewer/embed/14244a20-b08c-4cf1-ae69-db841a423b15?showSignIn=0&showCommunications=0" title="Musée des Civilisations Noires - Visite Virtuelle" allow="accelerometer; gyroscope; xr-spatial-tracking"></iframe>
+        `;
+        document.body.appendChild(virtualTourModal);
+
         document.querySelector('.virtual-tour-btn').addEventListener('click', function() {
-            alert('La visite virtuelle sera bientôt disponible !');
+            virtualTourModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+
+        document.getElementById('closeVirtualTour').addEventListener('click', function() {
+            virtualTourModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Effet hover sur le bouton fermer
+        document.getElementById('closeVirtualTour').addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05)';
+            this.style.boxShadow = '0 6px 20px rgba(212, 175, 55, 0.6)';
+        });
+
+        document.getElementById('closeVirtualTour').addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+            this.style.boxShadow = '0 4px 15px rgba(212, 175, 55, 0.4)';
         });
 
         // === CHATBOT ===
@@ -1164,7 +1583,7 @@
                 const response = await res.text();
                 appendMessage(response, "chat-bot");
             } catch (e) {
-                appendMessage("Erreur de connexion à l'IA.", "chat-bot");
+                appendMessage(translations[currentLanguage].alerts.connectionError, "chat-bot");
             }
         }
     </script>

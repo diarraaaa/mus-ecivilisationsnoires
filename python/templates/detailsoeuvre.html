@@ -558,7 +558,7 @@ footer {
     <div class="artwork-showcase">
         <div class="artwork-frame">
             <div class="mat-board">
-                <img src="https://farafinaculture.com/wp-content/uploads/2020/01/MCN.jpg" alt="Œuvre" class="artwork-image">
+                <img src="{{details.image_url}}" alt="Œuvre" class="artwork-image">
             </div>
         </div>
 
@@ -581,6 +581,11 @@ footer {
                 <div class="info-label">Description</div>
                 <div class="info-value">{{ details.description }}</div>
             </div>
+            <div id="hidden-description" style="display: none;">
+                {{ details.histoire }}
+            </div>
+
+            
 
             <div class="action-buttons">
                 <button class="action-btn" id="btn-histoire">📖 Histoire</button>
@@ -709,7 +714,7 @@ langOptions.forEach(opt => {
 
 // Traduction
 btnTraduire.addEventListener("click", async () => {
-    const texte = document.querySelector("#texte-description .info-value").innerText;
+    const texte = document.getElementById('hidden-description').innerText;
     const translatedTextDiv = document.getElementById("translated-text");
     const translatedContainer = document.getElementById("translated-text-container");
     
