@@ -677,7 +677,6 @@ footer {
 <script>
 // Configuration
 const btnHistoire = document.getElementById("btn-histoire");
-const btn3D = document.getElementById("btn-3d");
 const modal = document.getElementById("modal-langue");
 const btnFermer = document.getElementById("btn-fermer");
 const btnTraduire = document.getElementById("btn-traduire");
@@ -692,10 +691,7 @@ btnHistoire.addEventListener("click", () => {
     translatedText = "";
 });
 
-btn3D.addEventListener("click", () => {
-    alert("Fonctionnalité 'Vue 3D' à venir !");
-});
-
+// Fermeture du modal
 btnFermer.addEventListener("click", () => {
     modal.style.display = "none";
     document.getElementById("translated-text-container").style.display = "none";
@@ -722,7 +718,6 @@ btnTraduire.addEventListener("click", async () => {
     translatedContainer.style.display = "none";
     
     try {
-        // Traduire le texte
         const translateUrl = "https://diarradiengcode.app.n8n.cloud/webhook/8b03c117-ef19-4bc8-bbfc-91116ba5be4f"
                   + "?text=" + encodeURIComponent(texte)
                   + "&lang=" + encodeURIComponent(langueChoisie);
@@ -732,7 +727,6 @@ btnTraduire.addEventListener("click", async () => {
         
         translatedText = await translateResponse.text();
         
-        // Afficher la traduction
         translatedTextDiv.textContent = translatedText;
         translatedContainer.style.display = "block";
         
@@ -757,75 +751,6 @@ window.addEventListener("click", e => {
     }
 });
 
-// === CHATBOT ===
-const chatToggle = document.getElementById("chatToggle");
-const chatPopup = document.getElementById("chatPopup");
-const chatMessages = document.getElementById("chatMessages");
-const chatInput = document.getElementById("chatInput");
-
-function getSessionId() {
-    let sessionId = sessionStorage.getItem("chatSessionId");
-    if (!sessionId) {
-        sessionId = 'session-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
-        sessionStorage.setItem("chatSessionId", sessionId);
-    }
-    return sessionId;
-}
-
-const sessionId = getSessionId();
-
-function toggleChat() { 
-    chatPopup.style.display = chatPopup.style.display === "flex" ? "none" : "flex";
-    if (chatPopup.style.display === "flex" && chatMessages.children.length === 0) {
-        appendMessage("Bonjour ! Je suis votre guide virtuel. Comment puis-je vous aider ?", "chat-bot");
-    }
-}
-chatToggle.addEventListener("click", toggleChat);
-
-function appendMessage(text, sender) {
-    const div = document.createElement("div");
-    div.className = `chat-msg ${sender}`;
-    div.textContent = text;
-    chatMessages.appendChild(div);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-}
-
-async function sendChat(event) {
-    event.preventDefault();
-    const message = chatInput.value.trim();
-    if (!message) return;
-    
-    appendMessage(message, "chat-user");
-    chatInput.value = "";
-    
-    const loadingDiv = document.createElement("div");
-    loadingDiv.className = "chat-msg chat-bot";
-    loadingDiv.textContent = "En train d'écrire...";
-    loadingDiv.id = "loading-msg";
-    chatMessages.appendChild(loadingDiv);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-    
-    try {
-        const res = await fetch("https://diarradiengcode.app.n8n.cloud/webhook/c87f9694-88d8-470f-bf9f-c898f6e14820", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ message, sessionId })
-        });
-        
-        const response = await res.text();
-        
-        const loadingMsg = document.getElementById("loading-msg");
-        if (loadingMsg) loadingMsg.remove();
-        
-        appendMessage(response, "chat-bot");
-    } catch (e) {
-        const loadingMsg = document.getElementById("loading-msg");
-        if (loadingMsg) loadingMsg.remove();
-        
-        appendMessage("Désolé, une erreur s'est produite.", "chat-bot");
-        console.error("Erreur chatbot:", e);
-    }
-}
 </script>
 
 </body>
