@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Niveaux du Musée - Musée des Civilisations Noires</title>
     <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+    <script src="https://unpkg.com/html5-qrcode"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
                 /* Chatbot styles */
@@ -723,74 +724,162 @@ async function sendChat(event) {
 }
 
 //scanner QR code
-// Scanner QR Code
-const startScanBtn = document.getElementById('start-scan');
-const scannerPlaceholder = document.querySelector('.scanner-placeholder');
-let html5QrcodeScanner = null;
+// === SCANNER QR CODE ===
+let html5QrCode = null;
 let isScanning = false;
 
-startScanBtn.addEventListener('click', function() {
-    if (!isScanning) {
-        startQRScanner();
-    } else {
-        stopQRScanner();
+async function checkCameraAvailability() {
+    try {
+        const devices = await navigator.mediaDevices.enumerateDevices();
+        const cameras = devices.filter(device => device.kind === 'videoinput');
+        return cameras.length > 0;
+    } catch (err) {
+        console.error("Erreur lors de la vérification des caméras:", err);
+        return false;
     }
-});
+}
 
-function startQRScanner() {
-    // Vider le placeholder
-    scannerPlaceholder.innerHTML = '<div id="qr-reader"></div>';
-    
-    html5QrcodeScanner = new Html5Qrcode("qr-reader");
-    
-    html5QrcodeScanner.start(
-        { facingMode: "environment" }, // Caméra arrière
-        {
-            fps: 10,
-            qrbox: { width: 250, height: 250 }
-        },
-        (decodedText, decodedResult) => {
-            // QR Code scanné avec succès
-            console.log(`QR Code détecté: ${decodedText}`);
-            
-            // Arrêter le scanner
-            stopQRScanner();
-            
-            // Traiter le résultat (par exemple, rediriger vers une page)
-            alert(`Œuvre scannée !\nCode: ${decodedText}`);
-            // Vous pouvez rediriger vers la fiche de l'œuvre :
-            // window.location.href = `/oeuvre.html?id=${decodedText}`;
-        },
-        (errorMessage) => {
-            // Erreur de scan (normal, se produit en continu)
+async function startQRScanner() {
+    const scannerPlaceholder = document.querySelector('.scanner-placeholder');
+    const startScanBtn = document.getElementById('start-scan');
+
+    if (isScanning) {
+        try {
+            await html5QrCode.stop();
+            scannerPlaceholder.innerHTML = `
+                <i class="fas fa-qrcode"></i>
+                <p>Zone de scan QR Code</p>
+            `;
+            startScanBtn.innerHTML = `<i class="fas fa-camera"></i> <span>Démarrer le Scan</span>`;
+            isScanning = false;
+        } catch (err) {
+            console.error("Erreur lors de l'arrêt du scanner:", err);
         }
-    ).then(() => {
-        isScanning = true;
-        startScanBtn.innerHTML = '<i class="fas fa-stop"></i> <span>Arrêter le Scan</span>';
-    }).catch((err) => {
-        console.error('Erreur lors du démarrage du scanner:', err);
-        alert('Impossible d\'accéder à la caméra. Vérifiez les permissions.');
-        resetScanner();
-    });
-}
+        return;
+    }
 
-function stopQRScanner() {
-    if (html5QrcodeScanner) {
-        html5QrcodeScanner.stop().then(() => {
-            resetScanner();
-        }).catch((err) => {
-            console.error('Erreur lors de l\'arrêt du scanner:', err);
-            resetScanner();
-        });
+    const hasCameras = await checkCameraAvailability();
+    if (!hasCameras) {
+        showFileUploadOption();
+        return;
+    }
+
+    try {
+        scannerPlaceholder.innerHTML = '<div id="qr-reader" style="width: 100%;"></div>';
+        html5QrCode = new Html5Qrcode("qr-reader");
+
+        const config = {
+            fps: 10,
+            qrbox: { width: 250, height: 250 },
+            aspectRatio: 1.0
+        };
+
+        await html5QrCode.start(
+            { facingMode: "environment" },
+            config,
+            onScanSuccess,
+            onScanError
+        );
+
+        isScanning = true;
+        startScanBtn.innerHTML = `<i class="fas fa-stop"></i> <span>Arrêter le Scan</span>`;
+
+    } catch (err) {
+        console.error("Erreur lors du démarrage du scanner:", err);
+        let errorMessage = "Impossible d'accéder à la caméra.\n\n";
+
+        if (err.name === 'NotAllowedError') {
+            errorMessage += "Vous devez autoriser l'accès à la caméra dans votre navigateur.\n1. Cliquez sur l'icône de caméra dans la barre d'adresse\n2. Sélectionnez 'Autoriser'\n3. Rafraîchissez la page";
+        } else if (err.name === 'NotFoundError') {
+            errorMessage += "Aucune caméra détectée sur cet appareil.";
+        } else if (err.name === 'NotReadableError') {
+            errorMessage += "La caméra est utilisée par une autre application.";
+        } else {
+            errorMessage += "Erreur: " + err.message;
+        }
+
+        alert(errorMessage);
+        showFileUploadOption();
     }
 }
 
-function resetScanner() {
-    isScanning = false;
-    scannerPlaceholder.innerHTML = '<i class="fas fa-qrcode"></i><p>Zone de scan QR Code</p>';
-    startScanBtn.innerHTML = '<i class="fas fa-camera"></i> <span>Démarrer le Scan</span>';
-    html5QrcodeScanner = null;
+function showFileUploadOption() {
+    const scannerPlaceholder = document.querySelector('.scanner-placeholder');
+    scannerPlaceholder.innerHTML = `
+        <i class="fas fa-exclamation-triangle" style="font-size: 48px; color: #ff9800; margin-bottom: 15px;"></i>
+        <p style="margin-bottom: 15px;">Caméra non disponible</p>
+        <p style="font-size: 14px; margin-bottom: 20px;">Vous pouvez télécharger une image du QR code :</p>
+        <input type="file" id="qr-file-input" accept="image/*" style="display: none;">
+        <button onclick="document.getElementById('qr-file-input').click()" style="padding: 10px 20px; background: #2196F3; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            <i class="fas fa-upload"></i> <span>Télécharger une image</span>
+        </button>
+    `;
+
+    document.getElementById('qr-file-input').addEventListener('change', handleFileSelect);
 }
+
+async function handleFileSelect(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const scannerPlaceholder = document.querySelector('.scanner-placeholder');
+    scannerPlaceholder.innerHTML = `<div id="qr-reader-file" style="width: 100%;"><p>Analyse en cours...</p></div>`;
+
+    try {
+        html5QrCode = new Html5Qrcode("qr-reader-file");
+        const decodedText = await html5QrCode.scanFile(file, true);
+        onScanSuccess(decodedText, null);
+    } catch (err) {
+        console.error("Erreur lors de la lecture du fichier:", err);
+        alert("Impossible de lire le QR code dans cette image. Assurez-vous que l'image contient un QR code visible.");
+        scannerPlaceholder.innerHTML = `
+            <i class="fas fa-qrcode"></i>
+            <p>Zone de scan QR Code</p>
+        `;
+    }
+}
+
+function onScanSuccess(decodedText, decodedResult) {
+    console.log(`QR Code scanné: ${decodedText}`);
+
+    const stopAndRedirect = () => {
+        if (decodedText.startsWith('http://') || decodedText.startsWith('https://')) {
+            window.location.href = decodedText;
+        } else {
+            window.location.href = `/detailsparoeuvre?id=${decodedText}`;
+        }
+    };
+
+    if (html5QrCode && isScanning) {
+        html5QrCode.stop().then(() => {
+            isScanning = false;
+            stopAndRedirect();
+        }).catch(err => {
+            console.error("Erreur lors de l'arrêt du scanner:", err);
+            stopAndRedirect();
+        });
+    } else {
+        stopAndRedirect();
+    }
+}
+
+function onScanError(errorMessage) {
+    // Ne pas logger les erreurs continues
+}
+
+// === INITIALISATION ===
+document.addEventListener('DOMContentLoaded', function() {
+    const startScanBtn = document.getElementById('start-scan');
+    if (startScanBtn) {
+        startScanBtn.addEventListener('click', startQRScanner);
+    }
+
+    window.addEventListener('beforeunload', function() {
+        if (html5QrCode && isScanning) {
+            html5QrCode.stop();
+        }
+    });
+});
 </script>
 </body>
 </html>

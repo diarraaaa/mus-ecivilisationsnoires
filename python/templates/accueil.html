@@ -729,13 +729,26 @@
             <div class="slide slide3"></div>
         </div>
         <nav>
-            <ul>
                 <li><a href="/">Accueil</a></li>
                 <li><a href="/niveaupage">Les Œuvres</a></li>
                 <li><a href="/expositions">Expositions</a></li>
                 <li><a href="/contact">Contact</a></li>
+>>>>>>> f89d48fe0e4db0241037b4588cea74d0b2313f1f
             </ul>
-
+=======
+            <ul>
+                <li><a href="/" data-i18n="nav.home">Accueil</a></li>
+                <li><a href="/niveaupage" data-i18n="nav.artworks">Les Œuvres</a></li>
+                <li><a href="/expositions" data-i18n="nav.exhibitions">Expositions</a></li>
+                <li><a href="/contact" data-i18n="nav.contact">Contact</a></li>
+            </ul>
+=======
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/niveaupage">Les Œuvres</a></li>
+                <li><a href="/expositions">Expositions</a></li>
+                <li><a href="/contact">Contact</a></li>
+>>>>>>> f89d48fe0e4db0241037b4588cea74d0b2313f1f
+            </ul>
         </nav>
         <div class="header-overlay">
             <h1 class="logo-title" data-i18n="header.title">Musée des Civilisations Noires</h1>
@@ -895,7 +908,22 @@
                 <p data-i18n="footer.hours.schedule">Lundi - Samedi: 10h - 19h</p>
                 <p data-i18n="footer.hours.closed">Fermé Dimanche et les jours fériés</p>
             </div>
-
+                <h3>Liens rapides</h3>
+                <a href="/">Accueil</a>
+                <a href="/niveaupage">Les œuvres</a>
+                <a href="/contact">Contact</a>
+>>>>>>> f89d48fe0e4db0241037b4588cea74d0b2313f1f
+            </div>
+=======
+            <div class="footer-column">
+                <h3 data-i18n="footer.links">Liens rapides</h3>
+=======
+                <h3>Liens rapides</h3>
+                <a href="/">Accueil</a>
+                <a href="/niveaupage">Les œuvres</a>
+                <a href="/contact">Contact</a>
+>>>>>>> f89d48fe0e4db0241037b4588cea74d0b2313f1f
+            </div>
             <div class="footer-column">
                 <h3 data-i18n="footer.contact.title">Contact</h3>
                 <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.contact.address">Place de la Renaissance, Dakar</span></p>
@@ -1182,7 +1210,7 @@
                 },
                 artworks: {
                     title: "Gis sunuy art",
-                    intro: "Xoolal sunu oeuvres yu wuute yi ci sa telefon. Piyees bu nekk dafay nettali jaar-jaaru siwilisasioŋ yu ñuul yi.",
+                    intro: "Xoolal sunu liggéey yu wuute yi ci sa telefon. Piyees bu nekk dafay nettali jaar-jaaru siwilisasioŋ yu ñuul yi.",
                     masks: {
                         title: "Mask yu cosaan",
                         desc: "Dajale mask rituel yu bawoo ci gox yu bari ci sowwu Afrique. Yooyu mask yu sell lañu daan jëfandikoo ci xew-xew yu am solo te dañuy fësal ngëmu maam yi.",
@@ -1190,12 +1218,12 @@
                     },
                     sculptures: {
                         title: "Sculptures royales",
-                        desc: "Luwa ak yatteef yuy màndargaal famiy buur yu Afrique. oeuvres yooyu dañuy seede art bu rafet ak dooley buur yu yàgg ya.",
+                        desc: "Luwa ak yatteef yuy màndargaal famiy buur yu Afrique. Liggéey yooyu dañuy seede art bu rafet ak dooley buur yu yàgg ya.",
                         tag: "Patrimoine Royal"
                     },
                     contemporary: {
                         title: "Art africain contemporain",
-                        desc: "oeuvres yu bees yu artist africain yi def ci jamono jii, ñuy jëfandikoo seen cosaan ak aada, boole ci wane xeeti art yu bees.",
+                        desc: "Liggéey yu bees yu artist africain yi def ci jamono jii, ñuy jëfandikoo seen cosaan ak aada, boole ci wane xeeti art yu bees.",
                         tag: "Art bu bees"
                     },
                     instruments: {
@@ -1213,7 +1241,7 @@
                     },
                     audio: {
                         title: "Guide audio",
-                        desc: "Déglul tegtali oeuvres yi ak sunuy guide audio yuy boole lépp."
+                        desc: "Déglul tegtali liggéey yi ak sunuy guide audio yuy boole lépp."
                     },
                     mobile: {
                         title: "Expérience mobile",
@@ -1221,11 +1249,11 @@
                     },
                     history: {
                         title: "Ëmbiitu Taarix",
-                        desc: "Duggal ci taarix ak ci cosaan ak aada ci oeuvres bu nekk ak ëmbiit bu am solo."
+                        desc: "Duggal ci taarix ak ci cosaan ak aada ci liggéey bu nekk ak ëmbiit bu am solo."
                     },
                     media: {
                         title: "Media yu gëna baax",
-                        desc: "Gis wideo yi, nataali 360°, ak ëmbiit yuy weccoo xalaat ci oeuvres bu nekk."
+                        desc: "Gis wideo yi, nataali 360°, ak ëmbiit yuy weccoo xalaat ci liggéey bu nekk."
                     },
                     remote: {
                         title: "Accès à distance",
@@ -1507,50 +1535,6 @@
 
         document.querySelector('.virtual-tour-btn').addEventListener('click', function() {
             alert(translations[currentLanguage].alerts.virtualTour);
-        });
-        // === VISITE VIRTUELLE ===
-        const virtualTourModal = document.createElement('div');
-        virtualTourModal.id = 'virtualTourModal';
-        virtualTourModal.style.cssText = `
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: #000;
-            z-index: 99999;
-            flex-direction: column;
-        `;
-        virtualTourModal.innerHTML = `
-            <div style="position: absolute; top: 20px; right: 20px; z-index: 100000;">
-                <button id="closeVirtualTour" style="background: #D4AF37; color: #000; border: none; padding: 15px 30px; cursor: pointer; font-size: 1.2em; border-radius: 5px; font-weight: 600; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); transition: all 0.3s ease;">
-                    ✕ <span data-i18n="virtualTour.close">Fermer</span>
-                </button>
-            </div>
-            <iframe width="100%" height="100%" style="border: none;" src="https://metasteps.com/viewer/embed/14244a20-b08c-4cf1-ae69-db841a423b15?showSignIn=0&showCommunications=0" title="Musée des Civilisations Noires - Visite Virtuelle" allow="accelerometer; gyroscope; xr-spatial-tracking"></iframe>
-        `;
-        document.body.appendChild(virtualTourModal);
-
-        document.querySelector('.virtual-tour-btn').addEventListener('click', function() {
-            virtualTourModal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        });
-
-        document.getElementById('closeVirtualTour').addEventListener('click', function() {
-            virtualTourModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-
-        // Effet hover sur le bouton fermer
-        document.getElementById('closeVirtualTour').addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.05)';
-            this.style.boxShadow = '0 6px 20px rgba(212, 175, 55, 0.6)';
-        });
-
-        document.getElementById('closeVirtualTour').addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-            this.style.boxShadow = '0 4px 15px rgba(212, 175, 55, 0.4)';
         });
 
         // === CHATBOT ===
