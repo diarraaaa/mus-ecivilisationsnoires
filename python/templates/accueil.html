@@ -661,25 +661,205 @@
 
         @media (max-width: 768px) {
             .logo-title {
-                font-size: 2.5em;
+                font-size: 2em;
+                letter-spacing: 3px;
+                padding: 0 20px;
             }
+            
             .subtitle {
                 font-size: 1em;
+                letter-spacing: 2px;
+                padding: 0 20px;
             }
+            
+            nav {
+                padding: 20px;
+            }
+            
             nav ul {
-                flex-direction: column;
-                gap: 20px;
+                flex-direction: row;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
             }
+            
+            nav a {
+                font-size: 0.9em;
+                letter-spacing: 1px;
+                padding: 5px 10px;
+            }
+            
+            .virtual-tour-btn {
+                padding: 12px 25px;
+                font-size: 1em;
+                letter-spacing: 2px;
+            }
+            
             .content-section {
-                padding: 30px;
+                padding: 30px 20px;
+                margin-bottom: 30px;
             }
+            
+            h2 {
+                font-size: 1.8em;
+                letter-spacing: 2px;
+            }
+            
+            .intro-text {
+                font-size: 1.1em;
+                line-height: 1.6;
+            }
+            
             .gallery-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 25px;
             }
+            
+            .artwork-card {
+                margin: 0 10px;
+            }
+            
             .welcome-container {
                 flex-direction: column;
                 gap: 30px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .feature-card {
+                padding: 30px 20px;
+            }
+            
+            .scanner-placeholder {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .scanner-section {
+                padding: 30px 20px;
+            }
+            
+            .language-selector {
+                flex-direction: column;
+                gap: 15px;
+                align-items: stretch;
+            }
+            
+            .lang-btn {
+                width: 100%;
+                padding: 15px 25px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+            
+            .footer-column h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            main {
+                padding: 0 20px;
+                margin: 40px auto;
+            }
+            
+            #chatPopup {
+                width: 90%;
+                right: 5%;
+                bottom: 80px;
+            }
+            
+            #chatToggle {
+                bottom: 15px;
+                right: 15px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5em;
+            }
+            
+            .scroll-indicator {
+                font-size: 0.8em;
+                bottom: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-title {
+                font-size: 1.5em;
+                letter-spacing: 2px;
+            }
+            
+            .subtitle {
+                font-size: 0.9em;
+                letter-spacing: 1px;
+            }
+            
+            nav ul {
+                gap: 10px;
+            }
+            
+            nav a {
+                font-size: 0.8em;
+                padding: 4px 8px;
+            }
+            
+            .virtual-tour-btn {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            .intro-text {
+                font-size: 1em;
+            }
+            
+            .feature-icon {
+                font-size: 2.5em;
+            }
+            
+            .feature-card h3 {
+                font-size: 1.3em;
+            }
+            
+            .scanner-placeholder {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+            
+            .artwork-info h3 {
+                font-size: 1.3em;
+            }
+            
+            .artwork-info p {
+                font-size: 0.95em;
+            }
+        }
+        
+        /* Responsive pour la visite virtuelle */
+        @media (max-width: 768px) {
+            #closeVirtualTour {
+                padding: 10px 20px;
+                font-size: 1em;
+                top: 10px;
+                right: 10px;
             }
         }
     </style>
@@ -854,14 +1034,9 @@
                 </div>
             </div>
             <div class="footer-column">
-
-                <h3>Heures d'ouverture</h3>
-                <p>Mardi - Samedi: 10h - 19h</p>
-                <p>Fermé Dimanche et les jours fériés</p>
                 <h3 data-i18n="footer.hours.title">Heures d'ouverture</h3>
                 <p data-i18n="footer.hours.schedule">Lundi - Samedi: 10h - 19h</p>
                 <p data-i18n="footer.hours.closed">Fermé Dimanche et les jours fériés</p>
-
             </div>
             <div class="footer-column">
                 <h3 data-i18n="footer.links">Liens rapides</h3>
