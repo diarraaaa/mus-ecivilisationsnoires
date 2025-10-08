@@ -71,12 +71,23 @@ nav {
     position: absolute;
     top: 0;
     width: 100%;
-    padding: 30px 60px;
+    padding: 20px;
     z-index: 1000;
     display: flex;
     justify-content: center;
-    gap: 50px;
+    gap: 20px;
     background: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, transparent 100%);
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+nav li {
+    list-style: none;
 }
 
 nav a {
@@ -88,9 +99,8 @@ nav a {
     text-transform: uppercase;
     font-family: 'Raleway', sans-serif;
     transition: all 0.3s ease;
-}
-nav li{
-    list-style: none;
+    padding: 8px 12px;
+    white-space: nowrap;
 }
 
 nav a:hover {
@@ -102,129 +112,133 @@ nav a:hover {
     position: relative;
     z-index: 100;
     text-align: center;
+    padding: 0 20px;
 }
 
 .header-title {
     font-family: 'Cinzel', serif;
-    font-size: 3.2em;
+    font-size: 2.5em;
     font-weight: 800;
     background: linear-gradient(145deg, #FFD700, #D4AF37, #B8941E);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    letter-spacing: 5px;
+    letter-spacing: 3px;
     text-transform: uppercase;
+    line-height: 1.2;
 }
 
 .header-subtitle {
     color: rgba(212, 175, 55, 0.9);
-    font-size: 1em;
-    letter-spacing: 4px;
-    margin-top: 20px;
+    font-size: 0.9em;
+    letter-spacing: 3px;
+    margin-top: 15px;
     text-transform: uppercase;
 }
 
 main {
     max-width: 1500px;
-    margin: -80px auto 100px;
-    padding: 0 60px;
+    margin: -60px auto 80px;
+    padding: 0 20px;
     position: relative;
     z-index: 10;
 }
 
 .artwork-showcase {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 70px;
+    grid-template-columns: 1fr;
+    gap: 40px;
     background: linear-gradient(145deg, rgba(26, 15, 8, 0.85), rgba(20, 12, 8, 0.9));
-    border: 3px solid var(--gold);
-    border-radius: 30px;
-    padding: 60px;
-    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.95);
+    border: 2px solid var(--gold);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95);
 }
 
 .artwork-frame {
     background: linear-gradient(145deg, #4a3a2a, #2a1a10);
-    padding: 12px;
-    border-radius: 15px;
-    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.95);
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.95);
 }
 
 .mat-board {
     background: linear-gradient(135deg, #fdfbf7, #f0ebe3);
-    padding: 35px;
-    border-radius: 8px;
+    padding: 20px;
+    border-radius: 6px;
 }
 
 .artwork-image {
     width: 100%;
-    height: 450px;
+    height: 300px;
     object-fit: cover;
     border-radius: 4px;
 }
 
 .artwork-info {
-    padding: 30px 20px;
+    padding: 20px 0;
 }
 
 .artwork-title {
     font-family: 'Cinzel', serif;
-    font-size: 2.2em;
+    font-size: 1.8em;
     font-weight: 700;
     background: linear-gradient(135deg, #FFD700, #D4AF37);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 30px;
-    letter-spacing: 2px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    line-height: 1.3;
 }
 
 .info-row {
-    margin-bottom: 30px;
-    padding: 20px 0;
+    margin-bottom: 20px;
+    padding: 15px 0;
     border-bottom: 1px solid rgba(212, 175, 55, 0.15);
 }
 
 .info-label {
     font-family: 'Raleway', sans-serif;
-    font-size: 0.75em;
+    font-size: 0.7em;
     color: rgba(212, 175, 55, 0.8);
     text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
     font-weight: 700;
 }
 
 .info-value {
-    font-size: 1.1em;
+    font-size: 1em;
     color: var(--cream);
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 .category-badge {
     display: inline-block;
     background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.15));
     color: var(--gold-light);
-    padding: 10px 24px;
-    border-radius: 25px;
-    border: 2px solid rgba(212, 175, 55, 0.4);
-    letter-spacing: 2px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     font-weight: 600;
+    font-size: 0.85em;
 }
 
 .action-buttons {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    margin-top: 40px;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 30px;
 }
 
 .action-btn {
-    padding: 14px 18px;
+    padding: 12px 16px;
     background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(212, 175, 55, 0.08));
     color: var(--gold);
     border: 2px solid rgba(212, 175, 55, 0.35);
-    border-radius: 12px;
-    font-size: 0.85em;
+    border-radius: 10px;
+    font-size: 0.8em;
     font-family: 'Raleway', sans-serif;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -236,8 +250,8 @@ main {
 .action-btn:hover {
     background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(212, 175, 55, 0.2));
     border-color: var(--gold);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
 }
 
 .modal {
@@ -248,85 +262,86 @@ main {
     z-index: 2000;
     align-items: center;
     justify-content: center;
+    padding: 20px;
 }
 
 .modal-content {
     background: linear-gradient(145deg, rgba(26, 15, 8, 0.98), rgba(20, 12, 8, 0.98));
-    border: 3px solid var(--gold);
-    border-radius: 25px;
-    padding: 40px;
-    max-width: 550px;
-    width: 90%;
+    border: 2px solid var(--gold);
+    border-radius: 20px;
+    padding: 25px;
+    width: 100%;
+    max-width: 500px;
     max-height: 85vh;
     overflow-y: auto;
-    box-shadow: 0 25px 100px rgba(0, 0, 0, 0.95);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95);
 }
 
 .modal-content h2 {
     font-family: 'Cinzel', serif;
     color: var(--gold);
-    font-size: 1.8em;
-    margin-bottom: 25px;
+    font-size: 1.5em;
+    margin-bottom: 20px;
     text-align: center;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 }
 
 .lang-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-bottom: 20px;
+    gap: 10px;
+    margin-bottom: 15px;
 }
 
 .lang-option {
-    padding: 14px 20px;
+    padding: 12px 15px;
     background: rgba(212, 175, 55, 0.08);
     border: 2px solid rgba(212, 175, 55, 0.3);
-    border-radius: 15px;
+    border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
     color: var(--cream);
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     justify-content: flex-start;
-    font-size: 0.95em;
+    font-size: 0.9em;
     font-weight: 600;
 }
 
 .lang-option img {
-    width: 24px;
-    height: 18px;
-    border-radius: 3px;
+    width: 20px;
+    height: 15px;
+    border-radius: 2px;
 }
 
 .lang-option:hover {
     background: rgba(212, 175, 55, 0.15);
     border-color: var(--gold);
-    transform: translateX(5px);
+    transform: translateX(3px);
 }
 
 .lang-option.selected {
     background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(212, 175, 55, 0.2));
     border-color: var(--gold);
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
 }
 
 .modal-buttons {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-top: 25px;
+    gap: 10px;
+    margin-top: 20px;
 }
 
 .modal-buttons button {
-    padding: 14px;
+    padding: 12px;
     border: 2px solid rgba(212, 175, 55, 0.4);
     background: rgba(212, 175, 55, 0.1);
     color: var(--gold);
-    border-radius: 12px;
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 0.95em;
+    font-size: 0.9em;
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -337,27 +352,23 @@ main {
 .modal-buttons button:hover {
     background: rgba(212, 175, 55, 0.25);
     border-color: var(--gold);
-    transform: translateY(-3px);
-}
-
-.audio-player {
-    margin-top: 20px;
+    transform: translateY(-2px);
 }
 
 #chatToggle {
     position: fixed;
-    bottom: 35px;
-    right: 35px;
+    bottom: 20px;
+    right: 20px;
     z-index: 1500;
     background: linear-gradient(135deg, var(--gold), var(--gold-light));
     color: #000;
     border: none;
     border-radius: 50%;
-    width: 75px;
-    height: 75px;
-    font-size: 2em;
+    width: 60px;
+    height: 60px;
+    font-size: 1.5em;
     cursor: pointer;
-    box-shadow: 0 10px 35px rgba(212, 175, 55, 0.6);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
     transition: all 0.3s ease;
 }
 
@@ -369,14 +380,15 @@ main {
     display: none;
     flex-direction: column;
     position: fixed;
-    bottom: 120px;
-    right: 35px;
-    width: 400px;
-    max-height: 600px;
+    bottom: 90px;
+    right: 20px;
+    width: calc(100vw - 40px);
+    max-width: 400px;
+    max-height: 500px;
     background: linear-gradient(145deg, rgba(26, 15, 8, 0.98), rgba(20, 12, 8, 0.98));
-    border: 3px solid var(--gold);
-    border-radius: 25px;
-    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.95);
+    border: 2px solid var(--gold);
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.95);
     z-index: 1500;
     overflow: hidden;
 }
@@ -384,9 +396,9 @@ main {
 #chatPopupHeader {
     background: linear-gradient(135deg, var(--gold), var(--gold-light));
     color: #000;
-    padding: 25px;
+    padding: 20px;
     font-weight: 800;
-    font-size: 1.3em;
+    font-size: 1.1em;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -397,29 +409,31 @@ main {
     background: rgba(0, 0, 0, 0.2);
     border: none;
     cursor: pointer;
-    font-size: 1.5em;
+    font-size: 1.3em;
     color: #000;
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     transition: all 0.3s ease;
 }
 
 #chatMessages {
     flex: 1;
-    padding: 25px;
+    padding: 20px;
     overflow-y: auto;
     background: rgba(0, 0, 0, 0.4);
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
+    max-height: 300px;
 }
 
 #chatMessages .chat-msg {
-    padding: 14px 18px;
-    border-radius: 15px;
+    padding: 12px 15px;
+    border-radius: 12px;
     max-width: 85%;
-    line-height: 1.6;
+    line-height: 1.5;
+    font-size: 0.9em;
 }
 
 #chatMessages .chat-user {
@@ -438,101 +452,358 @@ main {
 
 #chatForm {
     display: flex;
-    border-top: 2px solid rgba(212, 175, 55, 0.4);
+    border-top: 1px solid rgba(212, 175, 55, 0.4);
     background: rgba(0, 0, 0, 0.6);
 }
 
 #chatForm input {
     flex: 1;
-    padding: 18px 20px;
+    padding: 15px;
     border: none;
     outline: none;
     background: transparent;
     color: var(--cream);
-    font-size: 1em;
+    font-size: 0.9em;
 }
 
 #chatForm button {
-    padding: 18px 25px;
+    padding: 15px 20px;
     background: linear-gradient(135deg, var(--gold), var(--gold-light));
     color: #000;
     border: none;
     cursor: pointer;
     font-weight: 700;
     transition: all 0.3s ease;
+    font-size: 0.9em;
 }
 
 footer {
     background: linear-gradient(to top, #000 0%, rgba(10, 9, 7, 0.95) 50%, transparent 100%);
     color: rgba(232, 220, 196, 0.8);
     text-align: center;
-    padding: 60px 40px;
-    margin-top: 120px;
-    font-size: 1em;
-    letter-spacing: 3px;
-    border-top: 2px solid rgba(212, 175, 55, 0.3);
+    padding: 40px 20px;
+    margin-top: 80px;
+    font-size: 0.9em;
+    letter-spacing: 2px;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
 }
 
-@media (max-width: 768px) {
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #F5F5DC;
+    font-size: 0.8em;
+    letter-spacing: 1.5px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-8px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-4px);
+    }
+}
+
+/* Media Queries pour le responsive */
+@media (min-width: 768px) {
+    nav {
+        padding: 30px 40px;
+        gap: 40px;
+    }
+    
+    nav a {
+        font-size: 0.75em;
+        padding: 10px 15px;
+    }
+    
+    .header-title {
+        font-size: 3em;
+        letter-spacing: 4px;
+    }
+    
+    .header-subtitle {
+        font-size: 1em;
+        letter-spacing: 4px;
+    }
+    
+    main {
+        margin: -80px auto 100px;
+        padding: 0 40px;
+    }
+    
     .artwork-showcase {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 50px;
+        padding: 50px;
+        border-radius: 25px;
+        border-width: 3px;
+    }
+    
+    .artwork-frame {
+        padding: 12px;
+        border-radius: 15px;
+    }
+    
+    .mat-board {
         padding: 30px;
+    }
+    
+    .artwork-image {
+        height: 400px;
+    }
+    
+    .artwork-info {
+        padding: 30px 20px;
+    }
+    
+    .artwork-title {
+        font-size: 2.2em;
+    }
+    
+    .action-buttons {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .action-btn {
+        padding: 14px 18px;
+        font-size: 0.85em;
+    }
+    
+    #chatToggle {
+        width: 70px;
+        height: 70px;
+        font-size: 1.8em;
+        bottom: 30px;
+        right: 30px;
+    }
+    
+    #chatPopup {
+        width: 380px;
+        max-height: 600px;
+        bottom: 110px;
+        right: 30px;
+    }
+    
+    footer {
+        padding: 50px 40px;
+        font-size: 1em;
+        letter-spacing: 3px;
+    }
+}
+
+@media (min-width: 1024px) {
+    nav {
+        padding: 30px 60px;
+        gap: 50px;
+    }
+    
+    .header-title {
+        font-size: 3.2em;
+        letter-spacing: 5px;
+    }
+    
+    .header-subtitle {
+        font-size: 1em;
+        letter-spacing: 4px;
+        margin-top: 20px;
+    }
+    
+    main {
+        padding: 0 60px;
+    }
+    
+    .artwork-showcase {
+        gap: 70px;
+        padding: 60px;
+        border-radius: 30px;
+    }
+    
+    .artwork-frame {
+        padding: 12px;
+    }
+    
+    .mat-board {
+        padding: 35px;
+    }
+    
+    .artwork-image {
+        height: 450px;
+    }
+    
+    .artwork-title {
+        font-size: 2.2em;
+    }
+    
+    .info-row {
+        margin-bottom: 30px;
+        padding: 20px 0;
+    }
+    
+    .info-label {
+        font-size: 0.75em;
+        letter-spacing: 2px;
+    }
+    
+    .info-value {
+        font-size: 1.1em;
+    }
+    
+    .category-badge {
+        padding: 10px 24px;
+        letter-spacing: 2px;
+    }
+    
+    .action-buttons {
+        margin-top: 40px;
+    }
+    
+    .modal-content {
+        padding: 40px;
+        max-width: 550px;
+    }
+    
+    .modal-content h2 {
+        font-size: 1.8em;
+        letter-spacing: 3px;
+    }
+    
+    .lang-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .lang-option {
+        padding: 14px 20px;
+        font-size: 0.95em;
+    }
+    
+    .lang-option img {
+        width: 24px;
+        height: 18px;
+    }
+    
+    .modal-buttons {
+        gap: 12px;
+        margin-top: 25px;
+    }
+    
+    .modal-buttons button {
+        padding: 14px;
+    }
+    
+    #chatToggle {
+        width: 75px;
+        height: 75px;
+        font-size: 2em;
+        bottom: 35px;
+        right: 35px;
+    }
+    
+    #chatPopup {
+        width: 400px;
+        bottom: 120px;
+        right: 35px;
+    }
+    
+    #chatPopupHeader {
+        padding: 25px;
+        font-size: 1.3em;
+    }
+    
+    #chatMessages {
+        padding: 25px;
+        gap: 12px;
+    }
+    
+    #chatMessages .chat-msg {
+        padding: 14px 18px;
+        font-size: 1em;
+    }
+    
+    #chatForm input {
+        padding: 18px 20px;
+    }
+    
+    #chatForm button {
+        padding: 18px 25px;
+    }
+    
+    footer {
+        padding: 60px 40px;
+        margin-top: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-title {
+        font-size: 2em;
+        letter-spacing: 2px;
+    }
+    
+    .header-subtitle {
+        font-size: 0.8em;
+        letter-spacing: 2px;
+    }
+    
+    .artwork-showcase {
+        padding: 20px;
+        gap: 30px;
+    }
+    
+    .artwork-image {
+        height: 250px;
+    }
+    
+    .artwork-title {
+        font-size: 1.6em;
     }
     
     .lang-grid {
         grid-template-columns: 1fr;
     }
     
-    #chatPopup {
-        width: calc(100% - 40px);
-        right: 20px;
+    .modal-content {
+        padding: 20px;
     }
-     /* Responsive */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
+    
+    #chatPopup {
+        max-height: 400px;
+    }
+    
+    #chatMessages {
+        max-height: 250px;
+    }
+}
 
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-content p {
-                font-size: 1.1rem;
-            }
-
-            .welcome-section {
-                flex-direction: column;
-            }
-
-            .btn-virtual {
-                margin-left: 0;
-                margin-top: 15px;
-            }
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: #F5F5DC;
-            font-size: 0.9em;
-            letter-spacing: 2px;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            40% {
-                transform: translateX(-50%) translateY(-10px);
-            }
-            60% {
-                transform: translateX(-50%) translateY(-5px);
-            }
-        }
+@media (max-width: 360px) {
+    nav ul {
+        gap: 10px;
+    }
+    
+    nav a {
+        font-size: 0.65em;
+        padding: 6px 8px;
+    }
+    
+    .header-title {
+        font-size: 1.8em;
+    }
+    
+    .artwork-showcase {
+        padding: 15px;
+    }
+    
+    .mat-board {
+        padding: 15px;
+    }
 }
 </style>
 </head>
@@ -543,14 +814,17 @@ footer {
 
 <header class="hero-header">
     <nav>
+        <ul>
             <li><a href="/">Accueil</a></li>
             <li><a href="/niveaupage">Les Œuvres</a></li>
             <li><a href="/expositions">Expositions</a></li>
             <li><a href="/contact">Contact</a></li>
+        </ul>
     </nav>
     <div class="header-content">
         <h1 class="header-title">Masque Africain</h1>
         <p class="header-subtitle">Découvrez l'Histoire</p>
+        <div class="scroll-indicator">Défiler vers le bas</div>
     </div>
 </header>
 
@@ -584,8 +858,6 @@ footer {
             <div id="hidden-description" style="display: none;">
                 {{ details.histoire }}
             </div>
-
-            
 
             <div class="action-buttons">
                 <button class="action-btn" id="btn-histoire">📖 Histoire de l'oeuvre </button>
