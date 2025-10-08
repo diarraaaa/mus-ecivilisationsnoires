@@ -1,838 +1,1253 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Musée des Civilisations Noires</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-       :root {
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Œuvre d'Art - Musée des Civilisations Noires</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Cinzel:wght@400;600;800&family=Cormorant+Garamond:wght@300;400;600&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
     --gold: #D4AF37;
     --gold-light: #FFD700;
-    --cream: #F5F5DC;
-    --dark-brown: #3d2817;
-    --bronze: #CD7F32;
+    --gold-dark: #B8941E;
+    --bronze: #8B6914;
+    --deep-brown: #1a0f08;
+    --rich-brown: #2a1610;
+    --cream: #f5f5dc;
 }
 
-       * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Garamond', 'Georgia', serif;
-            background:#F5F5DC ;
-            color: #F5F5DC;
-           
-        }
-
-        /* Header avec slider */
-        .hero-header {
-            position: relative;
-             height: 80vh;
-            overflow: hidden;
-            background: #000;
-        }
-
-        .slider-container {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-
-        .slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .slide.active {
-            opacity: 0.7;
-        }
-
-        .slide1 { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23654321" width="1200" height="800"/><circle cx="300" cy="400" r="150" fill="%23D4AF37" opacity="0.3"/><rect x="600" y="200" width="400" height="400" fill="%23000" opacity="0.4"/></svg>'); }
-        .slide2 { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%238B4513" width="1200" height="800"/><polygon points="600,100 900,700 300,700" fill="%23D4AF37" opacity="0.3"/><circle cx="900" cy="200" r="100" fill="%23000" opacity="0.4"/></svg>'); }
-        .slide3 { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23A0826D" width="1200" height="800"/><rect x="100" y="100" width="300" height="600" fill="%23000" opacity="0.4"/><circle cx="800" cy="400" r="200" fill="%23D4AF37" opacity="0.3"/></svg>'); }
-
-        .header-overlay {
-            position: relative;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            z-index: 2;
-        }
-
-        .logo-title {
-            color: #F5F5DC;
-            font-size: 4.5em;
-            font-weight: 300;
-            letter-spacing: 8px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
-            animation: fadeInDown 1.5s ease-out;
-        }
-
-        .subtitle {
-            color: #D4AF37;
-            font-size: 1.5em;
-            letter-spacing: 4px;
-            margin-bottom: 50px;
-            font-weight: 300;
-            animation: fadeInUp 1.5s ease-out;
-        }
-
-        .virtual-tour-btn {
-            padding: 18px 45px;
-            background: transparent;
-            color: #D4AF37;
-            border: 2px solid #D4AF37;
-            border-radius: 50px;
-            font-size: 1.1em;
-            font-weight: 400;
-            letter-spacing: 3px;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            text-transform: uppercase;
-            animation: fadeInUp 2s ease-out;
-        }
-
-        .virtual-tour-btn:hover {
-            background: #D4AF37;
-            color: #000;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: #D4AF37;
-            font-size: 1em;
-            letter-spacing: 2px;
-            animation: bounce 2s infinite;
-            cursor: pointer;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            40% {
-                transform: translateX(-50%) translateY(-10px);
-            }
-            60% {
-                transform: translateX(-50%) translateY(-5px);
-            }
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        nav {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            padding: 30px 50px;
-            z-index: 10;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-        }
-
-        nav a {
-            color: #F5F5DC;
-            text-decoration: none;
-            font-size: 1.1em;
-            letter-spacing: 2px;
-            font-weight: 300;
-            transition: all 0.3s ease;
-            padding: 5px 15px;
-            border-bottom: 2px solid transparent;
-        }
-
-        nav a:hover {
-            color: #D4AF37;
-            border-bottom: 2px solid #D4AF37;
-        }
-
-        .contact-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 80px 50px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-        }
-
-        .contact-form-section {
-            background: #fff;
-            padding: 50px;
-            border-radius: 15px;
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .contact-form-section:hover {
-            box-shadow: 0 15px 50px rgba(212, 175, 55, 0.2);
-            border-color: var(--gold);
-        }
-
-        .contact-form-section h2 {
-            font-size: 2.5em;
-            color: var(--gold);
-            margin-bottom: 30px;
-            font-weight: 600;
-            letter-spacing: 2px;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 10px;
-            color: var(--dark-brown);
-            font-size: 1.1em;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px 20px;
-            background: #fafafa;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            color: #333;
-            font-size: 1em;
-            font-family: 'Garamond', serif;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--gold);
-            background: #fff;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, var(--gold) 0%, #B8941F 100%);
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1em;
-            font-weight: 700;
-            letter-spacing: 2px;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            text-transform: uppercase;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
-            background: linear-gradient(135deg, #B8941F 0%, var(--gold) 100%);
-        }
-
-        .contact-info-section {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .info-card {
-            background: #fff;
-            padding: 40px;
-            border-radius: 15px;
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .info-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold);
-            box-shadow: 0 15px 50px rgba(212, 175, 55, 0.2);
-        }
-
-        .info-card h3 {
-            font-size: 1.8em;
-            color: var(--gold);
-            margin-bottom: 25px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .info-card h3 i {
-            font-size: 1.2em;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 20px;
-            font-size: 1.1em;
-            line-height: 1.8;
-        }
-
-        .info-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .info-item i {
-            color: var(--gold);
-            margin-top: 5px;
-            font-size: 1.2em;
-            min-width: 25px;
-        }
-
-        .info-item p {
-            color: #555;
-            margin: 0;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-            justify-content: center;
-        }
-
-        .social-links a {
-            width: 50px;
-            height: 50px;
-            background: rgba(212, 175, 55, 0.1);
-            border: 2px solid var(--gold);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gold);
-            font-size: 1.3em;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .social-links a:hover {
-            background: var(--gold);
-            color: #fff;
-            transform: translateY(-5px) rotate(360deg);
-            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
-        }
-
-        .map-section {
-            grid-column: 1 / -1;
-            background: #fff;
-            padding: 50px;
-            border-radius: 15px;
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .map-section h2 {
-            font-size: 2.5em;
-            color: var(--gold);
-            margin-bottom: 30px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-align: center;
-        }
-
-        .map-placeholder {
-            width: 100%;
-            height: 400px;
-            background: #fafafa;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px dashed rgba(212, 175, 55, 0.4);
-            overflow: hidden;
-        }
-
-        .map-placeholder iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
-        }
-
-        footer {
-            background: linear-gradient(135deg, var(--dark-brown) 0%, #2d2416 100%);
-            color: var(--cream);
-            text-align: center;
-            padding: 40px 20px;
-            border-top: 3px solid var(--gold);
-            font-size: 1.1em;
-            letter-spacing: 2px;
-            margin-top: 80px;
-        }
-
-        footer p {
-            font-size: 1em;
-            font-weight: 300;
-        }
-
-        /* RESPONSIVE DESIGN */
-        @media (max-width: 992px) {
-            .contact-container {
-                grid-template-columns: 1fr;
-                padding: 60px 30px;
-                gap: 40px;
-            }
-
-            .contact-form-section,
-            .info-card,
-            .map-section {
-                padding: 35px;
-            }
-
-            .map-placeholder {
-                height: 350px;
-            }
-
-            .logo-title {
-                font-size: 3.5em;
-                letter-spacing: 5px;
-            }
-
-            .subtitle {
-                font-size: 1.3em;
-                letter-spacing: 3px;
-            }
-
-            nav ul {
-                gap: 30px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-header {
-                height: 60vh;
-            }
-
-            .logo-title {
-                font-size: 2.5em;
-                letter-spacing: 3px;
-                padding: 0 20px;
-            }
-
-            .subtitle {
-                font-size: 1.1em;
-                letter-spacing: 2px;
-                padding: 0 20px;
-            }
-
-            .virtual-tour-btn {
-                padding: 15px 30px;
-                font-size: 1em;
-                letter-spacing: 2px;
-            }
-
-            nav {
-                padding: 20px;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 15px;
-                background: transparent;
-                padding: 20px;
-            }
-
-            nav a {
-                font-size: 1em;
-                text-align: center;
-                padding: 10px 20px;
-                border-radius: 5px;
-                background: transparent;
-                border: none;
-            }
-
-            nav a:hover {
-                background: transparent;
-                color: var(--gold-light);
-                text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
-            }
-
-            .contact-container {
-                padding: 40px 20px;
-                gap: 30px;
-            }
-
-            .contact-form-section,
-            .info-card,
-            .map-section {
-                padding: 25px;
-            }
-
-            .contact-form-section h2,
-            .map-section h2 {
-                font-size: 2em;
-                letter-spacing: 1px;
-            }
-
-            .info-card h3 {
-                font-size: 1.5em;
-                letter-spacing: 1px;
-            }
-
-            .form-group label {
-                font-size: 1em;
-            }
-
-            .form-group input,
-            .form-group textarea {
-                padding: 12px 15px;
-                font-size: 0.95em;
-            }
-
-            .submit-btn {
-                padding: 15px;
-                font-size: 1em;
-            }
-
-            .info-item {
-                font-size: 1em;
-            }
-
-            .social-links a {
-                width: 45px;
-                height: 45px;
-                font-size: 1.2em;
-            }
-
-            .map-placeholder {
-                height: 300px;
-            }
-
-            .scroll-indicator {
-                font-size: 0.9em;
-                bottom: 20px;
-            }
-
-            footer {
-                padding: 30px 20px;
-                font-size: 1em;
-                margin-top: 50px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-header {
-                height: 50vh;
-            }
-
-            .logo-title {
-                font-size: 1.8em;
-                letter-spacing: 2px;
-            }
-
-            .subtitle {
-                font-size: 0.95em;
-                letter-spacing: 1px;
-            }
-
-            .virtual-tour-btn {
-                padding: 12px 25px;
-                font-size: 0.9em;
-                letter-spacing: 1px;
-            }
-
-            nav ul {
-                gap: 10px;
-                padding: 15px;
-            }
-
-            nav a {
-                font-size: 0.9em;
-                padding: 8px 15px;
-            }
-
-            .contact-container {
-                padding: 30px 15px;
-                gap: 25px;
-            }
-
-            .contact-form-section,
-            .info-card,
-            .map-section {
-                padding: 20px;
-            }
-
-            .contact-form-section h2,
-            .map-section h2 {
-                font-size: 1.6em;
-                margin-bottom: 20px;
-            }
-
-            .info-card h3 {
-                font-size: 1.3em;
-                gap: 10px;
-            }
-
-            .form-group {
-                margin-bottom: 20px;
-            }
-
-            .form-group label {
-                font-size: 0.95em;
-                margin-bottom: 8px;
-            }
-
-            .form-group input,
-            .form-group textarea {
-                padding: 10px 12px;
-                font-size: 0.9em;
-            }
-
-            .form-group textarea {
-                min-height: 120px;
-            }
-
-            .submit-btn {
-                padding: 13px;
-                font-size: 0.95em;
-                letter-spacing: 1px;
-            }
-
-            .info-item {
-                font-size: 0.95em;
-                gap: 12px;
-            }
-
-            .info-item i {
-                font-size: 1.1em;
-                min-width: 20px;
-            }
-
-            .social-links {
-                gap: 12px;
-            }
-
-            .social-links a {
-                width: 40px;
-                height: 40px;
-                font-size: 1.1em;
-            }
-
-            .map-placeholder {
-                height: 250px;
-            }
-
-            .scroll-indicator {
-                font-size: 0.8em;
-                bottom: 15px;
-            }
-
-            footer {
-                padding: 25px 15px;
-                font-size: 0.9em;
-                margin-top: 40px;
-            }
-
-            footer p {
-                font-size: 0.95em;
-            }
-        }
-        
-    </style>
+body {
+    font-family: 'Garamond', 'Georgia', serif;
+    background: #000;
+    color: var(--cream);
+    overflow-x: hidden;
+    position: relative;
+}
+
+.particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: 
+        radial-gradient(2px 2px at 20% 30%, rgba(212, 175, 55, 0.3), transparent),
+        radial-gradient(2px 2px at 60% 70%, rgba(212, 175, 55, 0.2), transparent),
+        radial-gradient(1px 1px at 50% 50%, rgba(212, 175, 55, 0.15), transparent);
+    background-size: 200% 200%;
+    animation: particleFloat 25s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes particleFloat {
+    0%, 100% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+}
+
+.gradient-bg {
+    position: fixed;
+    inset: 0;
+    background: 
+        radial-gradient(ellipse at 10% 20%, rgba(139, 69, 19, 0.25) 0%, transparent 50%),
+        radial-gradient(ellipse at 90% 80%, rgba(212, 175, 55, 0.15) 0%, transparent 50%);
+}
+
+.hero-header {
+    position: relative;
+    height: 50vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 15px;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    list-style: none;
+}
+
+nav a {
+    color: rgba(232, 220, 196, 0.8);
+    text-decoration: none;
+    font-size: 0.7em;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: 'Raleway', sans-serif;
+    transition: all 0.3s ease;
+    padding: 6px 10px;
+    white-space: nowrap;
+}
+
+nav a:hover {
+    color: var(--gold-light);
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+}
+
+.header-content {
+    position: relative;
+    z-index: 100;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.header-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8em;
+    font-weight: 800;
+    background: linear-gradient(145deg, #FFD700, #D4AF37, #B8941E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.header-subtitle {
+    color: rgba(212, 175, 55, 0.9);
+    font-size: 0.75em;
+    letter-spacing: 2px;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+main {
+    max-width: 1500px;
+    margin: 20px auto 60px;
+    padding: 0 15px;
+    position: relative;
+    z-index: 10;
+}
+
+.artwork-showcase {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    background: linear-gradient(145deg, rgba(26, 15, 8, 0.85), rgba(20, 12, 8, 0.9));
+    border: 2px solid var(--gold);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95);
+}
+
+.artwork-frame {
+    background: linear-gradient(145deg, #4a3a2a, #2a1a10);
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.95);
+}
+
+.mat-board {
+    background: linear-gradient(135deg, #fdfbf7, #f0ebe3);
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.artwork-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.artwork-info {
+    padding: 15px 0;
+}
+
+.artwork-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    background: linear-gradient(135deg, #FFD700, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    line-height: 1.3;
+}
+
+.info-row {
+    margin-bottom: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.info-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.7em;
+    color: rgba(212, 175, 55, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.info-value {
+    font-size: 0.95em;
+    color: var(--cream);
+    line-height: 1.5;
+}
+
+.category-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.15));
+    color: var(--gold-light);
+    padding: 6px 12px;
+    border-radius: 15px;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.8em;
+}
+
+.action-buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.action-btn {
+    padding: 12px 14px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(212, 175, 55, 0.08));
+    color: var(--gold);
+    border: 2px solid rgba(212, 175, 55, 0.35);
+    border-radius: 10px;
+    font-size: 0.8em;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 700;
+}
+
+.action-btn:hover {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(212, 175, 55, 0.2));
+    border-color: var(--gold);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.97);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.modal-content {
+    background: linear-gradient(145deg, rgba(26, 15, 8, 0.98), rgba(20, 12, 8, 0.98));
+    border: 2px solid var(--gold);
+    border-radius: 15px;
+    padding: 20px;
+    width: 100%;
+    max-width: 450px;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95);
+}
+
+.modal-content h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.lang-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.lang-option {
+    padding: 10px 12px;
+    background: rgba(212, 175, 55, 0.08);
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    justify-content: flex-start;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+.lang-option img {
+    width: 18px;
+    height: 14px;
+    border-radius: 2px;
+}
+
+.lang-option:hover {
+    background: rgba(212, 175, 55, 0.15);
+    border-color: var(--gold);
+    transform: translateX(3px);
+}
+
+.lang-option.selected {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(212, 175, 55, 0.2));
+    border-color: var(--gold);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+.modal-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.modal-buttons button {
+    padding: 10px;
+    border: 2px solid rgba(212, 175, 55, 0.4);
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--gold);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    font-family: 'Raleway', sans-serif;
+}
+
+.modal-buttons button:hover {
+    background: rgba(212, 175, 55, 0.25);
+    border-color: var(--gold);
+    transform: translateY(-2px);
+}
+
+#chatToggle {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: 1500;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: #000;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.3em;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+    transition: all 0.3s ease;
+}
+
+#chatToggle:hover {
+    transform: scale(1.1);
+}
+
+#chatPopup {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    bottom: 75px;
+    right: 15px;
+    width: calc(100vw - 30px);
+    max-width: 350px;
+    max-height: 450px;
+    background: linear-gradient(145deg, rgba(26, 15, 8, 0.98), rgba(20, 12, 8, 0.98));
+    border: 2px solid var(--gold);
+    border-radius: 15px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.95);
+    z-index: 1500;
+    overflow: hidden;
+}
+
+#chatPopupHeader {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: #000;
+    padding: 15px;
+    font-weight: 800;
+    font-size: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Cinzel', serif;
+}
+
+#chatPopupHeader button {
+    background: rgba(0, 0, 0, 0.2);
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #000;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+#chatMessages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 250px;
+}
+
+#chatMessages .chat-msg {
+    padding: 10px 12px;
+    border-radius: 10px;
+    max-width: 85%;
+    line-height: 1.5;
+    font-size: 0.85em;
+}
+
+#chatMessages .chat-user {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(212, 175, 55, 0.2));
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    align-self: flex-end;
+    color: var(--cream);
+}
+
+#chatMessages .chat-bot {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.35), rgba(212, 175, 55, 0.25));
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    color: var(--cream);
+    align-self: flex-start;
+}
+
+#chatForm {
+    display: flex;
+    border-top: 1px solid rgba(212, 175, 55, 0.4);
+    background: rgba(0, 0, 0, 0.6);
+}
+
+#chatForm input {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--cream);
+    font-size: 0.85em;
+}
+
+#chatForm button {
+    padding: 12px 15px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: #000;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    font-size: 0.85em;
+}
+
+footer {
+    background: linear-gradient(to top, #000 0%, rgba(10, 9, 7, 0.95) 50%, transparent 100%);
+    color: rgba(232, 220, 196, 0.8);
+    text-align: center;
+    padding: 30px 15px;
+    margin-top: 60px;
+    font-size: 0.85em;
+    letter-spacing: 1.5px;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #F5F5DC;
+    font-size: 0.7em;
+    letter-spacing: 1.2px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-8px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-4px);
+    }
+}
+
+/* RESPONSIVE TABLETTES */
+@media (min-width: 768px) {
+    .hero-header {
+        height: 70vh;
+    }
+    
+    nav {
+        padding: 20px 30px;
+    }
+    
+    nav ul {
+        gap: 15px;
+    }
+    
+    nav a {
+        font-size: 0.75em;
+        padding: 8px 12px;
+        letter-spacing: 2px;
+    }
+    
+    .header-title {
+        font-size: 2.5em;
+        letter-spacing: 3px;
+    }
+    
+    .header-subtitle {
+        font-size: 0.9em;
+        letter-spacing: 3px;
+        margin-top: 15px;
+    }
+    
+    main {
+        margin: -60px auto 80px;
+        padding: 0 30px;
+    }
+    
+    .artwork-showcase {
+        grid-template-columns: 1.2fr 1fr;
+        gap: 40px;
+        padding: 40px;
+        border-radius: 20px;
+    }
+    
+    .artwork-frame {
+        padding: 10px;
+        border-radius: 12px;
+    }
+    
+    .mat-board {
+        padding: 25px;
+    }
+    
+    .artwork-image {
+        height: 350px;
+    }
+    
+    .artwork-info {
+        padding: 20px 0;
+    }
+    
+    .artwork-title {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+    
+    .info-row {
+        margin-bottom: 20px;
+        padding: 15px 0;
+    }
+    
+    .info-label {
+        font-size: 0.75em;
+    }
+    
+    .info-value {
+        font-size: 1em;
+    }
+    
+    .category-badge {
+        padding: 8px 18px;
+        font-size: 0.85em;
+    }
+    
+    .action-buttons {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-top: 25px;
+    }
+    
+    .action-btn {
+        padding: 13px 16px;
+        font-size: 0.85em;
+    }
+    
+    .modal-content {
+        padding: 30px;
+        max-width: 500px;
+    }
+    
+    .modal-content h2 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+    
+    .lang-grid {
+        gap: 10px;
+    }
+    
+    .lang-option {
+        padding: 12px 15px;
+        font-size: 0.9em;
+    }
+    
+    .lang-option img {
+        width: 20px;
+        height: 15px;
+    }
+    
+    .modal-buttons {
+        gap: 10px;
+        margin-top: 20px;
+    }
+    
+    .modal-buttons button {
+        padding: 12px;
+        font-size: 0.9em;
+    }
+    
+    #chatToggle {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5em;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    #chatPopup {
+        width: 380px;
+        max-height: 550px;
+        bottom: 90px;
+        right: 20px;
+    }
+    
+    #chatPopupHeader {
+        padding: 18px;
+        font-size: 1.1em;
+    }
+    
+    #chatMessages {
+        padding: 18px;
+        max-height: 320px;
+        gap: 10px;
+    }
+    
+    #chatMessages .chat-msg {
+        padding: 12px 15px;
+        font-size: 0.9em;
+    }
+    
+    #chatForm input {
+        padding: 15px;
+        font-size: 0.9em;
+    }
+    
+    #chatForm button {
+        padding: 15px 18px;
+        font-size: 0.9em;
+    }
+    
+    footer {
+        padding: 40px 30px;
+        margin-top: 80px;
+        font-size: 0.9em;
+    }
+}
+
+/* RESPONSIVE DESKTOP */
+@media (min-width: 1024px) {
+    .hero-header {
+        height: 80vh;
+    }
+    
+    nav {
+        padding: 25px 50px;
+    }
+    
+    nav ul {
+        gap: 20px;
+    }
+    
+    nav a {
+        font-size: 0.75em;
+        padding: 10px 15px;
+    }
+    
+    .header-title {
+        font-size: 3.2em;
+        letter-spacing: 4px;
+    }
+    
+    .header-subtitle {
+        font-size: 1em;
+        letter-spacing: 4px;
+        margin-top: 20px;
+    }
+    
+    main {
+        padding: 0 50px;
+    }
+    
+    .artwork-showcase {
+        gap: 60px;
+        padding: 50px;
+        border-radius: 25px;
+        border-width: 3px;
+    }
+    
+    .artwork-frame {
+        padding: 12px;
+        border-radius: 15px;
+    }
+    
+    .mat-board {
+        padding: 30px;
+    }
+    
+    .artwork-image {
+        height: 450px;
+    }
+    
+    .artwork-title {
+        font-size: 2.2em;
+    }
+    
+    .info-row {
+        margin-bottom: 25px;
+        padding: 18px 0;
+    }
+    
+    .info-label {
+        font-size: 0.75em;
+        letter-spacing: 2px;
+    }
+    
+    .info-value {
+        font-size: 1.1em;
+    }
+    
+    .category-badge {
+        padding: 10px 22px;
+        letter-spacing: 2px;
+    }
+    
+    .action-buttons {
+        margin-top: 35px;
+    }
+    
+    .action-btn {
+        padding: 14px 18px;
+    }
+    
+    .modal-content {
+        padding: 35px;
+        max-width: 550px;
+    }
+    
+    .modal-content h2 {
+        font-size: 1.8em;
+        letter-spacing: 3px;
+    }
+    
+    .lang-option {
+        padding: 14px 18px;
+        font-size: 0.95em;
+    }
+    
+    .lang-option img {
+        width: 24px;
+        height: 18px;
+    }
+    
+    #chatToggle {
+        width: 70px;
+        height: 70px;
+        font-size: 1.8em;
+        bottom: 30px;
+        right: 30px;
+    }
+    
+    #chatPopup {
+        width: 400px;
+        max-height: 600px;
+        bottom: 110px;
+        right: 30px;
+    }
+    
+    #chatPopupHeader {
+        padding: 20px;
+        font-size: 1.2em;
+    }
+    
+    #chatMessages {
+        padding: 20px;
+        max-height: 350px;
+    }
+    
+    #chatMessages .chat-msg {
+        padding: 13px 16px;
+        font-size: 0.95em;
+    }
+    
+    #chatForm input {
+        padding: 16px 18px;
+        font-size: 0.95em;
+    }
+    
+    #chatForm button {
+        padding: 16px 20px;
+    }
+    
+    footer {
+        padding: 50px 40px;
+        margin-top: 100px;
+        font-size: 1em;
+        letter-spacing: 2px;
+    }
+}
+
+/* PETITS MOBILES */
+@media (max-width: 480px) {
+    .hero-header {
+        height: 45vh;
+    }
+    
+    .header-title {
+        font-size: 1.5em;
+        letter-spacing: 1.5px;
+    }
+    
+    .header-subtitle {
+        font-size: 0.7em;
+        letter-spacing: 1.5px;
+    }
+    
+    nav a {
+        font-size: 0.65em;
+        padding: 5px 8px;
+    }
+    
+    .artwork-showcase {
+        padding: 15px;
+        gap: 20px;
+        border-radius: 12px;
+    }
+    
+    .mat-board {
+        padding: 12px;
+    }
+    
+    .artwork-image {
+        height: 220px;
+    }
+    
+    .artwork-title {
+        font-size: 1.3em;
+    }
+    
+    .info-label {
+        font-size: 0.65em;
+    }
+    
+    .info-value {
+        font-size: 0.9em;
+    }
+    
+    .category-badge {
+        padding: 5px 10px;
+        font-size: 0.75em;
+    }
+    
+    .action-btn {
+        padding: 10px 12px;
+        font-size: 0.75em;
+    }
+    
+    .lang-grid {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+    
+    .modal-content {
+        padding: 15px;
+    }
+    
+    .modal-content h2 {
+        font-size: 1.2em;
+    }
+    
+    #chatPopup {
+        max-height: 400px;
+    }
+    
+    #chatMessages {
+        max-height: 220px;
+    }
+    
+    footer {
+        padding: 25px 15px;
+        margin-top: 50px;
+        font-size: 0.8em;
+    }
+}
+
+/* TRÈS PETITS MOBILES */
+@media (max-width: 360px) {
+    nav ul {
+        gap: 6px;
+    }
+    
+    nav a {
+        font-size: 0.6em;
+        padding: 4px 6px;
+    }
+    
+    .header-title {
+        font-size: 1.3em;
+    }
+    
+    .artwork-showcase {
+        padding: 12px;
+    }
+    
+    .mat-board {
+        padding: 10px;
+    }
+    
+    .artwork-image {
+        height: 200px;
+    }
+    
+    .artwork-title {
+        font-size: 1.2em;
+    }
+    
+    #chatToggle {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2em;
+        bottom: 12px;
+        right: 12px;
+    }
+    
+    #chatPopup {
+        bottom: 65px;
+        right: 12px;
+    }
+}
+</style>
 </head>
 <body>
-    <div class="hero-header">
-        <div class="slider-container">
-            <div class="slide slide1 active"></div>
-            <div class="slide slide2"></div>
-            <div class="slide slide3"></div>
+
+<div class="particles"></div>
+<div class="gradient-bg"></div>
+
+<header class="hero-header">
+    <nav>
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/niveaupage">Les Œuvres</a></li>
+            <li><a href="/expositions">Expositions</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="header-content">
+        <h1 class="header-title">Masque Africain</h1>
+        <p class="header-subtitle">Découvrez l'Histoire</p>
+        <div class="scroll-indicator">Défiler vers le bas</div>
+    </div>
+</header>
+
+<main>
+    <div class="artwork-showcase">
+        <div class="artwork-frame">
+            <div class="mat-board">
+                <img src="{{details.image_url}}" alt="Œuvre" class="artwork-image">
+            </div>
+        </div>
+
+        <div class="artwork-info">
+            <h2 class="artwork-title">{{ details.nom }}</h2>
+            
+            <div class="info-row">
+                <div class="info-label">Année</div>
+                <div class="info-value">{{ details.annee }}</div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-label">Catégorie</div>
+                <div class="info-value">
+                    <span class="category-badge">{{ details.categorie }}</span>
+                </div>
+            </div>
+
+            <div class="info-row" id="texte-description">
+                <div class="info-label">Description</div>
+                <div class="info-value">{{ details.description }}</div>
+            </div>
+            <div id="hidden-description" style="display: none;">
+                {{ details.histoire }}
+            </div>
+
+            <div class="action-buttons">
+                <button class="action-btn" id="btn-histoire">📖 Histoire de l'oeuvre </button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    &copy; 2025 Musée des Civilisations Noires - Dakar, Sénégal
+</footer>
+
+<!-- Modal langue -->
+<div class="modal" id="modal-langue">
+    <div class="modal-content">
+        <h2>Choisissez la langue</h2>
+        
+        <div class="lang-grid">
+            <div class="lang-option selected" data-lang="French">
+                <img src="https://flagcdn.com/24x18/fr.png" alt="Français"> Français
+            </div>
+            <div class="lang-option" data-lang="English">
+                <img src="https://flagcdn.com/24x18/gb.png" alt="English"> English
+            </div>
+            <div class="lang-option" data-lang="Spanish">
+                <img src="https://flagcdn.com/24x18/es.png" alt="Español"> Español
+            </div>
+            <div class="lang-option" data-lang="German">
+                <img src="https://flagcdn.com/24x18/de.png" alt="Deutsch"> Deutsch
+            </div>
+            <div class="lang-option" data-lang="Arabic">
+                <img src="https://flagcdn.com/24x18/sa.png" alt="العربية"> العربية
+            </div>
+            <div class="lang-option" data-lang="Chinese">
+                <img src="https://flagcdn.com/24x18/cn.png" alt="中文"> 中文
+            </div>
+            <div class="lang-option" data-lang="Japanese">
+                <img src="https://flagcdn.com/24x18/jp.png" alt="日本語"> 日本語
+            </div>
+            <div class="lang-option" data-lang="Korean">
+                <img src="https://flagcdn.com/24x18/kr.png" alt="한국어"> 한국어
+            </div>
+            <div class="lang-option" data-lang="Portuguese">
+                <img src="https://flagcdn.com/24x18/pt.png" alt="Português"> Português
+            </div>
+            <div class="lang-option" data-lang="Russian">
+                <img src="https://flagcdn.com/24x18/ru.png" alt="Русский"> Русский
+            </div>
+            <div class="lang-option" data-lang="Italian">
+                <img src="https://flagcdn.com/24x18/it.png" alt="Italiano"> Italiano
+            </div>
+            <div class="lang-option" data-lang="Turkish">
+                <img src="https://flagcdn.com/24x18/tr.png" alt="Türkçe"> Türkçe
+            </div>
+            <div class="lang-option" data-lang="Hindi">
+                <img src="https://flagcdn.com/24x18/in.png" alt="हिन्दी"> हिन्दी
+            </div>
+            <div class="lang-option" data-lang="Wolof">
+                <img src="https://flagcdn.com/24x18/sn.png" alt="Wolof"> Wolof
+            </div>
         </div>
         
-        <nav>
-            <ul>
-                <li><a href="/">Accueil</a></li>
-                <li><a href="/niveaupage">Les Œuvres</a></li>
-                <li><a href="/expositions">Expositions</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-
-        <div class="header-overlay">
-            <h1 class="logo-title">Musée des Civilisations Noires</h1>
-            <p class="subtitle">Un Voyage à Travers l'Histoire et la Culture</p>
-            <button class="virtual-tour-btn">Visite Virtuelle</button>
+        <div class="info-row" id="translated-text-container" style="display:none; margin-top: 20px;">
+            <div class="info-label">Traduction</div>
+            <div class="info-value" id="translated-text" style="font-size: 0.95em;"></div>
         </div>
-
-        <div class="scroll-indicator">▼ Découvrir</div>
-    </div>
-
-    <div class="contact-container" id="contact">
-        <div class="contact-form-section">
-            <h2>Envoyez-nous un message</h2>
-            <form id="contactForm">
-                <div class="form-group">
-                    <label for="name">Nom complet</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Téléphone</label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
-                <div class="form-group">
-                    <label for="subject">Sujet</label>
-                    <input type="text" id="subject" name="subject" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Envoyer le message</button>
-            </form>
-        </div>
-
-        <div class="contact-info-section">
-            <div class="info-card">
-                <h3><i class="fas fa-map-marker-alt"></i> Adresse</h3>
-                <div class="info-item">
-                    <i class="fas fa-location-dot"></i>
-                    <p>Place de la Renaissance<br>Dakar, Sénégal</p>
-                </div>
-            </div>
-
-            <div class="info-card">
-                <h3><i class="fas fa-phone"></i> Coordonnées</h3>
-                <div class="info-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <p>+221 33 889 11 80</p>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-envelope"></i>
-                    <p>info@museecivilisationsnoires.sn</p>
-                </div>
-                <div class="social-links">
-                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-
-            <div class="info-card">
-                <h3><i class="fas fa-clock"></i> Heures d'ouverture</h3>
-                <div class="info-item">
-                    <i class="fas fa-calendar-days"></i>
-                    <p>Mardi - Samedi<br>10h00 - 19h00</p>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-calendar-xmark"></i>
-                    <p>Fermé le dimanche<br>et les jours fériés</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="map-section">
-            <h2>Notre Emplacement</h2>
-            <div class="map-placeholder">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.6235450651325!2d-17.43770562637633!3d14.677292875197361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec172538b8abfdf%3A0xdd1143ed7cd3e02d!2sMus%C3%A9e%20des%20Civilisations%20noires!5e0!3m2!1sfr!2ssn!4v1759686861697!5m2!1sfr!2ssn" allowfullscreen="" loading="lazy"></iframe>
-            </div>
+        
+        <div class="modal-buttons">
+            <button id="btn-traduire">Traduire</button>
+            <button id="btn-fermer">Annuler</button>
         </div>
     </div>
+</div>
 
-    <footer>
-        <p>&copy; 2024 Musée des Civilisations Noires - Dakar, Sénégal</p>
-    </footer>
+<!-- Chatbot -->
+<button id="chatToggle">💬</button>
+<div id="chatPopup">
+    <div id="chatPopupHeader">
+        Guide Musée
+        <button onclick="toggleChat()">✖</button>
+    </div>
+    <div id="chatMessages"></div>
+    <form id="chatForm" onsubmit="sendChat(event)">
+        <input type="text" id="chatInput" placeholder="Posez votre question..." required />
+        <button type="submit">Envoyer</button>
+    </form>
+</div>
 
-    <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const totalSlides = slides.length;
+<script>
+window.addEventListener("DOMContentLoaded", () => {
 
-        function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            slides[index].classList.add('active');
-        }
+    // --- Traduction ---
+    const btnHistoire = document.getElementById("btn-histoire");
+    const modal = document.getElementById("modal-langue");
+    const btnFermer = document.getElementById("btn-fermer");
+    const btnTraduire = document.getElementById("btn-traduire");
+    const langOptions = document.querySelectorAll(".lang-option");
+    let langueChoisie = "French";
+    let translatedText = "";
 
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            showSlide(currentSlide);
-        }
+    btnHistoire.addEventListener("click", () => {
+        modal.style.display = "flex";
+        document.getElementById("translated-text-container").style.display = "none";
+        translatedText = "";
+    });
 
-        setInterval(nextSlide, 4000);
+    btnFermer.addEventListener("click", () => {
+        modal.style.display = "none";
+        document.getElementById("translated-text-container").style.display = "none";
+        translatedText = "";
+    });
 
-        document.querySelector('.scroll-indicator').addEventListener('click', function() {
-            document.querySelector('.contact-container').scrollIntoView({ behavior: 'smooth' });
+    langOptions.forEach(opt => {
+        opt.addEventListener("click", () => {
+            langOptions.forEach(o => o.classList.remove("selected"));
+            opt.classList.add("selected");
+            langueChoisie = opt.dataset.lang;
         });
+    });
 
-        const form = document.getElementById('contactForm');
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Merci pour votre message! Nous vous répondrons dans les plus brefs délais.');
-            form.reset();
-        });
+    btnTraduire.addEventListener("click", async () => {
+        const texte = document.getElementById('hidden-description').innerText;
+        const translatedTextDiv = document.getElementById("translated-text");
+        const translatedContainer = document.getElementById("translated-text-container");
+        
+        btnTraduire.disabled = true;
+        btnTraduire.textContent = "Traduction...";
+        translatedContainer.style.display = "none";
+        
+        try {
+            const translateUrl = "https://diarradiengcode.app.n8n.cloud/webhook/8b03c117-ef19-4bc8-bbfc-91116ba5be4f"
+                      + "?text=" + encodeURIComponent(texte)
+                      + "&lang=" + encodeURIComponent(langueChoisie);
+            
+            const translateResponse = await fetch(translateUrl);
+            if (!translateResponse.ok) throw new Error("Erreur de traduction");
+            
+            translatedText = await translateResponse.text();
+            
+            translatedTextDiv.textContent = translatedText;
+            translatedContainer.style.display = "block";
+            
+            btnTraduire.disabled = false;
+            btnTraduire.textContent = "Traduire";
+            
+        } catch (error) {
+            console.error("Erreur:", error);
+            alert("Une erreur s'est produite lors de la traduction. Veuillez réessayer.");
+            btnTraduire.disabled = false;
+            btnTraduire.textContent = "Traduire";
+            translatedContainer.style.display = "none";
+        }
+    });
 
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                if (this.getAttribute('href').startsWith('#')) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }
+    window.addEventListener("click", e => { 
+        if(e.target === modal) {
+            modal.style.display = "none";
+            document.getElementById("translated-text-container").style.display = "none";
+            translatedText = "";
+        }
+    });
+
+    // --- CHATBOT ---
+    const chatToggle = document.getElementById("chatToggle");
+    const chatPopup = document.getElementById("chatPopup");
+    const chatMessages = document.getElementById("chatMessages");
+    const chatInput = document.getElementById("chatInput");
+
+    function getSessionId() {
+        let sessionId = sessionStorage.getItem("chatSessionId");
+        if (!sessionId) {
+            sessionId = 'session-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+            sessionStorage.setItem("chatSessionId", sessionId);
+        }
+        return sessionId;
+    }
+
+    const sessionId = getSessionId();
+
+    function toggleChat() { 
+        chatPopup.style.display = chatPopup.style.display === "flex" ? "none" : "flex";
+        if (chatPopup.style.display === "flex" && chatMessages.children.length === 0) {
+            appendMessage("Bonjour ! Je suis votre guide virtuel. Comment puis-je vous aider ?", "chat-bot");
+        }
+    }
+    chatToggle.addEventListener("click", toggleChat);
+
+    function appendMessage(text, sender) {
+        const div = document.createElement("div");
+        div.className = `chat-msg ${sender}`;
+        div.textContent = text;
+        chatMessages.appendChild(div);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    async function sendChat(event) {
+        event.preventDefault();
+        const message = chatInput.value.trim();
+        if (!message) return;
+        
+        appendMessage(message, "chat-user");
+        chatInput.value = "";
+        
+        const loadingDiv = document.createElement("div");
+        loadingDiv.className = "chat-msg chat-bot";
+        loadingDiv.textContent = "En train d'écrire...";
+        loadingDiv.id = "loading-msg";
+        chatMessages.appendChild(loadingDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        
+        try {
+            const res = await fetch("https://diarradiengcode.app.n8n.cloud/webhook/c87f9694-88d8-470f-bf9f-c898f6e14820", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message, sessionId })
             });
-        });
-    </script>
+            
+            const response = await res.text();
+            
+            const loadingMsg = document.getElementById("loading-msg");
+            if (loadingMsg) loadingMsg.remove();
+            
+            appendMessage(response, "chat-bot");
+        } catch (e) {
+            const loadingMsg = document.getElementById("loading-msg");
+            if (loadingMsg) loadingMsg.remove();
+            
+            appendMessage("Désolé, une erreur s'est produite.", "chat-bot");
+            console.error("Erreur chatbot:", e);
+        }
+    }
+
+    document.getElementById("chatForm").addEventListener("submit", sendChat);
+
+});
+
+</script>
+
 </body>
 </html>
