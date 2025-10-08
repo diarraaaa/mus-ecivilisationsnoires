@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Œuvre d'Art - Musée des Civilisations Noires</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Cinzel:wght@400;600;800&family=Cormorant+Garamond:wght@300;400;600&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -55,7 +54,7 @@ body {
 
 .hero-header {
     position: relative;
-    height: 80vh;
+    height: 50vh;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -63,133 +62,40 @@ body {
     z-index: 10;
 }
 
-/* Navigation Desktop */
-.nav-desktop {
+nav {
     position: absolute;
     top: 0;
     width: 100%;
-    padding: 30px 60px;
+    padding: 15px;
     z-index: 1000;
     display: flex;
     justify-content: center;
-    gap: 50px;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, transparent 100%);
 }
 
-.nav-desktop a {
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    list-style: none;
+}
+
+nav a {
     color: rgba(232, 220, 196, 0.8);
     text-decoration: none;
-    font-size: 0.75em;
-    letter-spacing: 2px;
+    font-size: 0.7em;
+    letter-spacing: 1.5px;
     font-weight: 600;
     text-transform: uppercase;
     font-family: 'Raleway', sans-serif;
     transition: all 0.3s ease;
+    padding: 6px 10px;
+    white-space: nowrap;
 }
 
-.nav-desktop li {
-    list-style: none;
-}
-
-.nav-desktop a:hover {
+nav a:hover {
     color: var(--gold-light);
     text-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
-}
-
-/* Navigation Mobile */
-.nav-mobile {
-    display: none;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 20px;
-    z-index: 2000;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.98) 0%, transparent 100%);
-}
-
-.menu-toggle {
-    background: none;
-    border: 2px solid var(--gold);
-    color: var(--gold);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    font-size: 1.5em;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.menu-toggle:hover {
-    background: rgba(212, 175, 55, 0.1);
-    transform: scale(1.1);
-}
-
-.mobile-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(145deg, rgba(26, 15, 8, 0.98), rgba(20, 12, 8, 0.98));
-    z-index: 1999;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    border: 3px solid var(--gold);
-}
-
-.mobile-menu.active {
-    display: flex;
-}
-
-.mobile-menu a {
-    color: var(--cream);
-    text-decoration: none;
-    font-size: 1.2em;
-    font-family: 'Raleway', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    padding: 15px 30px;
-    border: 2px solid transparent;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-    text-align: center;
-    width: 80%;
-    max-width: 250px;
-}
-
-.mobile-menu a:hover {
-    border-color: var(--gold);
-    background: rgba(212, 175, 55, 0.1);
-    transform: translateY(-5px);
-}
-
-.close-menu {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    background: none;
-    border: 2px solid var(--gold);
-    color: var(--gold);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    font-size: 1.5em;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.close-menu:hover {
-    background: rgba(212, 175, 55, 0.1);
-    transform: scale(1.1);
 }
 
 .header-content {
@@ -201,29 +107,28 @@ body {
 
 .header-title {
     font-family: 'Cinzel', serif;
-    font-size: 2.5em;
+    font-size: 1.8em;
     font-weight: 800;
     background: linear-gradient(145deg, #FFD700, #D4AF37, #B8941E);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     line-height: 1.2;
-    margin-bottom: 15px;
 }
 
 .header-subtitle {
     color: rgba(212, 175, 55, 0.9);
-    font-size: 0.9em;
-    letter-spacing: 3px;
-    margin-top: 15px;
+    font-size: 0.75em;
+    letter-spacing: 2px;
+    margin-top: 10px;
     text-transform: uppercase;
 }
 
 main {
     max-width: 1500px;
-    margin: -60px auto 80px;
-    padding: 0 20px;
+    margin: 20px auto 60px;
+    padding: 0 15px;
     position: relative;
     z-index: 10;
 }
@@ -231,53 +136,53 @@ main {
 .artwork-showcase {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 30px;
     background: linear-gradient(145deg, rgba(26, 15, 8, 0.85), rgba(20, 12, 8, 0.9));
     border: 2px solid var(--gold);
-    border-radius: 20px;
-    padding: 30px;
+    border-radius: 15px;
+    padding: 20px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95);
 }
 
 .artwork-frame {
     background: linear-gradient(145deg, #4a3a2a, #2a1a10);
-    padding: 10px;
-    border-radius: 12px;
+    padding: 8px;
+    border-radius: 10px;
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.95);
 }
 
 .mat-board {
     background: linear-gradient(135deg, #fdfbf7, #f0ebe3);
-    padding: 20px;
+    padding: 15px;
     border-radius: 6px;
 }
 
 .artwork-image {
     width: 100%;
-    height: 300px;
+    height: 250px;
     object-fit: cover;
     border-radius: 4px;
 }
 
 .artwork-info {
-    padding: 20px 0;
+    padding: 15px 0;
 }
 
 .artwork-title {
     font-family: 'Cinzel', serif;
-    font-size: 1.8em;
+    font-size: 1.5em;
     font-weight: 700;
     background: linear-gradient(135deg, #FFD700, #D4AF37);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     letter-spacing: 1px;
     line-height: 1.3;
 }
 
 .info-row {
-    margin-bottom: 20px;
-    padding: 15px 0;
+    margin-bottom: 15px;
+    padding: 12px 0;
     border-bottom: 1px solid rgba(212, 175, 55, 0.15);
 }
 
@@ -287,12 +192,12 @@ main {
     color: rgba(212, 175, 55, 0.8);
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
     font-weight: 700;
 }
 
 .info-value {
-    font-size: 1em;
+    font-size: 0.95em;
     color: var(--cream);
     line-height: 1.5;
 }
@@ -301,24 +206,24 @@ main {
     display: inline-block;
     background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.15));
     color: var(--gold-light);
-    padding: 8px 16px;
-    border-radius: 20px;
+    padding: 6px 12px;
+    border-radius: 15px;
     border: 1px solid rgba(212, 175, 55, 0.4);
-    letter-spacing: 1.5px;
+    letter-spacing: 1.2px;
     text-transform: uppercase;
     font-weight: 600;
-    font-size: 0.85em;
+    font-size: 0.8em;
 }
 
 .action-buttons {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 12px;
-    margin-top: 30px;
+    gap: 10px;
+    margin-top: 20px;
 }
 
 .action-btn {
-    padding: 12px 16px;
+    padding: 12px 14px;
     background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(212, 175, 55, 0.08));
     color: var(--gold);
     border: 2px solid rgba(212, 175, 55, 0.35);
@@ -347,16 +252,16 @@ main {
     z-index: 2000;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 15px;
 }
 
 .modal-content {
     background: linear-gradient(145deg, rgba(26, 15, 8, 0.98), rgba(20, 12, 8, 0.98));
     border: 2px solid var(--gold);
-    border-radius: 20px;
-    padding: 25px;
+    border-radius: 15px;
+    padding: 20px;
     width: 100%;
-    max-width: 500px;
+    max-width: 450px;
     max-height: 85vh;
     overflow-y: auto;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95);
@@ -365,8 +270,8 @@ main {
 .modal-content h2 {
     font-family: 'Cinzel', serif;
     color: var(--gold);
-    font-size: 1.5em;
-    margin-bottom: 20px;
+    font-size: 1.3em;
+    margin-bottom: 15px;
     text-align: center;
     letter-spacing: 2px;
 }
@@ -374,29 +279,29 @@ main {
 .lang-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 8px;
     margin-bottom: 15px;
 }
 
 .lang-option {
-    padding: 12px 15px;
+    padding: 10px 12px;
     background: rgba(212, 175, 55, 0.08);
     border: 2px solid rgba(212, 175, 55, 0.3);
-    border-radius: 12px;
+    border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
     color: var(--cream);
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     justify-content: flex-start;
-    font-size: 0.9em;
+    font-size: 0.85em;
     font-weight: 600;
 }
 
 .lang-option img {
-    width: 20px;
-    height: 15px;
+    width: 18px;
+    height: 14px;
     border-radius: 2px;
 }
 
@@ -415,18 +320,18 @@ main {
 .modal-buttons {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 8px;
+    margin-top: 15px;
 }
 
 .modal-buttons button {
-    padding: 12px;
+    padding: 10px;
     border: 2px solid rgba(212, 175, 55, 0.4);
     background: rgba(212, 175, 55, 0.1);
     color: var(--gold);
-    border-radius: 10px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 0.9em;
+    font-size: 0.85em;
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -442,16 +347,16 @@ main {
 
 #chatToggle {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 15px;
+    right: 15px;
     z-index: 1500;
     background: linear-gradient(135deg, var(--gold), var(--gold-light));
     color: #000;
     border: none;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    font-size: 1.5em;
+    width: 50px;
+    height: 50px;
+    font-size: 1.3em;
     cursor: pointer;
     box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
     transition: all 0.3s ease;
@@ -465,14 +370,14 @@ main {
     display: none;
     flex-direction: column;
     position: fixed;
-    bottom: 90px;
-    right: 20px;
-    width: calc(100vw - 40px);
-    max-width: 400px;
-    max-height: 500px;
+    bottom: 75px;
+    right: 15px;
+    width: calc(100vw - 30px);
+    max-width: 350px;
+    max-height: 450px;
     background: linear-gradient(145deg, rgba(26, 15, 8, 0.98), rgba(20, 12, 8, 0.98));
     border: 2px solid var(--gold);
-    border-radius: 20px;
+    border-radius: 15px;
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.95);
     z-index: 1500;
     overflow: hidden;
@@ -481,9 +386,9 @@ main {
 #chatPopupHeader {
     background: linear-gradient(135deg, var(--gold), var(--gold-light));
     color: #000;
-    padding: 20px;
+    padding: 15px;
     font-weight: 800;
-    font-size: 1.1em;
+    font-size: 1em;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -494,31 +399,31 @@ main {
     background: rgba(0, 0, 0, 0.2);
     border: none;
     cursor: pointer;
-    font-size: 1.3em;
+    font-size: 1.2em;
     color: #000;
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     transition: all 0.3s ease;
 }
 
 #chatMessages {
     flex: 1;
-    padding: 20px;
+    padding: 15px;
     overflow-y: auto;
     background: rgba(0, 0, 0, 0.4);
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    max-height: 300px;
+    gap: 8px;
+    max-height: 250px;
 }
 
 #chatMessages .chat-msg {
-    padding: 12px 15px;
-    border-radius: 12px;
+    padding: 10px 12px;
+    border-radius: 10px;
     max-width: 85%;
     line-height: 1.5;
-    font-size: 0.9em;
+    font-size: 0.85em;
 }
 
 #chatMessages .chat-user {
@@ -543,44 +448,44 @@ main {
 
 #chatForm input {
     flex: 1;
-    padding: 15px;
+    padding: 12px;
     border: none;
     outline: none;
     background: transparent;
     color: var(--cream);
-    font-size: 0.9em;
+    font-size: 0.85em;
 }
 
 #chatForm button {
-    padding: 15px 20px;
+    padding: 12px 15px;
     background: linear-gradient(135deg, var(--gold), var(--gold-light));
     color: #000;
     border: none;
     cursor: pointer;
     font-weight: 700;
     transition: all 0.3s ease;
-    font-size: 0.9em;
+    font-size: 0.85em;
 }
 
 footer {
     background: linear-gradient(to top, #000 0%, rgba(10, 9, 7, 0.95) 50%, transparent 100%);
     color: rgba(232, 220, 196, 0.8);
     text-align: center;
-    padding: 40px 20px;
-    margin-top: 80px;
-    font-size: 0.9em;
-    letter-spacing: 2px;
+    padding: 30px 15px;
+    margin-top: 60px;
+    font-size: 0.85em;
+    letter-spacing: 1.5px;
     border-top: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .scroll-indicator {
     position: absolute;
-    bottom: 20px;
+    bottom: 15px;
     left: 50%;
     transform: translateX(-50%);
     color: #F5F5DC;
-    font-size: 0.8em;
-    letter-spacing: 1.5px;
+    font-size: 0.7em;
+    letter-spacing: 1.2px;
     animation: bounce 2s infinite;
 }
 
@@ -596,47 +501,218 @@ footer {
     }
 }
 
-/* Media Queries pour le responsive */
-@media (max-width: 768px) {
-    .nav-desktop {
-        display: none;
-    }
-    
-    .nav-mobile {
-        display: flex;
-        justify-content: flex-end;
-    }
-}
-
-@media (min-width: 769px) {
-    .nav-mobile {
-        display: none;
-    }
-    
-    .mobile-menu {
-        display: none !important;
-    }
-}
-
+/* RESPONSIVE TABLETTES */
 @media (min-width: 768px) {
+    .hero-header {
+        height: 70vh;
+    }
+    
+    nav {
+        padding: 20px 30px;
+    }
+    
+    nav ul {
+        gap: 15px;
+    }
+    
+    nav a {
+        font-size: 0.75em;
+        padding: 8px 12px;
+        letter-spacing: 2px;
+    }
+    
     .header-title {
-        font-size: 3em;
+        font-size: 2.5em;
+        letter-spacing: 3px;
+    }
+    
+    .header-subtitle {
+        font-size: 0.9em;
+        letter-spacing: 3px;
+        margin-top: 15px;
+    }
+    
+    main {
+        margin: -60px auto 80px;
+        padding: 0 30px;
+    }
+    
+    .artwork-showcase {
+        grid-template-columns: 1.2fr 1fr;
+        gap: 40px;
+        padding: 40px;
+        border-radius: 20px;
+    }
+    
+    .artwork-frame {
+        padding: 10px;
+        border-radius: 12px;
+    }
+    
+    .mat-board {
+        padding: 25px;
+    }
+    
+    .artwork-image {
+        height: 350px;
+    }
+    
+    .artwork-info {
+        padding: 20px 0;
+    }
+    
+    .artwork-title {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+    
+    .info-row {
+        margin-bottom: 20px;
+        padding: 15px 0;
+    }
+    
+    .info-label {
+        font-size: 0.75em;
+    }
+    
+    .info-value {
+        font-size: 1em;
+    }
+    
+    .category-badge {
+        padding: 8px 18px;
+        font-size: 0.85em;
+    }
+    
+    .action-buttons {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-top: 25px;
+    }
+    
+    .action-btn {
+        padding: 13px 16px;
+        font-size: 0.85em;
+    }
+    
+    .modal-content {
+        padding: 30px;
+        max-width: 500px;
+    }
+    
+    .modal-content h2 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+    
+    .lang-grid {
+        gap: 10px;
+    }
+    
+    .lang-option {
+        padding: 12px 15px;
+        font-size: 0.9em;
+    }
+    
+    .lang-option img {
+        width: 20px;
+        height: 15px;
+    }
+    
+    .modal-buttons {
+        gap: 10px;
+        margin-top: 20px;
+    }
+    
+    .modal-buttons button {
+        padding: 12px;
+        font-size: 0.9em;
+    }
+    
+    #chatToggle {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5em;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    #chatPopup {
+        width: 380px;
+        max-height: 550px;
+        bottom: 90px;
+        right: 20px;
+    }
+    
+    #chatPopupHeader {
+        padding: 18px;
+        font-size: 1.1em;
+    }
+    
+    #chatMessages {
+        padding: 18px;
+        max-height: 320px;
+        gap: 10px;
+    }
+    
+    #chatMessages .chat-msg {
+        padding: 12px 15px;
+        font-size: 0.9em;
+    }
+    
+    #chatForm input {
+        padding: 15px;
+        font-size: 0.9em;
+    }
+    
+    #chatForm button {
+        padding: 15px 18px;
+        font-size: 0.9em;
+    }
+    
+    footer {
+        padding: 40px 30px;
+        margin-top: 80px;
+        font-size: 0.9em;
+    }
+}
+
+/* RESPONSIVE DESKTOP */
+@media (min-width: 1024px) {
+    .hero-header {
+        height: 80vh;
+    }
+    
+    nav {
+        padding: 25px 50px;
+    }
+    
+    nav ul {
+        gap: 20px;
+    }
+    
+    nav a {
+        font-size: 0.75em;
+        padding: 10px 15px;
+    }
+    
+    .header-title {
+        font-size: 3.2em;
         letter-spacing: 4px;
     }
     
     .header-subtitle {
         font-size: 1em;
         letter-spacing: 4px;
+        margin-top: 20px;
     }
     
     main {
-        margin: -80px auto 100px;
-        padding: 0 40px;
+        padding: 0 50px;
     }
     
     .artwork-showcase {
-        grid-template-columns: 1.2fr 1fr;
-        gap: 50px;
+        gap: 60px;
         padding: 50px;
         border-radius: 25px;
         border-width: 3px;
@@ -652,80 +728,6 @@ footer {
     }
     
     .artwork-image {
-        height: 400px;
-    }
-    
-    .artwork-info {
-        padding: 30px 20px;
-    }
-    
-    .artwork-title {
-        font-size: 2.2em;
-    }
-    
-    .action-buttons {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
-    
-    .action-btn {
-        padding: 14px 18px;
-        font-size: 0.85em;
-    }
-    
-    #chatToggle {
-        width: 70px;
-        height: 70px;
-        font-size: 1.8em;
-        bottom: 30px;
-        right: 30px;
-    }
-    
-    #chatPopup {
-        width: 380px;
-        max-height: 600px;
-        bottom: 110px;
-        right: 30px;
-    }
-    
-    footer {
-        padding: 50px 40px;
-        font-size: 1em;
-        letter-spacing: 3px;
-    }
-}
-
-@media (min-width: 1024px) {
-    .header-title {
-        font-size: 3.2em;
-        letter-spacing: 5px;
-    }
-    
-    .header-subtitle {
-        font-size: 1em;
-        letter-spacing: 4px;
-        margin-top: 20px;
-    }
-    
-    main {
-        padding: 0 60px;
-    }
-    
-    .artwork-showcase {
-        gap: 70px;
-        padding: 60px;
-        border-radius: 30px;
-    }
-    
-    .artwork-frame {
-        padding: 12px;
-    }
-    
-    .mat-board {
-        padding: 35px;
-    }
-    
-    .artwork-image {
         height: 450px;
     }
     
@@ -734,8 +736,8 @@ footer {
     }
     
     .info-row {
-        margin-bottom: 30px;
-        padding: 20px 0;
+        margin-bottom: 25px;
+        padding: 18px 0;
     }
     
     .info-label {
@@ -748,16 +750,20 @@ footer {
     }
     
     .category-badge {
-        padding: 10px 24px;
+        padding: 10px 22px;
         letter-spacing: 2px;
     }
     
     .action-buttons {
-        margin-top: 40px;
+        margin-top: 35px;
+    }
+    
+    .action-btn {
+        padding: 14px 18px;
     }
     
     .modal-content {
-        padding: 40px;
+        padding: 35px;
         max-width: 550px;
     }
     
@@ -766,13 +772,8 @@ footer {
         letter-spacing: 3px;
     }
     
-    .lang-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-    
     .lang-option {
-        padding: 14px 20px;
+        padding: 14px 18px;
         font-size: 0.95em;
     }
     
@@ -781,88 +782,121 @@ footer {
         height: 18px;
     }
     
-    .modal-buttons {
-        gap: 12px;
-        margin-top: 25px;
-    }
-    
-    .modal-buttons button {
-        padding: 14px;
-    }
-    
     #chatToggle {
-        width: 75px;
-        height: 75px;
-        font-size: 2em;
-        bottom: 35px;
-        right: 35px;
+        width: 70px;
+        height: 70px;
+        font-size: 1.8em;
+        bottom: 30px;
+        right: 30px;
     }
     
     #chatPopup {
         width: 400px;
-        bottom: 120px;
-        right: 35px;
+        max-height: 600px;
+        bottom: 110px;
+        right: 30px;
     }
     
     #chatPopupHeader {
-        padding: 25px;
-        font-size: 1.3em;
+        padding: 20px;
+        font-size: 1.2em;
     }
     
     #chatMessages {
-        padding: 25px;
-        gap: 12px;
+        padding: 20px;
+        max-height: 350px;
     }
     
     #chatMessages .chat-msg {
-        padding: 14px 18px;
-        font-size: 1em;
+        padding: 13px 16px;
+        font-size: 0.95em;
     }
     
     #chatForm input {
-        padding: 18px 20px;
+        padding: 16px 18px;
+        font-size: 0.95em;
     }
     
     #chatForm button {
-        padding: 18px 25px;
+        padding: 16px 20px;
     }
     
     footer {
-        padding: 60px 40px;
-        margin-top: 120px;
+        padding: 50px 40px;
+        margin-top: 100px;
+        font-size: 1em;
+        letter-spacing: 2px;
     }
 }
 
+/* PETITS MOBILES */
 @media (max-width: 480px) {
+    .hero-header {
+        height: 45vh;
+    }
+    
     .header-title {
-        font-size: 2em;
-        letter-spacing: 2px;
+        font-size: 1.5em;
+        letter-spacing: 1.5px;
     }
     
     .header-subtitle {
-        font-size: 0.8em;
-        letter-spacing: 2px;
+        font-size: 0.7em;
+        letter-spacing: 1.5px;
+    }
+    
+    nav a {
+        font-size: 0.65em;
+        padding: 5px 8px;
     }
     
     .artwork-showcase {
-        padding: 20px;
-        gap: 30px;
+        padding: 15px;
+        gap: 20px;
+        border-radius: 12px;
+    }
+    
+    .mat-board {
+        padding: 12px;
     }
     
     .artwork-image {
-        height: 250px;
+        height: 220px;
     }
     
     .artwork-title {
-        font-size: 1.6em;
+        font-size: 1.3em;
+    }
+    
+    .info-label {
+        font-size: 0.65em;
+    }
+    
+    .info-value {
+        font-size: 0.9em;
+    }
+    
+    .category-badge {
+        padding: 5px 10px;
+        font-size: 0.75em;
+    }
+    
+    .action-btn {
+        padding: 10px 12px;
+        font-size: 0.75em;
     }
     
     .lang-grid {
         grid-template-columns: 1fr;
+        gap: 6px;
     }
     
     .modal-content {
-        padding: 20px;
+        padding: 15px;
+    }
+    
+    .modal-content h2 {
+        font-size: 1.2em;
     }
     
     #chatPopup {
@@ -870,31 +904,58 @@ footer {
     }
     
     #chatMessages {
-        max-height: 250px;
+        max-height: 220px;
     }
     
-    .mobile-menu a {
-        font-size: 1.1em;
-        padding: 12px 25px;
+    footer {
+        padding: 25px 15px;
+        margin-top: 50px;
+        font-size: 0.8em;
     }
 }
 
+/* TRÈS PETITS MOBILES */
 @media (max-width: 360px) {
+    nav ul {
+        gap: 6px;
+    }
+    
+    nav a {
+        font-size: 0.6em;
+        padding: 4px 6px;
+    }
+    
     .header-title {
-        font-size: 1.8em;
+        font-size: 1.3em;
     }
     
     .artwork-showcase {
-        padding: 15px;
+        padding: 12px;
     }
     
     .mat-board {
-        padding: 15px;
+        padding: 10px;
     }
     
-    .mobile-menu a {
-        font-size: 1em;
-        padding: 10px 20px;
+    .artwork-image {
+        height: 200px;
+    }
+    
+    .artwork-title {
+        font-size: 1.2em;
+    }
+    
+    #chatToggle {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2em;
+        bottom: 12px;
+        right: 12px;
+    }
+    
+    #chatPopup {
+        bottom: 65px;
+        right: 12px;
     }
 }
 </style>
@@ -905,8 +966,7 @@ footer {
 <div class="gradient-bg"></div>
 
 <header class="hero-header">
-    <!-- Navigation Desktop -->
-    <nav class="nav-desktop">
+    <nav>
         <ul>
             <li><a href="/">Accueil</a></li>
             <li><a href="/niveaupage">Les Œuvres</a></li>
@@ -914,25 +974,6 @@ footer {
             <li><a href="/contact">Contact</a></li>
         </ul>
     </nav>
-
-    <!-- Navigation Mobile -->
-    <div class="nav-mobile">
-        <button class="menu-toggle" id="menuToggle">
-            <i class="fas fa-bars"></i>
-        </button>
-    </div>
-
-    <!-- Menu Mobile -->
-    <div class="mobile-menu" id="mobileMenu">
-        <button class="close-menu" id="closeMenu">
-            <i class="fas fa-times"></i>
-        </button>
-        <a href="/">Accueil</a>
-        <a href="/niveaupage">Les Œuvres</a>
-        <a href="/expositions">Expositions</a>
-        <a href="/contact">Contact</a>
-    </div>
-
     <div class="header-content">
         <h1 class="header-title">Masque Africain</h1>
         <p class="header-subtitle">Découvrez l'Histoire</p>
@@ -1060,26 +1101,6 @@ footer {
 
 <script>
 window.addEventListener("DOMContentLoaded", () => {
-    // Gestion du menu mobile
-    const menuToggle = document.getElementById('menuToggle');
-    const closeMenu = document.getElementById('closeMenu');
-    const mobileMenu = document.getElementById('mobileMenu');
-
-    menuToggle.addEventListener('click', () => {
-        mobileMenu.classList.add('active');
-    });
-
-    closeMenu.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-    });
-
-    // Fermer le menu en cliquant sur un lien
-    const mobileLinks = mobileMenu.querySelectorAll('a');
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-        });
-    });
 
     // --- Traduction ---
     const btnHistoire = document.getElementById("btn-histoire");

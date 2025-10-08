@@ -158,14 +158,12 @@
             }
         }
 
-        /* Navigation */
         nav {
             position: absolute;
             top: 0;
             width: 100%;
             padding: 30px 50px;
             z-index: 10;
-
         }
 
         nav ul {
@@ -191,295 +189,506 @@
             border-bottom: 2px solid #D4AF37;
         }
 
-        /* Main Container */
-        /* ===== MAIN CONTAINER ===== */
-.contact-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 80px 50px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-}
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
 
-/* ===== CONTACT FORM ===== */
-.contact-form-section {
-    background: #fff;
-    padding: 50px;
-    border-radius: 15px;
-    border: 2px solid rgba(212, 175, 55, 0.3);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
+        .contact-form-section {
+            background: #fff;
+            padding: 50px;
+            border-radius: 15px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
 
-.contact-form-section:hover {
-    box-shadow: 0 15px 50px rgba(212, 175, 55, 0.2);
-    border-color: var(--gold);
-}
+        .contact-form-section:hover {
+            box-shadow: 0 15px 50px rgba(212, 175, 55, 0.2);
+            border-color: var(--gold);
+        }
 
-.contact-form-section h2 {
-    font-size: 2.5em;
-    color: var(--gold);
-    margin-bottom: 30px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    font-family: 'Cinzel', serif;
-}
+        .contact-form-section h2 {
+            font-size: 2.5em;
+            color: var(--gold);
+            margin-bottom: 30px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
 
-.form-group {
-    margin-bottom: 25px;
-}
+        .form-group {
+            margin-bottom: 25px;
+        }
 
-.form-group label {
-    display: block;
-    margin-bottom: 10px;
-    color: var(--dark-brown);
-    font-size: 1.1em;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--dark-brown);
+            font-size: 1.1em;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
 
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 15px 20px;
-    background: #fafafa;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    color: #333;
-    font-size: 1em;
-    font-family: 'Cormorant Garamond', serif;
-    transition: all 0.3s ease;
-}
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 20px;
+            background: #fafafa;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            color: #333;
+            font-size: 1em;
+            font-family: 'Garamond', serif;
+            transition: all 0.3s ease;
+        }
 
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--gold);
-    background: #fff;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
-}
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: #fff;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
 
-.form-group textarea {
-    min-height: 150px;
-    resize: vertical;
-}
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
 
-.submit-btn {
-    width: 100%;
-    padding: 18px;
-    background: linear-gradient(135deg, var(--gold) 0%, #B8941F 100%);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1em;
-    font-weight: 700;
-    letter-spacing: 2px;
-    cursor: pointer;
-    transition: all 0.4s ease;
-    text-transform: uppercase;
-    font-family: 'Raleway', sans-serif;
-}
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--gold) 0%, #B8941F 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+        }
 
-.submit-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
-    background: linear-gradient(135deg, #B8941F 0%, var(--gold) 100%);
-}
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+            background: linear-gradient(135deg, #B8941F 0%, var(--gold) 100%);
+        }
 
-/* ===== CONTACT INFO SECTION ===== */
-.contact-info-section {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
+        .contact-info-section {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
 
-.info-card {
-    background: #fff;
-    padding: 40px;
-    border-radius: 15px;
-    border: 2px solid rgba(212, 175, 55, 0.3);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
+        .info-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
 
-.info-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--gold);
-    box-shadow: 0 15px 50px rgba(212, 175, 55, 0.2);
-}
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            box-shadow: 0 15px 50px rgba(212, 175, 55, 0.2);
+        }
 
-.info-card h3 {
-    font-size: 1.8em;
-    color: var(--gold);
-    margin-bottom: 25px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-family: 'Cinzel', serif;
-}
+        .info-card h3 {
+            font-size: 1.8em;
+            color: var(--gold);
+            margin-bottom: 25px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
-.info-card h3 i {
-    font-size: 1.2em;
-}
+        .info-card h3 i {
+            font-size: 1.2em;
+        }
 
-.info-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    margin-bottom: 20px;
-    font-size: 1.1em;
-    line-height: 1.8;
-}
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
 
-.info-item:last-child {
-    margin-bottom: 0;
-}
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
 
-.info-item i {
-    color: var(--gold);
-    margin-top: 5px;
-    font-size: 1.2em;
-    min-width: 25px;
-}
+        .info-item i {
+            color: var(--gold);
+            margin-top: 5px;
+            font-size: 1.2em;
+            min-width: 25px;
+        }
 
-.info-item p {
-    color: #555;
-    margin: 0;
-}
+        .info-item p {
+            color: #555;
+            margin: 0;
+        }
 
-/* ===== SOCIAL LINKS ===== */
-.social-links {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-    justify-content: center;
-}
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: center;
+        }
 
-.social-links a {
-    width: 50px;
-    height: 50px;
-    background: rgba(212, 175, 55, 0.1);
-    border: 2px solid var(--gold);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--gold);
-    font-size: 1.3em;
-    transition: all 0.3s ease;
-    text-decoration: none;
-}
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.3em;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
 
-.social-links a:hover {
-    background: var(--gold);
-    color: #fff;
-    transform: translateY(-5px) rotate(360deg);
-    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
-}
+        .social-links a:hover {
+            background: var(--gold);
+            color: #fff;
+            transform: translateY(-5px) rotate(360deg);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+        }
 
-/* ===== MAP SECTION ===== */
-.map-section {
-    grid-column: 1 / -1;
-    background: #fff;
-    padding: 50px;
-    border-radius: 15px;
-    border: 2px solid rgba(212, 175, 55, 0.3);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-}
+        .map-section {
+            grid-column: 1 / -1;
+            background: #fff;
+            padding: 50px;
+            border-radius: 15px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
 
-.map-section h2 {
-    font-size: 2.5em;
-    color: var(--gold);
-    margin-bottom: 30px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-align: center;
-    font-family: 'Cinzel', serif;
-}
+        .map-section h2 {
+            font-size: 2.5em;
+            color: var(--gold);
+            margin-bottom: 30px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-align: center;
+        }
 
-.map-placeholder {
-    width: 100%;
-    height: 400px;
-    background: #fafafa;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px dashed rgba(212, 175, 55, 0.4);
-    overflow: hidden;
-}
+        .map-placeholder {
+            width: 100%;
+            height: 400px;
+            background: #fafafa;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed rgba(212, 175, 55, 0.4);
+            overflow: hidden;
+        }
 
-.map-placeholder iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: block;
-}
+        .map-placeholder iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
 
-.map-placeholder p {
-    color: var(--gold);
-    font-size: 1.3em;
-    letter-spacing: 2px;
-}
+        footer {
+            background: linear-gradient(135deg, var(--dark-brown) 0%, #2d2416 100%);
+            color: var(--cream);
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 3px solid var(--gold);
+            font-size: 1.1em;
+            letter-spacing: 2px;
+            margin-top: 80px;
+        }
 
-/* ===== FOOTER ===== */
-footer {
-    background: linear-gradient(135deg, var(--dark-brown) 0%, #2d2416 100%);
-    color: var(--cream);
-    text-align: center;
-    padding: 40px 20px;
-    border-top: 3px solid var(--gold);
-    font-size: 1.1em;
-    letter-spacing: 2px;
-    font-family: 'Cinzel', serif;
-    margin-top: 80px;
-}
+        footer p {
+            font-size: 1em;
+            font-weight: 300;
+        }
 
-footer p {
-    font-size: 1em;
-    font-weight: 300;
-}
-@media (max-width: 992px) {
-  .contact-container {
-    grid-template-columns: 1fr;
-    padding: 40px 25px;
-  }
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                padding: 60px 30px;
+                gap: 40px;
+            }
 
-  .contact-form-section,
-  .contact-info-section,
-  .map-section {
-    padding: 30px;
-  }
+            .contact-form-section,
+            .info-card,
+            .map-section {
+                padding: 35px;
+            }
 
-  .map-placeholder {
-    height: 300px;
-  }
-}
-@media (max-width: 992px) {
-  .contact-container {
-    grid-template-columns: 1fr;
-    padding: 40px 25px;
-  }
+            .map-placeholder {
+                height: 350px;
+            }
 
-  .contact-form-section,
-  .contact-info-section,
-  .map-section {
-    padding: 30px;
-  }
+            .logo-title {
+                font-size: 3.5em;
+                letter-spacing: 5px;
+            }
 
-  .map-placeholder {
-    height: 300px;
-  }
-}
+            .subtitle {
+                font-size: 1.3em;
+                letter-spacing: 3px;
+            }
 
+            nav ul {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-header {
+                height: 60vh;
+            }
+
+            .logo-title {
+                font-size: 2.5em;
+                letter-spacing: 3px;
+                padding: 0 20px;
+            }
+
+            .subtitle {
+                font-size: 1.1em;
+                letter-spacing: 2px;
+                padding: 0 20px;
+            }
+
+            .virtual-tour-btn {
+                padding: 15px 30px;
+                font-size: 1em;
+                letter-spacing: 2px;
+            }
+
+            nav {
+                padding: 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+                background: transparent;
+                padding: 20px;
+            }
+
+            nav a {
+                font-size: 1em;
+                text-align: center;
+                padding: 10px 20px;
+                border-radius: 5px;
+                background: transparent;
+                border: none;
+            }
+
+            nav a:hover {
+                background: transparent;
+                color: var(--gold-light);
+                text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+            }
+
+            .contact-container {
+                padding: 40px 20px;
+                gap: 30px;
+            }
+
+            .contact-form-section,
+            .info-card,
+            .map-section {
+                padding: 25px;
+            }
+
+            .contact-form-section h2,
+            .map-section h2 {
+                font-size: 2em;
+                letter-spacing: 1px;
+            }
+
+            .info-card h3 {
+                font-size: 1.5em;
+                letter-spacing: 1px;
+            }
+
+            .form-group label {
+                font-size: 1em;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 12px 15px;
+                font-size: 0.95em;
+            }
+
+            .submit-btn {
+                padding: 15px;
+                font-size: 1em;
+            }
+
+            .info-item {
+                font-size: 1em;
+            }
+
+            .social-links a {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2em;
+            }
+
+            .map-placeholder {
+                height: 300px;
+            }
+
+            .scroll-indicator {
+                font-size: 0.9em;
+                bottom: 20px;
+            }
+
+            footer {
+                padding: 30px 20px;
+                font-size: 1em;
+                margin-top: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-header {
+                height: 50vh;
+            }
+
+            .logo-title {
+                font-size: 1.8em;
+                letter-spacing: 2px;
+            }
+
+            .subtitle {
+                font-size: 0.95em;
+                letter-spacing: 1px;
+            }
+
+            .virtual-tour-btn {
+                padding: 12px 25px;
+                font-size: 0.9em;
+                letter-spacing: 1px;
+            }
+
+            nav ul {
+                gap: 10px;
+                padding: 15px;
+            }
+
+            nav a {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+
+            .contact-container {
+                padding: 30px 15px;
+                gap: 25px;
+            }
+
+            .contact-form-section,
+            .info-card,
+            .map-section {
+                padding: 20px;
+            }
+
+            .contact-form-section h2,
+            .map-section h2 {
+                font-size: 1.6em;
+                margin-bottom: 20px;
+            }
+
+            .info-card h3 {
+                font-size: 1.3em;
+                gap: 10px;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            .form-group label {
+                font-size: 0.95em;
+                margin-bottom: 8px;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 10px 12px;
+                font-size: 0.9em;
+            }
+
+            .form-group textarea {
+                min-height: 120px;
+            }
+
+            .submit-btn {
+                padding: 13px;
+                font-size: 0.95em;
+                letter-spacing: 1px;
+            }
+
+            .info-item {
+                font-size: 0.95em;
+                gap: 12px;
+            }
+
+            .info-item i {
+                font-size: 1.1em;
+                min-width: 20px;
+            }
+
+            .social-links {
+                gap: 12px;
+            }
+
+            .social-links a {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1em;
+            }
+
+            .map-placeholder {
+                height: 250px;
+            }
+
+            .scroll-indicator {
+                font-size: 0.8em;
+                bottom: 15px;
+            }
+
+            footer {
+                padding: 25px 15px;
+                font-size: 0.9em;
+                margin-top: 40px;
+            }
+
+            footer p {
+                font-size: 0.95em;
+            }
+        }
         
     </style>
 </head>
 <body>
-    <!-- Header avec slider -->
     <div class="hero-header">
         <div class="slider-container">
             <div class="slide slide1 active"></div>
@@ -505,9 +714,7 @@ footer p {
         <div class="scroll-indicator">▼ Découvrir</div>
     </div>
 
-    <!-- Main Content -->
-    <div class="contact-container">
-        <!-- Contact Form -->
+    <div class="contact-container" id="contact">
         <div class="contact-form-section">
             <h2>Envoyez-nous un message</h2>
             <form id="contactForm">
@@ -535,9 +742,7 @@ footer p {
             </form>
         </div>
 
-        <!-- Contact Info -->
         <div class="contact-info-section">
-            <!-- Address Card -->
             <div class="info-card">
                 <h3><i class="fas fa-map-marker-alt"></i> Adresse</h3>
                 <div class="info-item">
@@ -546,7 +751,6 @@ footer p {
                 </div>
             </div>
 
-            <!-- Contact Details Card -->
             <div class="info-card">
                 <h3><i class="fas fa-phone"></i> Coordonnées</h3>
                 <div class="info-item">
@@ -565,7 +769,6 @@ footer p {
                 </div>
             </div>
 
-            <!-- Opening Hours Card -->
             <div class="info-card">
                 <h3><i class="fas fa-clock"></i> Heures d'ouverture</h3>
                 <div class="info-item">
@@ -579,23 +782,19 @@ footer p {
             </div>
         </div>
 
-        <!-- Map Section -->
         <div class="map-section">
-  <h2>Notre Emplacement</h2>
-  <div class="map-placeholder">
-   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.6235450651325!2d-17.43770562637633!3d14.677292875197361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec172538b8abfdf%3A0xdd1143ed7cd3e02d!2sMus%C3%A9e%20des%20Civilisations%20noires!5e0!3m2!1sfr!2ssn!4v1759686861697!5m2!1sfr!2ssn" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </div>
-</div>
-
-
+            <h2>Notre Emplacement</h2>
+            <div class="map-placeholder">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.6235450651325!2d-17.43770562637633!3d14.677292875197361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec172538b8abfdf%3A0xdd1143ed7cd3e02d!2sMus%C3%A9e%20des%20Civilisations%20noires!5e0!3m2!1sfr!2ssn!4v1759686861697!5m2!1sfr!2ssn" allowfullscreen="" loading="lazy"></iframe>
+            </div>
         </div>
-         <footer>
-        <p>&copy; 2024 Musée des Civilisations Noires - Dakar, Sénégal</p>
-    </footer>
     </div>
 
+    <footer>
+        <p>&copy; 2024 Musée des Civilisations Noires - Dakar, Sénégal</p>
+    </footer>
+
     <script>
-        // Slider functionality
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
         const totalSlides = slides.length;
@@ -612,33 +811,17 @@ footer p {
 
         setInterval(nextSlide, 4000);
 
-        // Scroll indicator
         document.querySelector('.scroll-indicator').addEventListener('click', function() {
             document.querySelector('.contact-container').scrollIntoView({ behavior: 'smooth' });
         });
 
-        // Form submission handler
         const form = document.getElementById('contactForm');
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Get form data
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value
-            };
-            
-            // Show success message
             alert('Merci pour votre message! Nous vous répondrons dans les plus brefs délais.');
-            
-            // Reset form
             form.reset();
         });
 
-        // Smooth scroll for navigation
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', function(e) {
                 if (this.getAttribute('href').startsWith('#')) {
