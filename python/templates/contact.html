@@ -442,6 +442,230 @@ footer p {
     font-size: 1em;
     font-weight: 300;
 }
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablets et petits écrans */
+@media (max-width: 1024px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        padding: 60px 30px;
+        gap: 40px;
+    }
+
+    .logo-title {
+        font-size: 3.5em;
+        letter-spacing: 6px;
+    }
+
+    .subtitle {
+        font-size: 1.3em;
+    }
+
+    nav ul {
+        gap: 30px;
+    }
+
+    nav a {
+        font-size: 1em;
+    }
+}
+
+/* Mobile et petits tablets */
+@media (max-width: 768px) {
+    .hero-header {
+        height: 70vh;
+    }
+
+    nav {
+        padding: 20px 20px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    nav a {
+        font-size: 0.9em;
+        padding: 5px 10px;
+    }
+
+    .logo-title {
+        font-size: 2.5em;
+        letter-spacing: 4px;
+        padding: 0 20px;
+    }
+
+    .subtitle {
+        font-size: 1.1em;
+        letter-spacing: 2px;
+        padding: 0 20px;
+    }
+
+    .virtual-tour-btn {
+        padding: 15px 35px;
+        font-size: 1em;
+        letter-spacing: 2px;
+    }
+
+    .contact-container {
+        padding: 40px 20px;
+        gap: 30px;
+    }
+
+    .contact-form-section,
+    .info-card,
+    .map-section {
+        padding: 30px 25px;
+    }
+
+    .contact-form-section h2,
+    .map-section h2 {
+        font-size: 2em;
+    }
+
+    .info-card h3 {
+        font-size: 1.5em;
+    }
+
+    .form-group label {
+        font-size: 1em;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 12px 15px;
+    }
+
+    .map-placeholder {
+        height: 300px;
+    }
+
+    footer {
+        padding: 30px 15px;
+        font-size: 1em;
+    }
+}
+
+/* Petits mobiles */
+@media (max-width: 480px) {
+    .hero-header {
+        height: 60vh;
+    }
+
+    nav ul {
+        gap: 15px;
+        justify-content: space-around;
+    }
+
+    nav a {
+        font-size: 0.85em;
+        letter-spacing: 1px;
+        padding: 3px 8px;
+    }
+
+    .logo-title {
+        font-size: 1.8em;
+        letter-spacing: 3px;
+    }
+
+    .subtitle {
+        font-size: 0.95em;
+        letter-spacing: 1px;
+    }
+
+    .virtual-tour-btn {
+        padding: 12px 25px;
+        font-size: 0.9em;
+        letter-spacing: 1px;
+    }
+
+    .scroll-indicator {
+        font-size: 0.9em;
+        bottom: 20px;
+    }
+
+    .contact-container {
+        padding: 30px 15px;
+    }
+
+    .contact-form-section,
+    .info-card,
+    .map-section {
+        padding: 25px 20px;
+    }
+
+    .contact-form-section h2,
+    .map-section h2 {
+        font-size: 1.7em;
+        margin-bottom: 20px;
+    }
+
+    .info-card h3 {
+        font-size: 1.3em;
+        margin-bottom: 20px;
+    }
+
+    .info-item {
+        font-size: 1em;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .submit-btn {
+        padding: 15px;
+        font-size: 1em;
+    }
+
+    .social-links a {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2em;
+    }
+
+    .map-placeholder {
+        height: 250px;
+    }
+
+    footer {
+        font-size: 0.9em;
+    }
+
+    footer p {
+        font-size: 0.9em;
+    }
+}
+
+/* Très petits mobiles */
+@media (max-width: 360px) {
+    .logo-title {
+        font-size: 1.5em;
+        letter-spacing: 2px;
+    }
+
+    .subtitle {
+        font-size: 0.85em;
+    }
+
+    nav a {
+        font-size: 0.75em;
+    }
+
+    .contact-form-section h2,
+    .map-section h2 {
+        font-size: 1.5em;
+    }
+
+    .info-card h3 {
+        font-size: 1.2em;
+    }
+}
+        
+    </style>
         
     </style>
 </head>
